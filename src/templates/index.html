@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>mongodb-tornado-angular</title>
+  <meta name="generator" content="mongodb-tornado-angular"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <style type="text/css">
+    header {
+      margin-bottom: 30px;
+    }
+  </style>
+
+<body ng-app="mat.app">
+<header class="navbar navbar-default navbar-static-top" role="banner">
+  <div class="container" >
+    <div class="navbar-header" >
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#/help">Help</a>
+        </li>
+        <li >
+          <a href="#/about">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Begin Body -->
+
+<div class="container">
+    <ng-view></ng-view>
+
+</div>
+
+<!-- angualr code from cdn -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.js"></script>
+<!-- ui.bootstrap from cdn -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+
+
+<!-- App Code and controllers -->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/config.js"></script>
+<script src="/static/js/services.js"></script>
+<script src="/static/js/controllers.js"></script>
+
+
+</body>
+</html>
