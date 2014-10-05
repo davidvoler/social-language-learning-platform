@@ -14,9 +14,9 @@
     }
   </style>
 
-<body ng-app="mat.app">
+<body ng-app="ollp.app">
 <header class="navbar navbar-default navbar-static-top" role="banner">
-  <div class="container" >
+  <div class="container"  ng-controller="LoginController">
     <div class="navbar-header" >
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -29,10 +29,22 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li>
+          <a href="#/lesson">Lesson</a>
+        </li>
+        <li  ng-if="isLoggedIn()">
+          <a href="#/profile">Profile</a>
+        </li>
+        <li >
           <a href="#/help">Help</a>
         </li>
         <li >
           <a href="#/about">About</a>
+        </li>
+        <li ng-if="isLoggedIn()">
+          <a href="#" ng-click="logout();">Logout</a>
+        </li>
+        <li ng-if="!isLoggedIn()">
+          <a href="#/login">Login</a>
         </li>
       </ul>
     </nav>
@@ -48,6 +60,7 @@
 
 <!-- angualr code from cdn -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-cookies.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.js"></script>
@@ -55,11 +68,13 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
 
 
+
 <!-- App Code and controllers -->
 <script src="/static/js/app.js"></script>
 <script src="/static/js/config.js"></script>
 <script src="/static/js/services.js"></script>
-<script src="/static/js/controllers.js"></script>
+<script src="/static/js/controllers/login.js"></script>
+<script src="/static/js/controllers/controllers.js"></script>
 
 
 </body>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mat.app')
+angular.module('ollp.app')
   .controller('HomeController', ['$scope',
     function ($scope) {
       $scope.controllerName = 'HomeController';
@@ -16,6 +16,18 @@ angular.module('mat.app')
  .controller('AboutController', ['$scope',
     function ($scope) {
       $scope.controllerName = 'AboutController';
+    }
+  ]
+)
+.controller('LessonController', ['$scope',
+    function ($scope) {
+      $scope.controllerName = 'LessonController';
+    }
+  ]
+)
+  .controller('ProfileController', ['$scope',
+    function ($scope) {
+      $scope.controllerName = 'ProfileController';
     }
   ]
 );

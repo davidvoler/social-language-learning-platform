@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('mat.app')
-.service('Blog', ['$resource',
+angular.module('ollp.app')
+.service('Lesson', ['$resource',
   function ($resource) {
-    return $resource('/api/blog', {},
+    return $resource('/api/lesson', {},
       {update: {method: 'PUT'}}
     );
   }
 ])
-.service('Entry', ['$resource',
+.service('Profile', ['$resource',
   function ($resource) {
-    return $resource('/api/entry', {},
+    return $resource('/api/profile', {},
       {update: {method: 'PUT'}}
     );
   }

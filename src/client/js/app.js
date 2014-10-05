@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mat.app', [
+angular.module('ollp.app', [
+  'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',

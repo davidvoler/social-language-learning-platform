@@ -11,8 +11,8 @@ from tornado.options import options
 from tornado import ioloop, web
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..'))
 
-from server.handlers.lesson_handler import LessonHandler
-from server.handlers.index_handler import IndexHandler
+from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler
+
 #adding local directory to path
 
 """
@@ -43,6 +43,8 @@ app = tornado.web.Application([
                           (r'/', IndexHandler),
                           #api prefix means that do REST operations
                           (r'/api/lesson', LessonHandler, dict(db=db)),
+                          (r'/api/profile', ProfileHandler, dict(db=db)),
+                          (r'/api/login', LoginHandler, dict(db=db)),
                       ],
                       static_path=os.path.join(os.path.dirname(__file__), '..','client'),
                       autoreload=True

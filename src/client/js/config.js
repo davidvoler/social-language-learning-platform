@@ -1,6 +1,17 @@
 'use strict';
 
-angular.module('mat.app').config(['$routeProvider',
+var checkLogin= function ($location,$cookieStore) {
+   var user = $cookieStore.get('ollp_user_prof');
+    console.log(user);
+    if (user) {
+      return true;
+    } else {
+        $location.path("/login");
+    }
+};
+
+
+angular.module('ollp.app').config(['$routeProvider',
   function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -11,9 +22,24 @@ angular.module('mat.app').config(['$routeProvider',
         templateUrl: '/static/partials/about.html',
         controller: 'AboutController'
       })
-    .when('/help', {
+      .when('/help', {
         templateUrl: '/static/partials/help.html',
         controller: 'HelpController'
+      })
+      .when('/lesson', {
+        templateUrl: '/static/partials/lesson.html',
+        controller: 'LessonController'
+      })
+      .when('/profile', {
+        templateUrl: '/static/partials/profile.html',
+        controller: 'ProfileController',
+        resolve: {
+                    factory: checkLogin
+                }
+      })
+    .when('/login', {
+        templateUrl: '/static/partials/login.html',
+        controller: 'LoginController'
       })
   }
 ]);
