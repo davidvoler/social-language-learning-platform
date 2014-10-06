@@ -56,15 +56,29 @@ use CTRL c to stop the tornado application
 
 
 
-Create a log file directory 
+Create a log file directory
+---------------------------
 sudo mkdir /var/log/sllp
 
 
+configure and restart supervisor
+--------------------------------
 cd /etc/supervisor/conf.d/
 sudo cp ~/social-language-learning-platform/src/production/sllp.conf .
 
-sudo supervisorctl restart all
+sudo service supervisor stop
+sudo service supervisor start
 
+
+
+nginx config
+------------
+
+Edit default file to fit your configuration
+copy defualt file to:
+/etc/nginx/sites-enabled/default (replace existing file)
+
+sudo service nginx restart
 
 
 
