@@ -49,8 +49,21 @@ test application
 python3 app.py
 
 if you get no errors we can now start the application using supervosor
-use CTRL c to stop the tornado
+use CTRL c to stop the tornado application
 
+
+
+
+
+
+Create a log file directory 
+sudo mkdir /var/log/sllp
+
+
+cd /etc/supervisor/conf.d/
+sudo cp ~/social-language-learning-platform/src/production/sllp.conf .
+
+sudo supervisorctl restart all
 
 
 
