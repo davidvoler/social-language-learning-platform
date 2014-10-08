@@ -1,0 +1,35 @@
+"""
+google login handler
+"""
+__author__ = 'davidl'
+import tornado
+from tornado.options import options,define
+from tornado.auth import GoogleOAuth2Mixin
+from tornado.web import RequestHandler
+
+class GoogleOAuth2LoginHandler(RequestHandler,
+                               GoogleOAuth2Mixin):
+    @tornado.gen.coroutine
+    def get(self):
+        google_oauth2_redirect_uri = '{}auth/google'.format(options.site_domain)
+        if self.get_argument('code', False):
+            user = yield self.get_authenticated_user(
+                google_oauth2_redirect_uri,
+                code=self.get_argument('code'))
+            # Save the user with e.g. set_secure_cookie
+            """
+            TODO:
+            if user is a new user - save it to the database
+            else - save last login
+            set_secure_cookie
+            see if something like
+            self.get_argument('email'), is working
+            """
+
+        else:
+            yield self.authorize_redirect(
+                google_oauth2_redirect_uri,
+                client_id=self.settings['google_oauth']['key'],
+                scope=['profile', 'email'],
+                response_type='code',
+                extra_params={'approval_prompt': 'auto'})
