@@ -30,7 +30,7 @@ class GoogleOAuth2LoginHandler(RequestHandler,
             #user = json.loads(response.body)
             # Save the user with e.g. set_secure_cookie
             #logging.info(str(user))
-            self.write(dumps(user))
+            #self.write(dumps(user))
             """
             TODO:
             if user is a new user - save it to the database
