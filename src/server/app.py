@@ -51,7 +51,10 @@ app = tornado.web.Application([
                       ],
                       static_path=os.path.join(os.path.dirname(__file__), '..','client'),
                       autoreload=True,
-                      google_oauth = {"key": options.google_client_id, "secret": options.google_client_secret}
+                      google_oauth = {"key": options.google_client_id,
+                                      "secret": options.google_client_secret,
+                                      'scope': ['openid', 'email', 'profile']
+                                      }
 )
 
 if __name__ == '__main__':
