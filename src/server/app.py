@@ -60,5 +60,6 @@ if __name__ == '__main__':
     print ('server running on http://localhost:{}'.format(options.port))
     logging.info ('server running on http://localhost:{}'.format(options.port))
     app.listen(options.port,xheaders=True)
+    logging.debug (app.settings)
     ioloop = tornado.ioloop.IOLoop.instance()
     ioloop.start()

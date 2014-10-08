@@ -2,6 +2,7 @@ __author__ = 'davidl'
 from bson.json_util import dumps,loads
 import datetime
 import tornado
+import logging
 
 class LoginHandler(tornado.web.RequestHandler):
     def initialize(self,db):
@@ -28,6 +29,7 @@ class LoginHandler(tornado.web.RequestHandler):
 
 
     def post(self):
+        logging.debug (self.settings)
         body = loads(self.request.body.decode("utf-8"))
         try:
             username = body['username']

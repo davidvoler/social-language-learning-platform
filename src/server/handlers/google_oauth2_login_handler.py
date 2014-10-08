@@ -14,7 +14,6 @@ class GoogleOAuth2LoginHandler(RequestHandler,
                                GoogleOAuth2Mixin):
     @tornado.gen.coroutine
     def get(self):
-
         logging.info(options.site_domain)
         logging.info('GoogleOAuth2LoginHandler - get')
         #self.write(dumps({'msg':'GoogleOAuth2LoginHandler.get'}))
