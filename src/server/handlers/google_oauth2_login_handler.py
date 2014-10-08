@@ -7,13 +7,14 @@ from tornado.options import options
 from tornado.auth import GoogleOAuth2Mixin
 from tornado.web import RequestHandler
 from bson.json_util import dumps, loads
-
+import logging
 
 
 class GoogleOAuth2LoginHandler(RequestHandler,
                                GoogleOAuth2Mixin):
     @tornado.gen.coroutine
     def get(self):
+        logging.info('GoogleOAuth2LoginHandler - get')
         google_oauth2_redirect_uri = '{}auth/google'.format(options.site_domain)
         if self.get_argument('code', False):
             user = yield self.get_authenticated_user(
@@ -31,6 +32,7 @@ class GoogleOAuth2LoginHandler(RequestHandler,
             """
 
         else:
+            logging.info('GoogleOAuth2LoginHandler - redirect')
             yield self.authorize_redirect(
                 google_oauth2_redirect_uri,
                 client_id=self.settings['google_oauth']['key'],
