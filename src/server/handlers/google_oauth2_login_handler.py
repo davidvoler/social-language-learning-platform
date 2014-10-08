@@ -20,13 +20,14 @@ class GoogleOAuth2LoginHandler(RequestHandler,
         #return
         google_oauth2_redirect_uri = '{}api/auth/google'.format(options.site_domain)
         if self.get_argument('code', False):
+            logging.info( self.get_argument('email', False))
             logging.info('probably call by google')
             user = yield self.get_authenticated_user(
                 google_oauth2_redirect_uri,
                 code=self.get_argument('code'))
             # Save the user with e.g. set_secure_cookie
-            logging.info(str(user))
-            self.write(dumps(user))
+            #logging.info(str(user))
+            #self.write(dumps(user))
             """
             TODO:
             if user is a new user - save it to the database
