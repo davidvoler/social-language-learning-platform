@@ -17,8 +17,8 @@ class GoogleOAuth2LoginHandler(RequestHandler,
 
         logging.info(options.site_domain)
         logging.info('GoogleOAuth2LoginHandler - get')
-        self.write(dumps({'msg':'GoogleOAuth2LoginHandler.get'}))
-        return
+        #self.write(dumps({'msg':'GoogleOAuth2LoginHandler.get'}))
+        #return
         google_oauth2_redirect_uri = '{}auth/google'.format(options.site_domain)
         if self.get_argument('code', False):
             user = yield self.get_authenticated_user(
