@@ -47,7 +47,7 @@ app = tornado.web.Application([
                           (r'/api/lesson', LessonHandler, dict(db=db)),
                           (r'/api/profile', ProfileHandler, dict(db=db)),
                           (r'/api/login', LoginHandler, dict(db=db)),
-                          (r'/auth/google', GoogleOAuth2LoginHandler),
+                          (r'/api/auth/google', GoogleOAuth2LoginHandler),
                       ],
                       static_path=os.path.join(os.path.dirname(__file__), '..','client'),
                       autoreload=True,

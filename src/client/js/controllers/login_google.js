@@ -10,7 +10,7 @@ angular.module('ollp.app')
       $scope.password = '';
       $scope.error = '';
       $scope.login = function () {
-        $http.get('/auth/google').success(function (data, status, headers, config) {
+        $http.get('/api/auth/google').success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
         }).error(function (data, status, headers, config) {
