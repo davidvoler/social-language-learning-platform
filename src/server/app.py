@@ -9,7 +9,9 @@ import tornado
 import pymongo
 from tornado.options import options
 from tornado import ioloop, web
+import logging
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..'))
+
 
 from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, GoogleOAuth2LoginHandler
 
@@ -56,6 +58,7 @@ if __name__ == '__main__':
     #read settings from commandline
     options.parse_command_line()
     print ('server running on http://localhost:{}'.format(options.port))
+    logging.info ('server running on http://localhost:{}'.format(options.port))
     app.listen(options.port,xheaders=True)
     ioloop = tornado.ioloop.IOLoop.instance()
     ioloop.start()
