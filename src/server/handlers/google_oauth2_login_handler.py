@@ -3,9 +3,12 @@ google login handler
 """
 __author__ = 'davidl'
 import tornado
-from tornado.options import options,define
+from tornado.options import options
 from tornado.auth import GoogleOAuth2Mixin
 from tornado.web import RequestHandler
+from bson.json_util import dumps, loads
+
+
 
 class GoogleOAuth2LoginHandler(RequestHandler,
                                GoogleOAuth2Mixin):
@@ -17,6 +20,7 @@ class GoogleOAuth2LoginHandler(RequestHandler,
                 google_oauth2_redirect_uri,
                 code=self.get_argument('code'))
             # Save the user with e.g. set_secure_cookie
+            self.write(dumps(user))
             """
             TODO:
             if user is a new user - save it to the database

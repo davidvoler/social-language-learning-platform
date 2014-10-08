@@ -41,5 +41,9 @@ angular.module('ollp.app').config(['$routeProvider',
         templateUrl: '/static/partials/login.html',
         controller: 'LoginController'
       })
+    .when('/login_google', {
+        templateUrl: '/static/partials/login_google.html',
+        controller: 'LoginGoogleController'
+      })
   }
 ]);

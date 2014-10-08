@@ -2,7 +2,6 @@ Installing a production system
 ==============================
 
 
-
 Install on linux - Ubuntu server 14.04
 --------------------------------------
 
@@ -52,10 +51,6 @@ if you get no errors we can now start the application using supervosor
 use CTRL c to stop the tornado application
 
 
-
-
-
-
 Create a log file directory
 ---------------------------
 sudo mkdir /var/log/sllp
@@ -70,10 +65,8 @@ sudo service supervisor stop
 sudo service supervisor start
 
 
-
 nginx config
 ------------
-
 Edit default file to fit your configuration
 copy defualt file to:
 /etc/nginx/sites-enabled/default (replace existing file)

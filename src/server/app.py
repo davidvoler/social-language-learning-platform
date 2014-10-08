@@ -11,7 +11,7 @@ from tornado.options import options
 from tornado import ioloop, web
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..'))
 
-from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler
+from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, GoogleOAuth2LoginHandler
 
 #adding local directory to path
 
@@ -45,9 +45,11 @@ app = tornado.web.Application([
                           (r'/api/lesson', LessonHandler, dict(db=db)),
                           (r'/api/profile', ProfileHandler, dict(db=db)),
                           (r'/api/login', LoginHandler, dict(db=db)),
+                          (r'/auth/google', GoogleOAuth2LoginHandler),
                       ],
                       static_path=os.path.join(os.path.dirname(__file__), '..','client'),
-                      autoreload=True
+                      autoreload=True,
+                      google_oauth = {"key": options.google_client_id, "secret": options.google_client_secret}
 )
 
 if __name__ == '__main__':

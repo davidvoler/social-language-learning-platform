@@ -2,10 +2,6 @@ __author__ = 'davidl'
 """
 settings.py
 default configuration file
-
-To change default configuration:
-use commandline - python app.py --port=3344
-or copy this file as local_settings.py and change the settings there
 """
 from tornado.options import define
 import os
@@ -16,3 +12,8 @@ define("mongodb_name",default='social_language_learning', help='Database Name', 
 define("templates_dir",
        default=os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','templates'),
        help='templates directory', type=str)
+
+
+define("site_domain",default='http://localhost/', help='site domain is used for oauth redirection must end with /', type=str)
+define("google_client_id",default='', help='google client id', type=str)
+define("google_client_secret",default='', help='google client secret', type=str)
