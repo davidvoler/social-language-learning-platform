@@ -54,7 +54,8 @@ app = tornado.web.Application([
                       google_oauth = {"key": options.google_client_id,
                                       "secret": options.google_client_secret,
                                       'scope': ['openid', 'email', 'profile']
-                                      }
+                                      },
+                      cookie_secret="328ETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
 )
 
 if __name__ == '__main__':
@@ -66,3 +67,15 @@ if __name__ == '__main__':
     logging.debug (app.settings)
     ioloop = tornado.ioloop.IOLoop.instance()
     ioloop.start()
+
+"""
+settings = dict(
+            cookie_secret="32oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
+            login_url="/auth/login",
+            redirect_uri="http://localhost:8888/auth/login",
+            google_consumer_key="9019235013.apps.googleusercontent.com",
+            google_consumer_secret="gMLIOSM8rLFr53nZvm8J4Nz1",
+            google_permissions="https://mail.google.com/ https://www.google.com/m8/feeds",
+            google_permissions2="https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
+        )
+"""

@@ -25,7 +25,8 @@ class GoogleOAuth2LoginHandler(RequestHandler,
             logging.info('probably call by google')
             user = yield self.get_authenticated_user(
                 google_oauth2_redirect_uri,
-                code=self.get_argument('code'))
+                code=self.get_argument('code'),
+                callback=self._on_auth)
             #response =  yield http_client.fetch('https://www.googleapis.com/oauth2/v1/userinfo?access_token='+access_token)
             #user = json.loads(response.body)
             # Save the user with e.g. set_secure_cookie
@@ -48,3 +49,12 @@ class GoogleOAuth2LoginHandler(RequestHandler,
                 scope=['profile', 'email'],
                 response_type='code',
                 extra_params={'approval_prompt': 'auto'})
+
+    def _on_auth(self, response):
+        logging.debug( response.body)
+        #print response.request.headers
+        if response.error:
+            raise tornado.web.HTTPError(500, "Google auth failed")
+        #self.set_secure_cookie("user", tornado.escape.json_encode(response))
+        self.write(tornado.escape.json_encode(response))
+        #self.redirect("/")
