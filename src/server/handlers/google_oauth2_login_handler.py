@@ -7,6 +7,7 @@ from tornado.options import options
 from tornado.auth import GoogleOAuth2Mixin
 from tornado.web import RequestHandler
 from bson.json_util import dumps, loads
+import json
 import logging
 
 
@@ -24,10 +25,13 @@ class GoogleOAuth2LoginHandler(RequestHandler,
             logging.info('probably call by google')
             user = yield self.get_authenticated_user(
                 google_oauth2_redirect_uri,
-                code=self.get_argument('code'))
+                code=self.get_argument('code'),
+                extra_fields=['email'])
+            #response =  yield http_client.fetch('https://www.googleapis.com/oauth2/v1/userinfo?access_token='+access_token)
+            #user = json.loads(response.body)
             # Save the user with e.g. set_secure_cookie
             #logging.info(str(user))
-            #self.write(dumps(user))
+            self.write(dumps(user))
             """
             TODO:
             if user is a new user - save it to the database
