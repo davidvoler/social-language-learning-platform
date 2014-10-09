@@ -14,4 +14,11 @@ angular.module('ollp.app')
       {update: {method: 'PUT'}}
     );
   }
+])
+.service('Lesson', ['$resource',
+  function ($resource) {
+    return $resource('/api/lesson', {},
+      {update: {method: 'PUT'}}
+    );
+  }
 ]);

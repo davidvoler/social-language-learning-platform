@@ -13,7 +13,7 @@ server {
         root /usr/share/nginx/html;
         index index.html index.htm;
 
-        # Make site accessible from http://localhost/
+        # Make site accessible from YOUR_SERVER_NAME
         server_name YOUR_SERVER_NAME;
 
         server_name ate-monitor.crow.local;
@@ -21,18 +21,6 @@ server {
         ssl_certificate_key /etc/nginx/ssl/nginx.key;
 
         location / {
-            # First attempt to serve request as file, then
-            # as directory, then fall back to displaying a 404.
-            #try_files $uri $uri/ =404;
-            # Uncomment to enable naxsi on this location
-            # include /etc/nginx/naxsi.rules
-            # proxy_set_header X-Real-IP $remote_addr;
-            #    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            #    proxy_set_header Host $http_host;
-            #    proxy_redirect off;
-            #    proxy_set_header X-Scheme $scheme;
-            #    proxy_set_header Host ate-monitor.crow.local;
-            #    proxy_set_header X-NginX-Proxy true;
             proxy_pass  http://backend;
         }
         location /static {

@@ -1,4 +1,11 @@
 <div>
   <h3>Home</h3>
   Name of controller:{{controllerName}}
+  <table class="table">
+    <tr ng-repeat="lesson in lessons">
+      <td><a href="#/lesson/{{lesson.slug}}">{{lesson.title}}</a></td>
+      <td>{{lesson.owner}}</td>
+    </tr>
+  </table>
+
 </div>

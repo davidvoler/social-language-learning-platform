@@ -2,6 +2,7 @@
 Lesson handler will query,get,add and delete lessons, that is documents of the lesson collection
 """
 import tornado
+import logging
 from bson.objectid import ObjectId
 from bson.json_util import dumps, loads
 
@@ -16,11 +17,21 @@ class LessonHandler(tornado.web.RequestHandler):
     def get(self):
         """
         loads a single lesson entry
-
         """
-        _id = self.username = self.get_argument('_id', '')
-        lesson = self._db['lesson'].find_one({'_id':ObjectId(_id)})
-        self.write(dumps(lesson))
+        _id = self.get_argument('_id', None)
+        slug = self.get_argument('slug', None)
+        logging.info(_id)
+        logging.info(slug)
+        if _id:
+            lesson = self._db['lesson'].find_one({'_id':ObjectId(_id)})
+            self.write(dumps(lesson))
+        elif slug:
+            lesson = self._db['lesson'].find_one({'slug':slug})
+            self.write(dumps(lesson))
+        else:
+            lessons = self._db['lesson'].find()
+            self.write(dumps(lessons))
+
 
     def query(self):
         """

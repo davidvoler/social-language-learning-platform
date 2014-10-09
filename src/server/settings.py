@@ -17,3 +17,6 @@ define("templates_dir",
 define("site_domain",default='http://localhost/', help='site domain is used for oauth redirection must end with /', type=str)
 define("google_client_id",default='', help='google client id', type=str)
 define("google_client_secret",default='', help='google client secret', type=str)
+
+define("cookie_secret",default='', help='internal cookie_secret', type=str)
+

@@ -40,10 +40,10 @@
         <li >
           <a href="#/about">About</a>
         </li>
-        <li ng-if="isLoggedIn()">
+        <li >
           <a href="#" ng-click="logout();">Logout</a>
         </li>
-        <li ng-if="!isLoggedIn()">
+        <li >
           <a href="#/login">Login</a>
         </li>
         <li>
@@ -60,7 +60,7 @@
     <ng-view></ng-view>
 
 </div>
-
+{% module xsrf_form_html() %};
 <!-- angualr code from cdn -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-cookies.js"></script>
@@ -73,12 +73,21 @@
 
 
 <!-- App Code and controllers -->
+
+
 <script src="/static/js/app.js"></script>
+<script>
+angular.module('ollp.app').config(function($httpProvider) {
+    var _xsrf = document.getElementsByName('_xsrf');
+    $httpProvider.defaults.headers.common['X-CSRFToken'] = _xsrf;
+});
+</script>
 <script src="/static/js/config.js"></script>
 <script src="/static/js/services.js"></script>
 <script src="/static/js/controllers/login.js"></script>
 <script src="/static/js/controllers/login_google.js"></script>
 <script src="/static/js/controllers/controllers.js"></script>
+<script src="/static/js/controllers/lesson.js"></script>
 
 
 </body>

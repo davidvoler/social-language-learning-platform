@@ -16,7 +16,7 @@ class LoginHandler(tornado.web.RequestHandler):
         :return:
         """
         try:
-            user = self._db['local_auth'].find_one({'_id':username})
+            user = self._db['user'].find_one({'username':username})
         except:
             return False
         #tmp
@@ -31,6 +31,7 @@ class LoginHandler(tornado.web.RequestHandler):
     def post(self):
         logging.debug (self.settings)
         body = loads(self.request.body.decode("utf-8"))
+        logging.info(body)
         try:
             username = body['username']
             password = body['password']

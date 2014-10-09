@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('ollp.app')
-  .controller('HomeController', ['$scope',
-    function ($scope) {
+  .controller('HomeController', ['$scope','Lesson',
+    function ($scope,Lesson) {
       $scope.controllerName = 'HomeController';
+      $scope.lessons = Lesson.query();
     }
   ]
 )
@@ -16,12 +17,6 @@ angular.module('ollp.app')
  .controller('AboutController', ['$scope',
     function ($scope) {
       $scope.controllerName = 'AboutController';
-    }
-  ]
-)
-.controller('LessonController', ['$scope',
-    function ($scope) {
-      $scope.controllerName = 'LessonController';
     }
   ]
 )

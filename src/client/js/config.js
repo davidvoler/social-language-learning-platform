@@ -26,7 +26,7 @@ angular.module('ollp.app').config(['$routeProvider',
         templateUrl: '/static/partials/help.html',
         controller: 'HelpController'
       })
-      .when('/lesson', {
+      .when('/lesson/:slug', {
         templateUrl: '/static/partials/lesson.html',
         controller: 'LessonController'
       })
