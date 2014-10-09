@@ -5,6 +5,7 @@ import tornado
 import logging
 from bson.objectid import ObjectId
 from bson.json_util import dumps, loads
+from slugify import slugify
 
 class LessonHandler(tornado.web.RequestHandler):
     def initialize(self, db):
@@ -30,20 +31,7 @@ class LessonHandler(tornado.web.RequestHandler):
             self.write(dumps(lesson))
         else:
             lessons = self._db['lesson'].find()
-            self.write(dumps(lessons))
-
-
-    def query(self):
-        """
-        loads a list of lesson - using a query dict
-        """
-        qu = loads(self.request.body.decode("utf-8"))
-        if qu:
-            lessons = self._db['lesson'].find(qu)
-        else:
-            #rturn all lesson_entries
-            lessons = self._db['lesson'].find()
-        self.write(dumps(lessons))
+            self.write(dumps(lessons))    
     
     def post(self):
         """
@@ -57,17 +45,46 @@ class LessonHandler(tornado.web.RequestHandler):
         except Exception as e:
             self.write(dumps({'status':'error','error':str(e)}))
 
+    def post(self):
+        """
+        add a new lesson
+        
+        """
+        lesson = loads(self.request.body.decode("utf-8"))
+        if not lesson['title']:
+            self.write(dumps({'status':-1,'error':'title is mandatory'}))
+            return
+        #create a slug for the lesson
+        slug = slugify(lesson['title'])
+        #make sure slug in unique in lesson collection
+        # the following request will return all slug in the collection
+        lesson_slugs = self._db['lesson'].distinct('slug')
+
+        nslug = slug
+        i=0
+        while nslug in lesson_slugs:
+            nslug = '{}-{}'.format(slug, i)
+            i+=1
+        lesson['slug']=nslug
+        try:
+            self._db['lesson'].insert(lesson)
+            self.write({'status':0,'error':'','slug':lesson['slug']})
+        except Exception as e:
+            self.write(dumps({'status':-2,'error':str(e)}))
+
     def put(self):
         """
         edit an existing lesson
         
         """
-        argj = loads(self.request.body.decode("utf-8"))
+        lesson = loads(self.request.body.decode("utf-8"))
+        del lesson['_id']
         try:
-            ret = self._db['lesson'].update({'_id':ObjectId(argj['_id'])}, {"$set": argj}, upsert=False)
-            self.write(dumps(ret))
+            ret = self._db['lesson'].update({'slug':lesson['slug']},
+                                                {"$set": lesson}, upsert=False)
+            self.write(dumps({'slug':lesson['slug'],'status':0}))
         except Exception as e:
-            self.write(dumps({'status':'error','error':str(e)}))
+            self.write(dumps({'status':-1,'error':str(e)}))
 
     def delete(self):
         """

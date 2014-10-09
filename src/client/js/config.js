@@ -28,7 +28,15 @@ angular.module('ollp.app').config(['$routeProvider',
       })
       .when('/lesson/:slug', {
         templateUrl: '/static/partials/lesson.html',
-        controller: 'LessonController'
+        controller: 'LessonViewController'
+      })
+      .when('/add/lesson', {
+        templateUrl: '/static/partials/lesson_edit.html',
+        controller: 'LessonAddController'
+      })
+      .when('/edit/lesson/:slug', {
+        templateUrl: '/static/partials/lesson_edit.html',
+        controller: 'LessonEditController'
       })
       .when('/profile', {
         templateUrl: '/static/partials/profile.html',
