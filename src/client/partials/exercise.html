@@ -1,0 +1,10 @@
+<h3>{{lesson.title}}</h3>
+<div>{{exercise}}</div>
+<ul class="pagination">
+  <li title="{{exercise.name}}"
+      ng-repeat="exercise in lesson.exercises track by $index">
+    <a ng-click="setCurrentExercise($index)" href="">{{$index +1}}</a>
+  </li>
+</ul>
+
+

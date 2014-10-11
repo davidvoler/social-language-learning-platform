@@ -36,4 +36,31 @@ angular.module('sllp.app')
     return service
   }
 ])
+.service('Exercise', ['$resource',
+  function ($resource) {
+    var service = {lesson:false,
+                   exercise:false,
+    };
+
+    var lessonResource =  $resource('/api/lesson', {},
+      {update: {method: 'PUT'}}
+    );
+
+    service.get= function(slug,exid){
+    if (service.lesson.slug != slug ||!service.lesson){
+        //load lesson
+        service.lesson = lessonResource.get({slug:slug}, function () {
+        service.exercise = service.lesson.exercises[exid];
+        return service;
+      });
+    }
+    else{
+        service.exercise = service.lesson.exercises[exid];
+        return service;
+    }
+
+    }
+    return service
+  }
+])
 ;

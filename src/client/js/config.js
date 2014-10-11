@@ -30,6 +30,10 @@ angular.module('sllp.app').config(['$routeProvider',
         templateUrl: '/static/partials/lesson.html',
         controller: 'LessonViewController'
       })
+      .when('/lesson/:slug/:exid', {
+        templateUrl: '/static/partials/exercise.html',
+        controller: 'ExerciseController'
+      })
       .when('/add/lesson', {
         templateUrl: '/static/partials/lesson_edit.html',
         controller: 'LessonAddController'
@@ -40,10 +44,7 @@ angular.module('sllp.app').config(['$routeProvider',
       })
       .when('/profile', {
         templateUrl: '/static/partials/profile.html',
-        controller: 'ProfileController',
-        resolve: {
-                    factory: checkLogin
-                }
+        controller: 'ProfileController'
       })
     .when('/login', {
         templateUrl: '/static/partials/login.html',
