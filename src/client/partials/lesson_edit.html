@@ -1,6 +1,6 @@
 <h3>{{lesson.title}}</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
-<form role="form">
+<form role="form" class="form-inline">
   <div class="form-group">
     <label for="title">Title</label>
     <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
@@ -22,23 +22,27 @@
     <label for="description">Description</label>
     <textarea class="form-control" id="description" ng-model="lesson.description"></textarea>
   </div>
-  <table class="table">
-    <thead>
-    <tr>
-      <td>Name</td>
-    </tr>
-    </thead>
-    <tr ng-repeat="exercise in lesson.exercises">
-      <td>
-        <edit-complete exercise="exercise"></edit-complete>
-      </td>
-    </tr>
-  </table>
-  <div>
-    <button class="btn" ng-click="addExercise()">Add Exercise</button>
-  </div>
-
-  <div class="well">
-    <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
-  </div>
 </form>
+<table class="table">
+  <thead>
+  <tr>
+    <td>Name</td>
+  </tr>
+  </thead>
+  <tr ng-repeat="exercise in lesson.exercises">
+    <td>
+      <edit-complete exercise="exercise"></edit-complete>
+      <preview-complete exercise="exercise"></preview-complete>
+    </td>
+  </tr>
+</table>
+<div class="btn-group">
+  <button type="button" class="btn btn-default" ng-click="addExercise('complete')">Add Complete</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('text')">Add Text</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('question')">Add Question</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('dialogue')">Add Dialogue</button>
+</div>
+
+<div class="well">
+  <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
+</div>

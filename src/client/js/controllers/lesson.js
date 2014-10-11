@@ -8,7 +8,7 @@ angular.module('sllp.app')
         title: '',
         description: '',
         tags: [],
-        exercises:[{},{}],
+        exercises:[],
         language:'',
         explanation_language:''
       };
@@ -32,8 +32,8 @@ angular.module('sllp.app')
           }
         });
       };
-      $scope.addExercise = function(){
-        $scope.lesson.exercises.push({type:'',name:''});
+      $scope.addExercise = function(exercise_type){
+        $scope.lesson.exercises.push({type:exercise_type ,name:''});
       };
 
     }
