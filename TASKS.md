@@ -10,7 +10,7 @@ languages - done
 lesson add
 main page lesson search
 
-Done
+* Done
 
 stage1.1 - basic concepts
 -----------------------

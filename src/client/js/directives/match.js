@@ -8,36 +8,19 @@ angular.module('sllp.app')
     controller: function($scope) {
       var exercise = $scope.exercise;
       var init = function(){
-        exercise.items=[
-            {type:'txt',val:''},
-            {type:'select',
-                options:[
-                    {val:'',correct:true},
-                    {val:'',correct:false},
-                    {val:'',correct:false},
-                    {val:'',correct:false},
-                    ],
-            },
-            {type:'txt',val:''}
-        ];
+        if(!exercise.items){
+            exercise.items = [];
+            //add 3 empty items
+            $scope.addItem();
+            $scope.addItem();
+            $scope.addItem();
+        }
       };
       init();
-      $scope.addTxt = function(){
-        exercise.items.push({type:'txt',val:''});
+      $scope.addItem = function(){
+        exercise.items.push({part1:'',part1:''});
 
       };
-      $scope.addSelect = function(){
-        exercise.items.push({type:'select',
-                options:[
-                    {val:'',correct:true},
-                    {val:'',correct:false},
-                    {val:'',correct:false},
-                    {val:'',correct:false},
-                    ],
-            });
-
-      };
-
     },
     templateUrl: '/static/partials/directives/match/edit.html'
   };
@@ -46,6 +29,6 @@ angular.module('sllp.app')
   return {
     restrict: 'E',
       scope: { exercise: '='},
-      templateUrl: '/static/partials/directives/match/preview1.html'
+      templateUrl: '/static/partials/directives/match/preview.html'
    };
 });
