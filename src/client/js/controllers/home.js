@@ -6,6 +6,8 @@ angular.module('sllp.app')
       $scope.controllerName = 'HomeController';
       $scope.lessons = Lesson.query();
       $scope.languages = Language.languages;
+      $scope.languageChange = function(language){
+      }
     }
   ]
 );
