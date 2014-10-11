@@ -26,12 +26,12 @@
     <thead>
     <tr>
       <td>Name</td>
+      <td>Type</td>
     </tr>
     </thead>
     <tr ng-repeat="exercise in lesson.exercises">
-      <td>
-        <edit-complete exercise="exercise"></edit-complete>
-      </td>
+      <td><input ng-model="exercise.name"></td>
+      <td><input ng-model="exercise.type"></td>
     </tr>
   </table>
   <div>

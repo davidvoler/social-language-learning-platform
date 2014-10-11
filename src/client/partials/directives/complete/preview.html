@@ -1,0 +1,10 @@
+{{exercise}}
+<div>
+<span  ng-repeat="item in exercise.items">
+  <span ng-if="item.type=='txt'">{{item.val}}</span>
+  <select ng-if="item.type=='select'">
+    <option></option>
+    <option ng-repeat="option in item.options">{{option.val}}</option>
+  </select>
+</span>
+</div>

@@ -9,6 +9,7 @@ angular.module('sllp.app')
       $scope.languageChange = function(language){
       };
       $scope.user = $cookieStore.get('sllp_user');
+      $scope.exercise = {};
     }
   ]
 );

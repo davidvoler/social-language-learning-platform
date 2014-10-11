@@ -8,7 +8,7 @@ angular.module('sllp.app')
         title: '',
         description: '',
         tags: [],
-        exercises:[],
+        exercises:[{},{}],
         language:'',
         explanation_language:''
       };
