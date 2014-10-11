@@ -25,8 +25,8 @@ angular.module('sllp.app')
           if (data.status == 0) {
             /*
             $rootScope.userProfile = angular.copy(data.user);
-            $cookieStore.put('sllp_user_prof', data.user);
-            console.log($cookieStore.get('sllp_user_prof'));
+            $cookieStore.put('sllp_user', data.user);
+            console.log($cookieStore.get('sllp_user'));
             $scope.error = '';
             console.log('login success');
             //console.log(document.cookie);
@@ -45,14 +45,14 @@ angular.module('sllp.app')
       };
       $scope.logout = function () {
         var data = {};
-        console.log($cookieStore.get('sllp_user_prof'));
+        console.log($cookieStore.get('sllp_user'));
         $http.put('/api/login', data).success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
           if (data.status == 0) {
             //delete $rootScope.userProfile;
-            $cookieStore.remove('sllp_user_prof');
-            console.log($cookieStore.get('sllp_user_prof'));
+            $cookieStore.remove('sllp_user');
+            console.log($cookieStore.get('sllp_user'));
             $location.path('/login');
             //console.log(document.cookie);
           }
@@ -63,7 +63,7 @@ angular.module('sllp.app')
       };
 
       $scope.isAdmin = function () {
-        var user = $cookieStore.get('sllp_user_prof');
+        var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
           return false;
@@ -75,7 +75,7 @@ angular.module('sllp.app')
 
       };
       $scope.isTechSupport = function () {
-        var user = $cookieStore.get('sllp_user_prof');
+        var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
           return false;
@@ -87,7 +87,7 @@ angular.module('sllp.app')
 
       };
       $scope.isLoggedIn = function () {
-        var user = $cookieStore.get('sllp_user_prof');
+        var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
           return false;

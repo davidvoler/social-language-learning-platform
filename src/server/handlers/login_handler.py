@@ -46,7 +46,7 @@ class LoginHandler(tornado.web.RequestHandler):
             user = self._db['user'].find_one({'_id':username})
             self.write(dumps({'status':0,'error':'','user':user}))
             try:
-                self.set_secure_cookie("ollp_user", user['_id'])
+                self.set_secure_cookie("sllp_user", user['_id'])
             except:
                 pass
         else:
@@ -54,5 +54,5 @@ class LoginHandler(tornado.web.RequestHandler):
 
     def put(self):
         self.write(dumps({'status':0}))
-        self.clear_cookie("ollp_user")
+        self.clear_cookie("sllp_user")
 
