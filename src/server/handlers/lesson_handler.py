@@ -6,8 +6,10 @@ import logging
 from bson.objectid import ObjectId
 from bson.json_util import dumps, loads
 from slugify import slugify
+from server.handlers.base_handler import BaseHandler
 
-class LessonHandler(tornado.web.RequestHandler):
+
+class LessonHandler(BaseHandler):
     def initialize(self, db):
         """
         Initializes the instance with a mongodn database instance
