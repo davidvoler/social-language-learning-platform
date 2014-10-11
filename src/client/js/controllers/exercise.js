@@ -7,6 +7,7 @@ angular.module('sllp.app')
       $scope.error = '';
       var slug = $route.current.params.slug
       var exid = $route.current.params.exid
+      $scope.exid =  parseInt(exid) +1;
       console.log(slug);
       console.log(exid);
       $scope.exercise = '';
@@ -15,6 +16,7 @@ angular.module('sllp.app')
       });
       $scope.setCurrentExercise = function(idx){
         $scope.exercise = $scope.lesson.exercises[idx];
+        $scope.exid = idx +1;
       };
 
     }

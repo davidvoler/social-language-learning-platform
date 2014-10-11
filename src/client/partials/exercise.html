@@ -1,9 +1,14 @@
 <h3>{{lesson.title}}</h3>
-<div>{{exercise}}</div>
+<div class="well">
+  <div>Name:{{exercise.name}}</div>
+  <div>type:{{exercise.type}}</div>
+  <div>TODO: here should come the exercise directive</div>
+  <div>{{exid}}</div>
+</div>
 <ul class="pagination">
-  <li title="{{exercise.name}}"
+  <li title="{{exercise.name}}" ng-class="{active:$index == exid - 1}"
       ng-repeat="exercise in lesson.exercises track by $index">
-    <a ng-click="setCurrentExercise($index)" href="">{{$index +1}}</a>
+    <a ng-click="setCurrentExercise($index)" href="" >{{$index + 1}}</a>
   </li>
 </ul>
 
