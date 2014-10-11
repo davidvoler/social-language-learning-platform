@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ollp.app')
+angular.module('sllp.app')
 .service('Lesson', ['$resource',
   function ($resource) {
     return $resource('/api/lesson', {},
@@ -21,4 +21,19 @@ angular.module('ollp.app')
       {update: {method: 'PUT'}}
     );
   }
-]);
+])
+.service('Language', ['$resource',
+  function ($resource) {
+    var service = {languages:false};
+    var languageResource =  $resource('/api/language', {},
+      {update: {method: 'PUT'}}
+    );
+
+    service.load= function(){
+        service.languages = languageResource.query();
+    };
+    service.load();
+    return service
+  }
+])
+;

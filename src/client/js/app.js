@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ollp.app', [
+angular.module('sllp.app', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

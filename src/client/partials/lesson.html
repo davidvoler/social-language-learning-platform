@@ -1,4 +1,15 @@
-<div>
   <h3>{{lesson.title}}</h3>
-  {{lesson}}
-</div>
+
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+    </tr>
+    </thead>
+    <tr ng-repeat="exercise in lesson.exercises">
+      <td>{{exercise.name}}</td>
+      <td>{{exercise.type}}</td>
+    </tr>
+  </table>

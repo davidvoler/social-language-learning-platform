@@ -1,15 +1,18 @@
 'use strict';
 
-angular.module('ollp.app')
- .controller('LessonAddController', ['$scope', '$location', 'Lesson',
-    function ($scope, $location, Lesson) {
+angular.module('sllp.app')
+ .controller('LessonAddController', ['$scope', '$location', 'Lesson','Language',
+    function ($scope, $location, Lesson,Language) {
       $scope.error = '';
       $scope.lesson = {
         title: '',
         description: '',
         tags: [],
-        exercises:[]
+        exercises:[],
+        language:'',
+        explanation_language:''
       };
+      $scope.languages = Language.languages;
       $scope.save = function () {
         //is the new lesson valid
         if (!$scope.lesson.title) {
@@ -29,7 +32,12 @@ angular.module('ollp.app')
           }
         });
       };
+      $scope.addExercise = function(){
+        $scope.lesson.exercises.push({type:'',name:''});
+      };
+
     }
+
   ]
 )
   .controller('LessonEditController', ['$scope', '$location','$route', 'Lesson',

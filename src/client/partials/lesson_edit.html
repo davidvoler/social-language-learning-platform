@@ -1,13 +1,44 @@
 <h3>{{lesson.title}}</h3>
-<div class="alert alert-danger">{{error}}</div>
+<div ng-if="error" class="alert alert-danger">{{error}}</div>
 <form role="form">
   <div class="form-group">
-    <label for="title">Name</label>
+    <label for="title">Title</label>
     <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
   </div>
+  <div class="form-group">
+    <label for="language">Language</label>
+    <select id="language" ng-model="lesson.language" class="form-control">
+      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="explanation_language">Explanation Language</label>
+    <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+    </select>
+  </div>
+
   <div class="form-group">
     <label for="description">Description</label>
     <textarea class="form-control" id="description" ng-model="lesson.description"></textarea>
   </div>
-  <button ng-click="save()" type="submit" class="btn btn-default">Save</button>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+    </tr>
+    </thead>
+    <tr ng-repeat="exercise in lesson.exercises">
+      <td><input ng-model="exercise.name"></td>
+      <td><input ng-model="exercise.type"></td>
+    </tr>
+  </table>
+  <div>
+    <button class="btn" ng-click="addExercise()">Add Exercise</button>
+  </div>
+
+  <div class="well">
+    <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
+  </div>
 </form>

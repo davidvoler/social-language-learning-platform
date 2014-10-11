@@ -14,7 +14,7 @@
     }
   </style>
 
-<body ng-app="ollp.app">
+<body ng-app="sllp.app">
 <header class="navbar navbar-default navbar-static-top" role="banner">
   <div class="container"  ng-controller="LoginController">
     <div class="navbar-header" >
@@ -77,7 +77,7 @@
 
 <script src="/static/js/app.js"></script>
 <script>
-angular.module('ollp.app').config(function($httpProvider) {
+angular.module('sllp.app').config(function($httpProvider) {
     var _xsrf = document.getElementsByName('_xsrf');
     $httpProvider.defaults.headers.common['X-CSRFToken'] = _xsrf;
 });
@@ -88,6 +88,7 @@ angular.module('ollp.app').config(function($httpProvider) {
 <script src="/static/js/controllers/login_google.js"></script>
 <script src="/static/js/controllers/controllers.js"></script>
 <script src="/static/js/controllers/lesson.js"></script>
+<script src="/static/js/controllers/home.js"></script>
 
 
 </body>

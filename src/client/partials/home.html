@@ -1,14 +1,29 @@
-<div>
-  <h3>Home</h3>
-  Name of controller:{{controllerName}}
-  <div class="well"><input ng-model="q" placeholder="search" >
-    <a href="#/add/lesson">Add Lesson</a></div>
-  <table class="table">
-    <tr ng-repeat="lesson in lessons">
-      <td><a href="#/lesson/{{lesson.slug}}">{{lesson.title}}</a></td>
-      <td><a href="#/edit/lesson/{{lesson.slug}}">Edit</a></td>
-      <td>{{lesson.owner}}</td>
-    </tr>
-  </table>
+<h3>Home</h3>
 
+<div class="well">
+  <form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="language">Language</label>
+    <select id="language" ng-model="lesson.language" class="form-control">
+      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="explanation_language">Explanation Language</label>
+    <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+    </select>
+  </div>
+  <input class="form-control" ng-model="q" placeholder="Free Text Search">
+  <button type="submit" class="btn btn-info">Search</button>
+  </form>
 </div>
+<a href="#/add/lesson">Add Lesson</a></div>
+<table class="table">
+  <tr ng-repeat="lesson in lessons|filter:q">
+    <td><a href="#/lesson/{{lesson.slug}}">{{lesson.title}}</a></td>
+    <td><a href="#/edit/lesson/{{lesson.slug}}">Edit</a></td>
+    <td>{{lesson.owner}}</td>
+  </tr>
+</table>
+

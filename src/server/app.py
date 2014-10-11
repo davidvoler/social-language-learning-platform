@@ -11,7 +11,8 @@ from tornado.options import options
 from tornado import ioloop, web
 import logging
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
-from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, GoogleOAuth2LoginHandler
+from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, \
+    GoogleOAuth2LoginHandler,LanguageHandler
 
 # adding local directory to path
 
@@ -31,12 +32,21 @@ except Exception as e:
     #print ('local settings: {}'.format(str(e)))
     #TODO: handle different exceptions
     logging.info('local_settings.py not defined, using default settings')
+#get options from commandline
+options.parse_command_line()
 
 """
 Connecting to the mongodb database
 """
-mongo_client = pymongo.MongoClient(options.mongodb_host)
-db = mongo_client[options.mongodb_name]
+
+try:
+    mongo_client = pymongo.MongoClient(options.mongodb_host)
+    db = mongo_client[options.mongodb_name]
+except Exception as e:
+    logging.critical('connection to mongodb failed - make sure your mongodb is up')
+    logging.critical('exiting')
+    logging.critical(str(e))
+    exit(-1)
 
 app_settings = {
     'static_path': os.path.join(os.path.dirname(__file__), '..', 'client'),
@@ -56,6 +66,7 @@ app = tornado.web.Application([
                                   (r'/api/profile', ProfileHandler, dict(db=db)),
                                   (r'/api/login', LoginHandler, dict(db=db)),
                                   (r'/api/auth/google', GoogleOAuth2LoginHandler),
+                                  (r'/api/language', LanguageHandler, dict(db=db)),
                               ],
                               **app_settings)
 
@@ -74,6 +85,8 @@ def init_db(db):
         db.create_collection('lesson')
     except:
         pass
+    db['lesson'].ensure_index('language', unique=False)
+    db['lesson'].ensure_index('explanation_language', unique=False)
     db['lesson'].ensure_index('slug', unique=True)
     db['lesson'].ensure_index('_id', unique=True)
     try:
@@ -84,12 +97,24 @@ def init_db(db):
     except:
         pass
 
+    try:
+        db.create_collection('language')
+    except:
+        pass
+    db['language'].ensure_index('_id', unique=True)
+    try:
+        db['language'].insert({'_id':'en','name':'English'})
+        db['language'].insert({'_id':'he','name':'Hebrew'})
+        db['language'].insert({'_id':'ar','name':'Arabic'})
+        db['language'].insert({'_id':'fr','name':'French'})
+        db['language'].insert({'_id':'de','name':'German'})
+    except:
+        pass
 
 
 if __name__ == '__main__':
     #read settings from commandline
     init_db(db)
-    options.parse_command_line()
     logging.info('server running on http://localhost:{}'.format(options.port))
     app.listen(options.port, xheaders=True)
     logging.debug(app.settings)

@@ -1,7 +1,7 @@
 'use strict';
 
 var checkLogin= function ($location,$cookieStore) {
-   var user = $cookieStore.get('ollp_user_prof');
+   var user = $cookieStore.get('sllp_user_prof');
     console.log(user);
     if (user) {
       return true;
@@ -11,7 +11,7 @@ var checkLogin= function ($location,$cookieStore) {
 };
 
 
-angular.module('ollp.app').config(['$routeProvider',
+angular.module('sllp.app').config(['$routeProvider',
   function ($routeProvider) {
     $routeProvider
       .when('/', {

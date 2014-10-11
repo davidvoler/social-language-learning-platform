@@ -1,13 +1,6 @@
 'use strict';
 
-angular.module('ollp.app')
-  .controller('HomeController', ['$scope','Lesson',
-    function ($scope,Lesson) {
-      $scope.controllerName = 'HomeController';
-      $scope.lessons = Lesson.query();
-    }
-  ]
-)
+angular.module('sllp.app')
   .controller('HelpController', ['$scope',
     function ($scope) {
       $scope.controllerName = 'HelpController';

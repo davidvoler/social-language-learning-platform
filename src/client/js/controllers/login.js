@@ -6,7 +6,7 @@ function getCookie(name) {
     var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
     return r ? r[1] : undefined;
 }
-angular.module('ollp.app')
+angular.module('sllp.app')
 .controller('LoginController', ['$cookieStore', '$scope', '$rootScope', '$http', '$location',
     function ($cookieStore, $scope, $rootScope, $http, $location) {
       $scope.username = '';
@@ -25,8 +25,8 @@ angular.module('ollp.app')
           if (data.status == 0) {
             /*
             $rootScope.userProfile = angular.copy(data.user);
-            $cookieStore.put('ollp_user_prof', data.user);
-            console.log($cookieStore.get('ollp_user_prof'));
+            $cookieStore.put('sllp_user_prof', data.user);
+            console.log($cookieStore.get('sllp_user_prof'));
             $scope.error = '';
             console.log('login success');
             //console.log(document.cookie);
@@ -45,14 +45,14 @@ angular.module('ollp.app')
       };
       $scope.logout = function () {
         var data = {};
-        console.log($cookieStore.get('ollp_user_prof'));
+        console.log($cookieStore.get('sllp_user_prof'));
         $http.put('/api/login', data).success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
           if (data.status == 0) {
             //delete $rootScope.userProfile;
-            $cookieStore.remove('ollp_user_prof');
-            console.log($cookieStore.get('ollp_user_prof'));
+            $cookieStore.remove('sllp_user_prof');
+            console.log($cookieStore.get('sllp_user_prof'));
             $location.path('/login');
             //console.log(document.cookie);
           }
@@ -63,7 +63,7 @@ angular.module('ollp.app')
       };
 
       $scope.isAdmin = function () {
-        var user = $cookieStore.get('ollp_user_prof');
+        var user = $cookieStore.get('sllp_user_prof');
         //console.log(user);
         if (!user) {
           return false;
@@ -75,7 +75,7 @@ angular.module('ollp.app')
 
       };
       $scope.isTechSupport = function () {
-        var user = $cookieStore.get('ollp_user_prof');
+        var user = $cookieStore.get('sllp_user_prof');
         //console.log(user);
         if (!user) {
           return false;
@@ -87,7 +87,7 @@ angular.module('ollp.app')
 
       };
       $scope.isLoggedIn = function () {
-        var user = $cookieStore.get('ollp_user_prof');
+        var user = $cookieStore.get('sllp_user_prof');
         //console.log(user);
         if (!user) {
           return false;
