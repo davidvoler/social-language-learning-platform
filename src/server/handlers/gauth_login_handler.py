@@ -17,7 +17,7 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         """
         self._db = db
     
-    def get_or_create_user(auth_user):
+    def get_or_create_user(self,auth_user):
         user = self._db['user'].find_one({'email':auth_user['email']})
         if user:
             return user, False
@@ -49,11 +49,12 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
             # save user here, save to cookie or database
             db_user, is_new = self.get_or_create_user(user)
 
-            self.set_secure_cookie('sllp_user', user['db_user._id']) 
+            self.set_secure_cookie('sllp_user', user['db_user._id'].__str__())
             if is_new:
                 #todo: redirect to profile page or welcome message
-                pass
-            self.redirect('/')
+                self.redirect('/')
+            else:
+                self.redirect('/')
             return
 
         elif self.get_secure_cookie('sllp_user'):
@@ -67,3 +68,8 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
                 scope=['email','profile'],
                 response_type='code',
                 extra_params={'approval_prompt': 'auto'})
+
+    def post(self):
+        self.clear_cookie('sllp_user')
+
+
