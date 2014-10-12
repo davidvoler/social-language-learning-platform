@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from bson.json_util import dumps, loads
 from slugify import slugify
 from server.handlers.base_handler import BaseHandler
-
+from tornado.options import options
 
 class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
     def initialize(self, db):
@@ -28,12 +28,13 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
                                    
     @tornado.gen.coroutine
     def get(self):
+        google_oauth2_redirect_uri = '{}api/auth/google'.format(options.site_domain)
         if self.get_current_user():
             self.redirect('/')
             return
 
         if self.get_argument('code', False):
-            user = yield self.get_authenticated_user(redirect_uri=self.settings.google_redirect_url,
+            user = yield self.get_authenticated_user(redirect_uri=google_oauth2_redirect_uri,
                 code=self.get_argument('code'))
             if not user:
                 self.clear_all_cookies() 
@@ -63,7 +64,7 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
 
         else:
             yield self.authorize_redirect(
-                redirect_uri=self.settings.google_redirect_url,
+                redirect_uri=google_oauth2_redirect_uri,
                 client_id=self.settings['google_oauth']['key'],
                 scope=['email','profile'],
                 response_type='code',
