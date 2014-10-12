@@ -1,5 +1,5 @@
-"""
-Practice handler will query,get,add and delete practices, that is documents of the practice collection
+"""practice_handler.py
+Recording user's grade in a lesson and its general vocabulary level.
 """
 import tornado
 from bson.objectid import ObjectId
