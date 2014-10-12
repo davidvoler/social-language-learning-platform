@@ -79,7 +79,8 @@
 <script>
 angular.module('sllp.app').config(function($httpProvider) {
     var _xsrf = document.getElementsByName('_xsrf');
-    $httpProvider.defaults.headers.common['X-CSRFToken'] = _xsrf;
+    var xsrf_val = _xsrf[0].value;
+    $httpProvider.defaults.headers.common['X-XSRFToken'] = xsrf_val;
 });
 </script>
 <script src="/static/js/config.js"></script>
