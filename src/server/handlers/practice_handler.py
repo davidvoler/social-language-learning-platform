@@ -35,12 +35,14 @@ class PracticeHandler(tornado.web.RequestHandler):
     
     def post(self):
         """
-        add a new practice
-        
+        User has answered an exercise:
+        We save it into vocabulary practice and into lesson practice.
         """
-        practice = loads(self.request.body.decode("utf-8"))
+
+        exercise = loads(self.request.body.decode("utf-8"))
+        user_practice_line = []
         try:
-            ret = self._db['practice'].insert(practice)
+            ret = self._db['user_practice'].update({})
             self.write(dumps(ret))
         except Exception as e:
             self.write(dumps({'status':'error','error':str(e)}))

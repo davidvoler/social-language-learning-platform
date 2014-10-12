@@ -111,6 +111,19 @@ def init_db(db):
     except:
         pass
 
+    try:
+        db.create_collection('user_practice')
+    except:
+        pass
+
+    # Is it the correct key for practice?
+    db['user_practice'].ensure_index({'username':1,'language':1,'term':1,'explanation_language':1}, unique=True)
+    try:
+        db.create_collection('lesson_practice')
+    except:
+        pass
+    db['lesson_practice'].ensure_index({'username':1,'lesson_id':1,'exercise_id':1}, unique=True)
+
 
 if __name__ == '__main__':
     #read settings from commandline

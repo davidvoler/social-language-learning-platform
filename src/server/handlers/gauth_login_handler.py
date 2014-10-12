@@ -1,4 +1,4 @@
-#http://stackoverflow.com/questions/24536768/how-to-do-google-login-authorization-with-tornado-3-2-2-using-googleoauth2mixin
+# http://stackoverflow.com/questions/24536768/how-to-do-google-login-authorization-with-tornado-3-2-2-using-googleoauth2mixin
 
 import tornado
 import json
@@ -9,6 +9,7 @@ from slugify import slugify
 from server.handlers.base_handler import BaseHandler
 from tornado.options import options
 
+
 class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
     def initialize(self, db):
         """
@@ -16,8 +17,8 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         :param db: an instance to pymongo database object
         """
         self._db = db
-    
-    def get_or_create_user(self,auth_user):
+
+    def get_or_create_user(self, auth_user):
 
         """
 
@@ -25,16 +26,31 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         :return:
         TODO:
         add the following information we get from google
-        {'picture': 'https://lh6.googleusercontent.com/-gB5V_h807C0/AAAAAAAAAAI/AAAAAAAABN8/6VscXezcai0/photo.jpg', 'email': 'davidvoler@gmail.com', 'verified_email': True, 'family_name': 'Levi', 'link': 'https://plus.google.com/118445257533392779273', 'name': 'David Levi', 'given_name': 'David', 'id': '118445257533392779273', 'locale': 'en', 'gender': 'male'}
+        {'picture': 'https://lh6.googleusercontent.com/-gB5V_h807C0/AAAAAAAAAAI/AAAAAAAABN8/6VscXezcai0/photo.jpg',
+         'email': 'davidvoler@gmail.com', 'verified_email': True, 'family_name': 'Levi',
+         'link': 'https://plus.google.com/118445257533392779273', 'name': 'David Levi',
+          'given_name': 'David', 'id': '118445257533392779273', 'locale': 'en', 'gender': 'male'}
         """
-        user = self._db['user'].find_one({'username':auth_user['email']})
+        user = self._db['user'].find_one({'username': auth_user['email']})
         if user:
             return user, False
         else:
-            user = self._db['user'].insert({'username':auth_user['email']})
-            return user, True            
+            user = self._db['user'].insert({'username': auth_user['email'],
+                                            'google_info': {
+                                                'picture': auth_user['picture'],
+                                                'verified_email': auth_user['verified_email'],
+                                                'family_name': auth_user['family_name'],
+                                                'link': auth_user['link'],
+                                                'name': auth_user['name'],
+                                                'given_name': auth_user['given_name'],
+                                                'id': auth_user['id'],
+                                                'locale': auth_user['locale'],
+                                                'gender': auth_user['gender'],
+                                            }
+            })
+            return user, True
 
-                                   
+
     @tornado.gen.coroutine
     def get(self):
         google_oauth2_redirect_uri = '{}api/auth/google'.format(options.site_domain)
@@ -44,19 +60,20 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
 
         if self.get_argument('code', False):
             user = yield self.get_authenticated_user(redirect_uri=google_oauth2_redirect_uri,
-                code=self.get_argument('code'))
+                                                     code=self.get_argument('code'))
             if not user:
-                self.clear_all_cookies() 
+                self.clear_all_cookies()
                 raise tornado.web.HTTPError(500, 'Google authentication failed')
 
             access_token = str(user['access_token'])
             http_client = self.get_auth_http_client()
-            response =  yield http_client.fetch('https://www.googleapis.com/oauth2/v1/userinfo?access_token='+access_token)
+            response = yield http_client.fetch(
+                'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + access_token)
             if not response:
-                self.clear_all_cookies() 
+                self.clear_all_cookies()
                 raise tornado.web.HTTPError(500, 'Google authentication failed')
             #user = json.loads(response.body)
-            user =loads(response.body.decode("utf-8"))
+            user = loads(response.body.decode("utf-8"))
             logging.info(user)
             # save user here, save to cookie or database
 
@@ -78,7 +95,7 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
             yield self.authorize_redirect(
                 redirect_uri=google_oauth2_redirect_uri,
                 client_id=self.settings['google_oauth']['key'],
-                scope=['email','profile'],
+                scope=['email', 'profile'],
                 response_type='code',
                 extra_params={'approval_prompt': 'auto'})
 
