@@ -4,7 +4,7 @@
  */
 
 angular.module('sllp.app')
-.controller('LoginGoogleController', ['$cookieStore', '$scope', '$rootScope', '$http', '$location',
+  .controller('LoginGoogleController', ['$cookieStore', '$scope', '$rootScope', '$http', '$location',
     function ($cookieStore, $scope, $rootScope, $http, $location) {
       $scope.username = '';
       $scope.password = '';

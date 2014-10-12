@@ -10,10 +10,26 @@ from server.handlers.base_handler import BaseHandler
 
 
 class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
+    def initialize(self, db):
+        """
+        Initializes the instance with a mongodn database instance
+        :param db: an instance to pymongo database object
+        """
+        self._db = db
+    
+    def get_or_create_user(auth_user):
+        user = self._db['user'].find_one({'email':auth_user['email']})
+        if user:
+            return user, False
+        else:
+            user = self._db['user'].insert({'email':auth_user['email']})
+            return user, True            
+
+                                   
     @tornado.gen.coroutine
     def get(self):
         if self.get_current_user():
-            self.redirect('/products')
+            self.redirect('/')
             return
 
         if self.get_argument('code', False):
@@ -31,18 +47,23 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
                 raise tornado.web.HTTPError(500, 'Google authentication failed')
             user = json.loads(response.body)
             # save user here, save to cookie or database
-            self.set_secure_cookie('trakr', user['email']) 
-            self.redirect('/products')
+            db_user, is_new = self.get_or_create_user(user)
+
+            self.set_secure_cookie('sllp_user', user['db_user._id']) 
+            if is_new:
+                #todo: redirect to profile page or welcome message
+                pass
+            self.redirect('/')
             return
 
-        elif self.get_secure_cookie('trakr'):
-            self.redirect('/products')
+        elif self.get_secure_cookie('sllp_user'):
+            self.redirect('/')
             return
 
         else:
             yield self.authorize_redirect(
                 redirect_uri=self.settings.google_redirect_url,
                 client_id=self.settings['google_oauth']['key'],
-                scope=['email'],
+                scope=['email','profile'],
                 response_type='code',
                 extra_params={'approval_prompt': 'auto'})

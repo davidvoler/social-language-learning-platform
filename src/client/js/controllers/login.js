@@ -3,34 +3,31 @@
  * Created by davidl on 07/09/14.
  */
 function getCookie(name) {
-    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
-    return r ? r[1] : undefined;
+  var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+  return r ? r[1] : undefined;
 }
 angular.module('sllp.app')
-.controller('LoginController', ['$cookieStore', '$scope', '$rootScope', '$http', '$location',
+  .controller('LoginController', ['$cookieStore', '$scope', '$rootScope', '$http', '$location',
     function ($cookieStore, $scope, $rootScope, $http, $location) {
       $scope.username = '';
       $scope.password = '';
       $scope.error = '';
 
 
-
       $scope.login = function () {
-        //var _xsrf=getCookie("_xsrf");
-        //console.log(_xsrf);
         var data = {username: $scope.username, password: $scope.password};
         $http.post('/api/login', data).success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
           if (data.status == 0) {
             /*
-            $rootScope.userProfile = angular.copy(data.user);
-            $cookieStore.put('sllp_user', data.user);
-            console.log($cookieStore.get('sllp_user'));
-            $scope.error = '';
-            console.log('login success');
-            //console.log(document.cookie);
-            */
+             $rootScope.userProfile = angular.copy(data.user);
+             $cookieStore.put('sllp_user', data.user);
+             console.log($cookieStore.get('sllp_user'));
+             $scope.error = '';
+             console.log('login success');
+             //console.log(document.cookie);
+             */
             $location.path('/');
           } else {
             $scope.error = data.error;
