@@ -1,5 +1,15 @@
 """
 google login handler
+
+TODO:
+Solve issues:
+Try reading email and profile from google 
+See example in:
+./gauth_login_handler
+
+
+if it would not work consider using 
+http://python-oauth2.readthedocs.org/en/latest/index.html
 """
 __author__ = 'davidl'
 import tornado

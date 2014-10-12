@@ -56,7 +56,7 @@ app_settings = {
                      'scope': ['openid', 'email', 'profile']
     },
     'cookie_secret': options.cookie_secret,
-    'xsrf_cookies': False
+    'xsrf_cookies': True
 
 }
 app = tornado.web.Application([

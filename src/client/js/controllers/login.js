@@ -16,9 +16,9 @@ angular.module('sllp.app')
 
 
       $scope.login = function () {
-        var _xsrf=getCookie("_xsrf");
-        console.log(_xsrf);
-        var data = {username: $scope.username, password: $scope.password,'_xsrf':_xsrf};
+        //var _xsrf=getCookie("_xsrf");
+        //console.log(_xsrf);
+        var data = {username: $scope.username, password: $scope.password};
         $http.post('/api/login', data).success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
