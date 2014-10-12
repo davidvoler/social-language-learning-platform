@@ -18,11 +18,11 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         self._db = db
     
     def get_or_create_user(self,auth_user):
-        user = self._db['user'].find_one({'email':auth_user['email']})
+        user = self._db['user'].find_one({'username':auth_user['email']})
         if user:
             return user, False
         else:
-            user = self._db['user'].insert({'email':auth_user['email']})
+            user = self._db['user'].insert({'username':auth_user['email']})
             return user, True            
 
                                    

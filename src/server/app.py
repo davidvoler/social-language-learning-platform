@@ -12,7 +12,7 @@ from tornado import ioloop, web
 import logging
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
 from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, \
-    GoogleOAuth2LoginHandler,LanguageHandler
+    GoogleOAuth2LoginHandler,LanguageHandler,GAuthLoginHandler
 
 # adding local directory to path
 
@@ -56,7 +56,7 @@ app_settings = {
                      'scope': ['openid', 'email', 'profile']
     },
     'cookie_secret': options.cookie_secret,
-    'xsrf_cookies': True
+    'xsrf_cookies': False
 
 }
 app = tornado.web.Application([
@@ -65,7 +65,7 @@ app = tornado.web.Application([
                                   (r'/api/lesson', LessonHandler, dict(db=db)),
                                   (r'/api/profile', ProfileHandler, dict(db=db)),
                                   (r'/api/login', LoginHandler, dict(db=db)),
-                                  (r'/api/auth/google', GoogleOAuth2LoginHandler),
+                                  (r'/api/auth/google', GAuthLoginHandler, dict(db=db)),
                                   (r'/api/language', LanguageHandler, dict(db=db)),
                               ],
                               **app_settings)
