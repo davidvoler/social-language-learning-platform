@@ -48,8 +48,8 @@ angular.module('sllp.app')
           console.log(data);
           if (data.status == 0) {
             //delete $rootScope.userProfile;
-            $cookieStore.remove('sllp_user');
-            console.log($cookieStore.get('sllp_user'));
+            //$cookieStore.remove('sllp_user');
+            //console.log($cookieStore.get('sllp_user'));
             $location.path('/login');
             //console.log(document.cookie);
           }
@@ -60,6 +60,7 @@ angular.module('sllp.app')
       };
 
       $scope.isAdmin = function () {
+        /*
         var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
@@ -69,9 +70,11 @@ angular.module('sllp.app')
         } else {
           return true;
         }
+        */
 
       };
       $scope.isTechSupport = function () {
+        /*
         var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
@@ -81,9 +84,10 @@ angular.module('sllp.app')
         } else {
           return true;
         }
-
+        */
       };
       $scope.isLoggedIn = function () {
+        /*
         var user = $cookieStore.get('sllp_user');
         //console.log(user);
         if (!user) {
@@ -91,7 +95,9 @@ angular.module('sllp.app')
         } else {
           return true;
         }
+        */
       };
+
 
     }
   ]
