@@ -42,7 +42,7 @@ angular.module('sllp.app')
       };
       $scope.logout = function () {
         var data = {};
-        console.log($cookieStore.get('sllp_user'));
+        //console.log($cookieStore.get('sllp_user'));
         $http.put('/api/login', data).success(function (data, status, headers, config) {
           // this callback will be called asynchronously
           console.log(data);
