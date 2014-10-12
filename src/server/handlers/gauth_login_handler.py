@@ -18,6 +18,17 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         self._db = db
     
     def get_or_create_user(self,auth_user):
+
+        """
+
+        :param auth_user:
+        :return:
+        TODO:
+        add the following information we get from google
+
+        {'picture': 'https://lh6.googleusercontent.com/-gB5V_h807C0/AAAAAAAAAAI/AAAAAAAABN8/6VscXezcai0/photo.jpg', 'email': 'davidvoler@gmail.com', 'verified_email': True, 'family_name': 'Levi', 'link': 'https://plus.google.com/118445257533392779273', 'name': 'David Levi', 'given_name': 'David', 'id': '118445257533392779273', 'locale': 'en', 'gender': 'male'}
+
+        """
         user = self._db['user'].find_one({'username':auth_user['email']})
         if user:
             return user, False
