@@ -49,9 +49,10 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
             #user = json.loads(response.body)
             user =loads(response.body.decode("utf-8"))
             # save user here, save to cookie or database
+
             db_user, is_new = self.get_or_create_user(user)
 
-            self.set_secure_cookie('sllp_user', user['db_user._id'].__str__())
+            self.set_secure_cookie('sllp_user', db_user['_id'].__str__())
             if is_new:
                 #todo: redirect to profile page or welcome message
                 self.redirect('/')
