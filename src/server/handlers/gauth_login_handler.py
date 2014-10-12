@@ -46,7 +46,8 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
             if not response:
                 self.clear_all_cookies() 
                 raise tornado.web.HTTPError(500, 'Google authentication failed')
-            user = json.loads(response.body)
+            #user = json.loads(response.body)
+            user =loads(response.body.decode("utf-8"))
             # save user here, save to cookie or database
             db_user, is_new = self.get_or_create_user(user)
 
