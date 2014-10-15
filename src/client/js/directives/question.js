@@ -4,10 +4,26 @@ angular.module('sllp.app')
   .directive('editQuestion', function () {
     return {
       restrict: 'E',
-      scope: {
-        exercise: '=exercise'
-      },
-      templateUrl: 'templates/directives/question/edit.html'
+      scope: {exercise: "="},
+      controller: function ($scope) {
+      var exercise = $scope.exercise;
+      var init = function () {
+        if (!exercise.question){
+          exercise.question = '';
+        }
+        if(!exercise.answers){
+          exercise.answers = [
+          {answer: '', correct: true},
+          {answer: '', correct: true},
+          {answer: '', correct: true},
+          {answer: '', correct: true}
+        ];
+        }
+      };
+      init();
+
+    },
+      templateUrl: '/static/partials/directives/question/edit.html'
     };
   })
 
@@ -32,6 +48,6 @@ angular.module('sllp.app')
 
 
       },
-      templateUrl: 'templates/directives/question/preview.html'
+      templateUrl: '/static/partials/directives/question/preview.html'
     };
   })

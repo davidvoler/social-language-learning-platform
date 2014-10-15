@@ -1,24 +1,4 @@
-<div class="list-inset">
-    <input placeholder="question" ng-model="exercise.txt"/>
-    <div class="item row">
-        <div class="col col-20">Correct</div>
-        <div class="col col-80">Answer</div>
-    </div>
-    <div class="item row">
-    <ion-checkbox ng-model="exercise.answer1.correct" class="col col-20"></ion-checkbox>
-    <input placeholder="answer 1" ng-model="exercise.answer1.txt"  class="col col-80"/>
-    </div>
-    <div class="item row">
-    <ion-checkbox ng-model="exercise.answer2.correct" class="col col-20"></ion-checkbox>
-    <input placeholder="answer 2" ng-model="exercise.answer2.txt"  class="col col-80"/>
-    </div>
-    <div class="item row">
-    <ion-checkbox ng-model="exercise.answer3.correct" class="col col-20"></ion-checkbox>
-    <input placeholder="answer 3" ng-model="exercise.answer3.txt"  class="col col-80"/>
-    </div>
-    <div class="item row">
-    <ion-checkbox ng-model="exercise.answer4.correct" class="col col-20"></ion-checkbox>
-    <input placeholder="answer 4" ng-model="exercise.answer4.txt"  class="col col-80"/>
-    </div>
-
-</div>
+<input ng-model="exercise.question" placeholder="Question">
+<input ng-repeat="answer in exercise.answers"
+       ng-model="answer.answer"
+       placeholder="Answer {{$index}}">

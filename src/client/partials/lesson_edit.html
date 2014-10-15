@@ -31,8 +31,11 @@
   </thead>
   <tr ng-repeat="exercise in lesson.exercises">
     <td>
-      <edit-complete exercise="exercise"></edit-complete>
-      <preview-complete exercise="exercise"></preview-complete>
+      {{exercise}}
+      <edit-complete ng-if="exercise.type=='complete'" exercise="exercise"></edit-complete>
+      <edit-text ng-if="exercise.type=='text'" exercise="exercise"></edit-text>
+      <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
+      <edit-dialogue ng-if="exercise.type=='dialogue'" exercise="exercise"></edit-dialogue>
     </td>
   </tr>
 </table>
