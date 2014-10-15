@@ -46,7 +46,7 @@ angular.module('sllp.app').directive('editComplete', function () {
     return {
       restrict: 'E',
       scope: { exercise: '='},
-      templateUrl: '/static/partials/directives/complete/preview1.html'
+      templateUrl: '/static/partials/directives/complete/preview.html'
     };
 
   });
