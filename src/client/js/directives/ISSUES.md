@@ -13,3 +13,7 @@ Text is simple - it has no ng-repeat inside it.
  Now it is left to see that the same will be also for directives with ng-repeat inside the templateUrl
 
  
+- now in match it seems to work even in a private scope
+Errors might be the of cached template
+
+Using template instead of templateUrl solves the problem

@@ -23,6 +23,7 @@
     <textarea class="form-control" id="description" ng-model="lesson.description"></textarea>
   </div>
 </form>
+    <div>{{lesson}}</div>
 <table class="table">
   <thead>
   <tr>
@@ -42,6 +43,9 @@
                      exercise="exercise"></preview-complete>
 
       <edit-match ng-if="exercise.type=='match'" exercise="exercise"></edit-match>
+      <preview-match ng-if="exercise.type=='match'" exercise="exercise"></preview-match>
+
+
       <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
 
       <edit-text ng-if="exercise.type=='text' && exercise.editState"></edit-text>

@@ -30,6 +30,12 @@ angular.module('sllp.app')
     return {
       restrict: 'E',
       scope: { exercise: '='},
-      templateUrl: '/static/partials/directives/match/preview.html'
+      //templateUrl: '/static/partials/directives/match/preview.html'
+      template:
+'<table class="table">\
+<tr ng-repeat="item in exercise.items">\
+<td>{{item.part1}}</td><td>{{item.part2}}</td>\
+</tr>\
+</table>'
     };
   });
