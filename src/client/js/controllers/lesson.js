@@ -33,11 +33,9 @@ angular.module('sllp.app')
         });
       };
       $scope.addExercise = function(exercise_type){
-        $scope.lesson.exercises.push({type:exercise_type ,name:''});
+        $scope.lesson.exercises.push({type:exercise_type ,name:'', editState:true});
       };
-
     }
-
   ]
 )
   .controller('LessonEditController', ['$scope', '$location','$route', 'Lesson',

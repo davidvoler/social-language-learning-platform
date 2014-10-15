@@ -26,19 +26,31 @@
 <table class="table">
   <thead>
   <tr>
-    <td>Name</td>
+    <td>Edit/Preview</td>
+    <td>Exercise</td>
   </tr>
   </thead>
   <tr ng-repeat="exercise in lesson.exercises">
     <td>
-      {{exercise}}
-      <edit-complete ng-if="exercise.type=='complete'" exercise="exercise"></edit-complete>
+      <button ng-if="!exercise.editState" ng-click="exercise.editState = true;">Edit</button>
+      <button ng-if="exercise.editState" ng-click="exercise.editState = false;">Preview</button>
+    </td>
+    <td>
+      <edit-complete ng-if="exercise.type=='complete' "
+                     exercise="exercise"></edit-complete>
+      <preview-complete ng-if="exercise.type=='complete'"
+                     exercise="exercise"></preview-complete>
+
       <edit-match ng-if="exercise.type=='match'" exercise="exercise"></edit-match>
       <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
-      <edit-text ng-if="exercise.type=='text'" exercise="exercise"></edit-text>
+
+      <edit-text ng-if="exercise.type=='text' && exercise.editState"></edit-text>
+      <preview-text ng-if="exercise.type=='text' && !exercise.editState "></preview-text>
+
       <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
       <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
     </td>
+
   </tr>
 </table>
 <div class="btn-group">

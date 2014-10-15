@@ -5,16 +5,14 @@ angular.module('sllp.app')
     return {
       restrict: 'E',
       //transclude: true,
-      scope: {exercise: "="},
+      //scope: {exercise: "="},
       controller: function ($scope) {
-        var exercise = $scope.exercise;
-        var init = function () {
-          if (!exercise.text) {
-            exercise.text='';
+        $scope.init = function () {
+          if (!$scope.exercise.text) {
+            $scope.exercise.text='';
           }
-
         };
-        init();
+        $scope.init();
       },
       templateUrl: '/static/partials/directives/text/edit.html'
     };
@@ -22,7 +20,7 @@ angular.module('sllp.app')
   .directive('previewText', function () {
     return {
       restrict: 'E',
-      scope: { exercise: '='},
+      //scope: { exercise: '='},
       templateUrl: '/static/partials/directives/text/preview.html'
     };
 
