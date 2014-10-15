@@ -5,7 +5,6 @@ stage1 - basic concepts
 -----------------------
 This stage will include most basic functionality 
 
-
 languages - done 
 lesson add
 main page lesson search
@@ -19,26 +18,55 @@ profile
 author is saved in lessons
 
 exercises:
-# vocabulary
-# complete sentence
+- complete
+- match
+- mix
+- question
+- text 
+- vocabulary
 
+* Done
 
+Stage1.2 - Exercise functionality
+---------------------------------
+The exercises should be completely functional:
+ Add
+ Edit
+ Preview
+ Practice
 
-stage 2 - ready for a demo site
--------------------------------
+Stage1.3 - Practice Vocabulary
+------------------------------
+User can practice vocabulary 
+
+Stage1.4 - My Lessons
+---------------------
+List of lessons for user
+Level for each lesson
+
+Stage1.4.o Optional video exercise
+----------------------------------
+Basic video exercise
+
+stage 2 - DEMO
+--------------
 In this stage the demo site can be viewed by anyone 
-
-
 google auth - or facebook auth 
 intuitive - simple design
 basic exercise types
 
+Stage2.1 - Social Login
+-----------------------
+Facebook
+Twitter
+Improve Google+
+Consider more social login providers
 
 
 
 
 
-technical issues & question
+Technical issues & question
 ---------------------------
 
 When going to the next exercise - should we use a the standard routing with url or a much simpler ui routing
@@ -54,4 +82,4 @@ https://github.com/angular-ui/ui-router
 
 small issues
 ------------
-# Tornado should restart if html or javascript change
+- Tornado should restart if html or javascript change
