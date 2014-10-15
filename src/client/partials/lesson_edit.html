@@ -33,17 +33,21 @@
     <td>
       {{exercise}}
       <edit-complete ng-if="exercise.type=='complete'" exercise="exercise"></edit-complete>
+      <edit-match ng-if="exercise.type=='match'" exercise="exercise"></edit-match>
+      <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
       <edit-text ng-if="exercise.type=='text'" exercise="exercise"></edit-text>
       <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
-      <edit-dialogue ng-if="exercise.type=='dialogue'" exercise="exercise"></edit-dialogue>
+      <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
     </td>
   </tr>
 </table>
 <div class="btn-group">
   <button type="button" class="btn btn-default" ng-click="addExercise('complete')">Add Complete</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('match')">Add Match</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('mix')">Add Mix</button>
   <button type="button" class="btn btn-default" ng-click="addExercise('text')">Add Text</button>
   <button type="button" class="btn btn-default" ng-click="addExercise('question')">Add Question</button>
-  <button type="button" class="btn btn-default" ng-click="addExercise('dialogue')">Add Dialogue</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('vocabulary')">Add Vocabulary</button>
 </div>
 
 <div class="well">

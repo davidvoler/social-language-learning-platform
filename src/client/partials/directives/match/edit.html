@@ -1,11 +1,14 @@
-<div class="list-inset">
-    <div class="item row">
-        <div class="col col-50">Part 1</div>
-        <div class="col col-50">Part 2</div>
-    </div>
-    <div class="item row" ng-repeat="item in exercise.items">
-    <input placeholder="Part 1" ng-model="item.part1"  class="col col-50"/>
-    <input placeholder="Part 2" ng-model="item.part2"  class="col col-50"/>
-    </div>
-
-</div>
+<table class="table">
+  <thead>
+  <tr>
+    <td>Part 1 </td>
+    <td>Part 2 </td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="item in exercise.items" >
+    <td><input ng-model="item.part1" placeholder="part1"></td>
+    <td><input ng-model="item.part2" placeholder="part2"></td>
+  </tr>
+  </tbody>
+</table>

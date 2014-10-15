@@ -6,20 +6,21 @@ angular.module('sllp.app')
       restrict: 'E',
       scope: {exercise: "="},
       controller: function ($scope) {
-        var exercise = $scope.exercise;
-        var init = function () {
-          if (!exercise.items) {
-            exercise.items = [];
-            //add 3 empty items
-            $scope.addItem();
-            $scope.addItem();
-            $scope.addItem();
+        $scope.addItem = function () {
+          $scope.exercise.items.push({term: '', translation: ''});
+        };
+        $scope.init = function () {
+          if (!$scope.exercise.items) {
+            $scope.exercise.items = [];
+          }
+          if ($scope.exercise.items.length < 4) {
+            //add 4 empty items
+            for (var i = $scope.exercise.items.length; i < 4; i++) {
+              $scope.addItem();
+            }
           }
         };
-        init();
-        $scope.addItem = function () {
-          exercise.items.push({part1: '', part2: ''});
-        };
+        $scope.init();
       },
       templateUrl: '/static/partials/directives/vocabulary/edit.html'
     };

@@ -50,4 +50,4 @@ angular.module('sllp.app')
       },
       templateUrl: '/static/partials/directives/question/preview.html'
     };
-  })
+  });
