@@ -55,7 +55,17 @@ google auth - or facebook auth
 intuitive - simple design
 basic exercise types
 
-Stage2.1 - Social Login
+
+Stage2.1 - tags
+---------------
+Tagging of lesson
+
+Stage2.2 - rating
+-----------------
+Users can rate lessons
+
+
+Stage2.3 - Social Login
 -----------------------
 Facebook
 Twitter

@@ -10,13 +10,21 @@ angular.module('sllp.app')
       $scope.exid =  parseInt(exid) +1;
       console.log(slug);
       console.log(exid);
-      $scope.exercise = '';
+      $scope.exercise = {};
       $scope.lesson = Lesson.get({slug: $route.current.params.slug}, function () {
         $scope.exercise = $scope.lesson.exercises[exid];
       });
       $scope.setCurrentExercise = function(idx){
         $scope.exercise = $scope.lesson.exercises[idx];
         $scope.exid = idx +1;
+      };
+      $scope.nextExercise = function(){
+        $scope.exid = $scope.exid + 1;
+        $scope.exercise = $scope.lesson.exercises[idx];
+      };
+      $scope.prevExercise = function(){
+        $scope.exid = $scope.exid - 1;
+        $scope.exercise = $scope.lesson.exercises[idx];
       };
 
     }
