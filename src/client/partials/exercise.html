@@ -2,9 +2,19 @@
 <div class="well">
   <div>Name:{{exercise.name}}</div>
   <div>type:{{exercise.type}}</div>
-  <div>TODO: here should come the exercise directive</div>
-  <preview-complete exercise="exercise"></preview-complete>
-  <div>{{exid}}</div>
+  <div>
+      <preview-complete ng-if="exercise.type=='complete'" exercise="exercise"></preview-complete>
+
+      <preview-match ng-if="exercise.type=='match'" exercise="exercise"></preview-match>
+
+      <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
+
+      <preview-text ng-if="exercise.type=='text' && !exercise.editState "></preview-text>
+
+      <preview-question ng-if="exercise.type=='question'" exercise="exercise"></preview-question>
+
+      <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
+  </div>
 </div>
 <ul class="pagination">
   <li title="{{exercise.name}}" ng-class="{active:$index == exid - 1}"

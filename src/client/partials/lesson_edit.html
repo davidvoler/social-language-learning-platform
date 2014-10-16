@@ -37,6 +37,7 @@
       <button ng-if="exercise.editState" ng-click="exercise.editState = false;">Preview</button>
     </td>
     <td>
+
       <edit-complete ng-if="exercise.type=='complete' "
                      exercise="exercise"></edit-complete>
       <preview-complete ng-if="exercise.type=='complete'"
@@ -47,12 +48,16 @@
 
 
       <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
+      <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
 
       <edit-text ng-if="exercise.type=='text' && exercise.editState"></edit-text>
       <preview-text ng-if="exercise.type=='text' && !exercise.editState "></preview-text>
 
       <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
+      <preview-question ng-if="exercise.type=='question'" exercise="exercise"></preview-question>
+
       <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
+      <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
     </td>
 
   </tr>
