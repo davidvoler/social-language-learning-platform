@@ -44,9 +44,18 @@ Stage1.4 - My Lessons
 List of lessons for user
 Level for each lesson
 
-Stage1.4.o Optional video exercise
+Stage1.5 - Content
+------------------
+Write a few lessons making sure we have all it takes to go for the demo.
+
+
+
+Stage1.9.o Optional video exercise
 ----------------------------------
 Basic video exercise
+
+
+
 
 stage 2 - DEMO
 --------------
@@ -65,8 +74,8 @@ Stage2.2 - rating
 Users can rate lessons
 
 
-Stage2.3 - Social Login
------------------------
+Stage2.3 - More Social Login
+----------------------------
 Facebook
 Twitter
 Improve Google+
