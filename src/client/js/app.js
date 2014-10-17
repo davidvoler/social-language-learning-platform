@@ -6,5 +6,6 @@ angular.module('sllp.app', [
   'ngSanitize',
   'ngRoute',
   'ui.bootstrap',
-  'youtube-embed'
+  'youtube-embed',
+  'ngTagsInput'
 ]);

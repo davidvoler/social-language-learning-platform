@@ -41,22 +41,10 @@ class LessonHandler(BaseHandler):
         
         """
         lesson = loads(self.request.body.decode("utf-8"))
-        try:
-            ret = self._db['lesson'].insert(lesson)
-            self.write(dumps(ret))
-        except Exception as e:
-            self.write(dumps({'status':'error','error':str(e)}))
-
-    def post(self):
-        """
-        add a new lesson
-        
-        """
-        lesson = loads(self.request.body.decode("utf-8"))
         if not lesson['title']:
             self.write(dumps({'status':-1,'error':'title is mandatory'}))
             return
-        #create a slug for the lesson
+
         slug = slugify(lesson['title'])
         #make sure slug in unique in lesson collection
         # the following request will return all slug in the collection

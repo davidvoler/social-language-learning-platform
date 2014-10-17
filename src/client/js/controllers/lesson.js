@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sllp.app')
- .controller('LessonAddController', ['$scope', '$location', 'Lesson','Language',
-    function ($scope, $location, Lesson, Language) {
+ .controller('LessonAddController', ['$scope', '$location','$http', 'Lesson','Language',
+    function ($scope, $location,$http, Lesson, Language) {
       $scope.error = '';
       $scope.lesson = {
         title: '',
@@ -12,11 +12,11 @@ angular.module('sllp.app')
         language:'',
         explanation_language:''
       };
-      /*
+
       $scope.loadTags = function(query) {
                      return $http.get('/api/tag?query=' + query);
       };
-      */
+
       $scope.languages = Language.languages;
       $scope.save = function () {
         //is the new lesson valid
