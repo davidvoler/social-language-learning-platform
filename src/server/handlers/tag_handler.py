@@ -26,13 +26,16 @@ class TagHandler(BaseHandler):
         language = self.get_argument('language', None)
         query = self.get_argument('query', '')
 
-
-        if language:
-            tags = self._db['tag'].find({'language':language,'name':{"$regex": query}})
-            self.write(dumps(tags))
-        else:
-            tags = self._db['tag'].find({'name':{"$regex": query}})
-            self.write(dumps(tags))    
+        tags = self._db['tag'].find()
+        self.write(dumps(tags))
+        return
+        if query:
+            if language:
+                tags = self._db['tag'].find({'language':language,'name':{"$regex": '*{}*'.format(query)}})
+                self.write(dumps(tags))
+            else:
+                tags = self._db['tag'].find({'name':{"$regex": '*{}*'.format(query)}})
+                self.write(dumps(tags))
     
     def post(self):
         """

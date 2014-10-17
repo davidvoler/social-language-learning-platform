@@ -56,11 +56,13 @@ class LessonHandler(BaseHandler):
             nslug = '{}-{}'.format(slug, i)
             i+=1
         lesson['slug']=nslug
+
         try:
             self._db['lesson'].insert(lesson)
             self.write({'status':0,'error':'','slug':lesson['slug']})
         except Exception as e:
             self.write(dumps({'status':-2,'error':str(e)}))
+
 
     def put(self):
         """

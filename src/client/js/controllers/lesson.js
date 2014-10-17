@@ -16,6 +16,11 @@ angular.module('sllp.app')
       $scope.loadTags = function(query) {
                      return $http.get('/api/tag?query=' + query);
       };
+      $scope.addTag = function($tag) {
+            console.log($tag);
+                     var data = {name:$tag, language: $scope.language};
+                     return $http.post('/api/tag',data);
+      };
 
       $scope.languages = Language.languages;
       $scope.save = function () {
