@@ -9,10 +9,10 @@ languages - done
 lesson add
 main page lesson search
 
-* Done
+### Status - Done
 
-stage1.1 - basic concepts
------------------------
+## Stage1.1 - basic concepts
+
 login basic - with cookie
 profile
 author is saved in lessons
@@ -25,19 +25,33 @@ exercises:
 - text 
 - vocabulary
 
-* Done
+### Status 
+Done
 
-Stage1.2 - Exercise functionality
----------------------------------
+## Stage1.2 - Exercise functionality
+
+### Tasks
 The exercises should be completely functional:
- Add
- Edit
- Preview
- Practice
+* Add
+* Edit
+* Preview
+* Practice
 
-Stage1.3 - Practice Vocabulary
-------------------------------
+For each exercise type add 
+* Help
+* Example (inside Help)
+* Delete Exercise
+* Move template url into templates
+
+
+### Status - Started
+
+## Stage1.3 - Practice Vocabulary
+
 User can practice vocabulary 
+
+### Status
+
 
 Stage1.4 - My Lessons
 ---------------------
@@ -60,9 +74,10 @@ Basic video exercise
 https://github.com/brandly/angular-youtube-embed
 looks simple
 
+### Status Started
 
 
-stage 2 - DEMO
+# stage 2 - DEMO
 --------------
 In this stage the demo site can be viewed by anyone 
 google auth - or facebook auth 
@@ -70,9 +85,12 @@ intuitive - simple design
 basic exercise types
 
 
-Stage2.1 - tags
----------------
+## Stage2.1 - tags
+
 Tagging of lesson
+### Status
+https://github.com/mbenford/ngTagsInput
+
 
 Stage2.2 - rating
 -----------------

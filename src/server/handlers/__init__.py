@@ -6,3 +6,4 @@ from server.handlers.google_oauth2_login_handler import GoogleOAuth2LoginHandler
 from server.handlers.language_handler import LanguageHandler
 from server.handlers.base_handler import BaseHandler
 from server.handlers.gauth_login_handler import GAuthLoginHandler
+from server.handlers.tag_handler import TagHandler

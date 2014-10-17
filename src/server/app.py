@@ -12,7 +12,7 @@ from tornado import ioloop, web
 import logging
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
 from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, \
-    GoogleOAuth2LoginHandler,LanguageHandler,GAuthLoginHandler
+    GoogleOAuth2LoginHandler,LanguageHandler,GAuthLoginHandler,TagHandler
 
 # adding local directory to path
 
@@ -67,6 +67,7 @@ app = tornado.web.Application([
                                   (r'/api/login', LoginHandler, dict(db=db)),
                                   (r'/api/auth/google', GAuthLoginHandler, dict(db=db)),
                                   (r'/api/language', LanguageHandler, dict(db=db)),
+                                  (r'/api/tag', TagHandler, dict(db=db)),
                               ],
                               **app_settings)
 
