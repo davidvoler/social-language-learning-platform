@@ -58,6 +58,9 @@
 
       <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
       <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
+
+      <edit-video ng-if="exercise.type=='video'" exercise="exercise"></edit-video>
+      <preview-video ng-if="exercise.type=='video'" exercise="exercise"></preview-video>
     </td>
 
   </tr>
@@ -69,6 +72,7 @@
   <button type="button" class="btn btn-default" ng-click="addExercise('text')">Add Text</button>
   <button type="button" class="btn btn-default" ng-click="addExercise('question')">Add Question</button>
   <button type="button" class="btn btn-default" ng-click="addExercise('vocabulary')">Add Vocabulary</button>
+  <button type="button" class="btn btn-default" ng-click="addExercise('video')">Add Video</button>
 </div>
 
 <div class="well">

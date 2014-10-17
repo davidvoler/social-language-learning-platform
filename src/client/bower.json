@@ -1,0 +1,8 @@
+{
+  "name": "SocialLanguageLearningPlatform",
+  "private": "true",
+  "devDependencies": {},
+  "dependencies": {
+    "angular-youtube-mb": "~0.1.3"
+  }
+}

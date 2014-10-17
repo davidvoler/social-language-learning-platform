@@ -43,17 +43,22 @@ Stage1.4 - My Lessons
 ---------------------
 List of lessons for user
 Level for each lesson
+When user start a lesson - a document should be create with
+
+
+
 
 Stage1.5 - Content
 ------------------
 Write a few lessons making sure we have all it takes to go for the demo.
 
 
-
 Stage1.9.o Optional video exercise
 ----------------------------------
 Basic video exercise
 
+https://github.com/brandly/angular-youtube-embed
+looks simple
 
 
 

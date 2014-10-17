@@ -5,5 +5,6 @@ angular.module('sllp.app', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'youtube-embed'
 ]);

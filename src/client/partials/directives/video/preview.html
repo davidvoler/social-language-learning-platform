@@ -1,2 +1,4 @@
-{{exercise}}
-<iframe src="http://www.youtube.com/embed/{{exercise.txt}}?rel=0" frameborder="0" allowfullscreen></iframe>
+<div>{{exercise}}</div>
+<youtube-video video-url="exercise.videoUrl"></youtube-video>
+<div>{{videoTime}}</div>
+<button ng-click="videoTime = getTime()">getTime</button>
