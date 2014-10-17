@@ -26,8 +26,11 @@ class TagHandler(BaseHandler):
         language = self.get_argument('language', None)
         query = self.get_argument('query', '')
 
-        tags = self._db['tag'].find()
-        self.write(dumps(tags))
+        tags = self._db['tag'].find({},{'name':1})
+        ret = []
+        for t in tags:
+            ret.append(t['name'])
+        self.write(dumps(ret))
         return
         if query:
             if language:
