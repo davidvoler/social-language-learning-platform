@@ -1,38 +1,70 @@
 <h3>{{lesson.title}}</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
-<form role="form" class="form-inline">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
-  </div>
-  <div class="form-group">
-    <label for="language">Language</label>
-    <select id="language" ng-model="lesson.language" class="form-control">
-      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="explanation_language">Explanation Language</label>
-    <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
-      <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
-    </select>
-  </div>
+<div class="well">
 
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea class="form-control" id="description" ng-model="lesson.description"></textarea>
-  </div>
+  <!--
+  <form role="form" class="form-inline">
+    <div class="form-group">
+      <label class="sr-only"  for="title">Title</label>
+      <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
+    </div>
+    <div class="form-group">
+      <label class="sr-only"  for="language">Language</label>
+      <select id="language" ng-model="lesson.language" class="form-control">
+        <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="explanation_language">Explanation Language</label>
+      <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+        <option value="" disabled selected >Explanation Language</option>
+        <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <tags-input placeholder="Add Lesson Tags" id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
+      <auto-complete  source="loadTags($query)"></auto-complete>
+    </tags-input>
+    </div>
 
-  <div class="form-group">
-  <label for="tags">Tags</label>
-  <tags-input id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
-    <auto-complete  source="loadTags($query)"></auto-complete>
-  </tags-input>
-  </div>
+  </form>
+  -->
+  <table>
+    <thead>
+    <tr>
+      <td class="col-md-3">Lesson Name</td>
+      <td>Language</td>
+      <td>Explanation Language</td>
+      <td>Tags</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
+      </td>
+      <td>
+        <select id="language" ng-model="lesson.language" class="form-control">
+          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        </select>
+
+      </td>
+      <td>
+        <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        </select>
+      </td>
+      <td>
+        <tags-input placeholder="Add Lesson Tags" id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
+          <auto-complete source="loadTags($query)"></auto-complete>
+        </tags-input>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 
-</form>
-    <div>{{lesson}}</div>
 <table class="table">
   <thead>
   <tr>
@@ -48,10 +80,10 @@
       <preview-complete exercise="exercise"></preview-complete>
     </td>
     <td ng-if="exercise.type=='match' ">
-      <edit-match  exercise="exercise"></edit-match>
+      <edit-match exercise="exercise"></edit-match>
     </td>
     <td ng-if="exercise.type=='match' ">
-      <preview-match  exercise="exercise"></preview-match>
+      <preview-match exercise="exercise"></preview-match>
     </td>
 
     <td ng-if="exercise.type=='mix' ">
@@ -61,14 +93,12 @@
       <preview-mix exercise="exercise"></preview-mix>
     </td>
 
-
     <td ng-if="exercise.type=='text' ">
       <edit-text></edit-text>
     </td>
     <td ng-if="exercise.type=='text' ">
-      <preview-text ></preview-text>
+      <preview-text></preview-text>
     </td>
-
 
     <td ng-if="exercise.type=='question' ">
       <edit-question exercise="exercise"></edit-question>
@@ -83,7 +113,6 @@
     <td ng-if="exercise.type=='vocabulary' ">
       <preview-vocabulary exercise="exercise"></preview-vocabulary>
     </td>
-
 
     <td ng-if="exercise.type=='video' ">
       <edit-video exercise="exercise"></edit-video>
@@ -107,3 +136,6 @@
 <div class="well">
   <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
 </div>
+
+
+<div>{{lesson}}</div>

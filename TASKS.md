@@ -63,6 +63,8 @@ When user start a lesson - a document should be create with
 ## Stage1.5 - Content
 Write a few lessons making sure we have all it takes to go for the demo.
 
+## Stage1.6
+Integrate multilingual UI
 
 ##Stage1.9.o Optional video exercise
 Basic video exercise
@@ -71,6 +73,7 @@ https://github.com/brandly/angular-youtube-embed
 looks simple
 
 ### Status Started
+
 
 
 # stage 2 - DEMO
