@@ -80,4 +80,11 @@ def init_db(db):
         db['tag'].insert({'name':'Intermediate','language':'en'})
     except:
         pass
+
+    try:
+        db.create_collection('rating')
+    except:
+        pass
+    db['rating'].ensure_index([('lesson_id',pymongo.ASCENDING),('user_id',pymongo.ASCENDING)], unique=True)
+
     #db['lesson_practice'].ensure_index({'username':1,'lesson_id':1,'exercise_id':1}, unique=True)

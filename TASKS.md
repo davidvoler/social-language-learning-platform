@@ -1,8 +1,7 @@
-tasks 
-=====
+# tasks 
 
-stage1 - basic concepts
------------------------
+
+# Stage1 - basic concepts
 This stage will include most basic functionality 
 
 languages - done 
@@ -53,8 +52,7 @@ User can practice vocabulary
 ### Status
 
 
-Stage1.4 - My Lessons
----------------------
+## Stage1.4 - My Lessons
 List of lessons for user
 Level for each lesson
 When user start a lesson - a document should be create with
@@ -62,13 +60,11 @@ When user start a lesson - a document should be create with
 
 
 
-Stage1.5 - Content
-------------------
+## Stage1.5 - Content
 Write a few lessons making sure we have all it takes to go for the demo.
 
 
-Stage1.9.o Optional video exercise
-----------------------------------
+##Stage1.9.o Optional video exercise
 Basic video exercise
 
 https://github.com/brandly/angular-youtube-embed
@@ -78,7 +74,7 @@ looks simple
 
 
 # stage 2 - DEMO
---------------
+
 In this stage the demo site can be viewed by anyone 
 google auth - or facebook auth 
 intuitive - simple design
@@ -92,18 +88,26 @@ Tagging of lesson
 https://github.com/mbenford/ngTagsInput
 
 
-Stage2.2 - rating
------------------
+## Stage2.2 - rating
 Users can rate lessons
+Rating is a angular-ui-bootstrap component
 
 
-Stage2.3 - More Social Login
-----------------------------
+## Stage2.3.o - More Social Login
+
 Facebook
 Twitter
 Improve Google+
 Consider more social login providers
 
+
+#Stage 3 - Marketing
+
+Finding newsgroups where people might be interesting in the idea
+
+Interest people and groups that are 
+* Software related - as an example of a complete Tornado, Mongodb, Angular project
+* Language teacher news groups 
 
 
 
@@ -124,4 +128,8 @@ https://github.com/angular-ui/ui-router
 
 small issues
 ------------
-- Tornado should restart if html or javascript change
+Tornado should restart if html or javascript change
+
+We can use add watch but this is for a single file 
+We need to create a utility that will watch a complete directory.
+Another solution would be to use nginx during development 

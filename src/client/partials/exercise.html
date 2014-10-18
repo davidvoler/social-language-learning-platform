@@ -24,7 +24,11 @@
     <button ng-click="nextExercise()" class="btn btn-info">Next</button>
  </div>
 
-
+<div>
+<rating ng-model="x" max="5"></rating>
+<rating ng-model="x" max="5" state-on="'glyphicon-star'" state-off="'glyphicon-star-empty'"></rating>
+</div>
 <div>Debug</div>
 <div>{{exercise}}</div>
 <div>{{lesson}}</div>
+

@@ -26,6 +26,7 @@ angular.module('sllp.app')
         $scope.exid = $scope.exid - 1;
         $scope.exercise = $scope.lesson.exercises[idx];
       };
+      $scope.x = 3;
 
     }
   ]
