@@ -36,40 +36,60 @@
 <table class="table">
   <thead>
   <tr>
-    <td>Edit/Preview</td>
-    <td>Exercise</td>
+    <td>Edit</td>
+    <td>Preview</td>
   </tr>
   </thead>
   <tr ng-repeat="exercise in lesson.exercises">
-    <td>
-      <button ng-if="!exercise.editState" ng-click="exercise.editState = true;">Edit</button>
-      <button ng-if="exercise.editState" ng-click="exercise.editState = false;">Preview</button>
+    <td ng-if="exercise.type=='complete' ">
+      <edit-complete exercise="exercise"></edit-complete>
     </td>
-    <td>
+    <td ng-if="exercise.type=='complete' ">
+      <preview-complete exercise="exercise"></preview-complete>
+    </td>
+    <td ng-if="exercise.type=='match' ">
+      <edit-match  exercise="exercise"></edit-match>
+    </td>
+    <td ng-if="exercise.type=='match' ">
+      <preview-match  exercise="exercise"></preview-match>
+    </td>
 
-      <edit-complete ng-if="exercise.type=='complete' "
-                     exercise="exercise"></edit-complete>
-      <preview-complete ng-if="exercise.type=='complete'"
-                     exercise="exercise"></preview-complete>
+    <td ng-if="exercise.type=='mix' ">
+      <edit-mix exercise="exercise"></edit-mix>
+    </td>
+    <td ng-if="exercise.type=='mix' ">
+      <preview-mix exercise="exercise"></preview-mix>
+    </td>
 
-      <edit-match ng-if="exercise.type=='match'" exercise="exercise"></edit-match>
-      <preview-match ng-if="exercise.type=='match'" exercise="exercise"></preview-match>
+
+    <td ng-if="exercise.type=='text' ">
+      <edit-text></edit-text>
+    </td>
+    <td ng-if="exercise.type=='text' ">
+      <preview-text ></preview-text>
+    </td>
 
 
-      <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
-      <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
+    <td ng-if="exercise.type=='question' ">
+      <edit-question exercise="exercise"></edit-question>
+    </td>
+    <td ng-if="exercise.type=='question' ">
+      <preview-question exercise="exercise"></preview-question>
+    </td>
 
-      <edit-text ng-if="exercise.type=='text' && exercise.editState"></edit-text>
-      <preview-text ng-if="exercise.type=='text' && !exercise.editState "></preview-text>
+    <td ng-if="exercise.type=='vocabulary' ">
+      <edit-vocabulary exercise="exercise"></edit-vocabulary>
+    </td>
+    <td ng-if="exercise.type=='vocabulary' ">
+      <preview-vocabulary exercise="exercise"></preview-vocabulary>
+    </td>
 
-      <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
-      <preview-question ng-if="exercise.type=='question'" exercise="exercise"></preview-question>
 
-      <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
-      <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
-
-      <edit-video ng-if="exercise.type=='video'" exercise="exercise"></edit-video>
-      <preview-video ng-if="exercise.type=='video'" exercise="exercise"></preview-video>
+    <td ng-if="exercise.type=='video' ">
+      <edit-video exercise="exercise"></edit-video>
+    </td>
+    <td ng-if="exercise.type=='video' ">
+      <preview-video exercise="exercise"></preview-video>
     </td>
 
   </tr>
