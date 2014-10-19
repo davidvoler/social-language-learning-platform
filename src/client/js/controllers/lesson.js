@@ -4,15 +4,16 @@ angular.module('sllp.app')
  .controller('LessonAddController', ['$scope', '$location','$http', 'Lesson','Language',
     function ($scope, $location,$http, Lesson, Language) {
       $scope.error = '';
+      $scope.exerciseResults = [];
       $scope.lesson = {
         title: '',
         description: '',
         tags: [],
         exercises:[],
         language:'',
-        explanation_language:''
+        explanation_language:'',
+        last_exercise_id:0
       };
-
       $scope.loadTags = function(query) {
                      return $http.get('/api/tag?query=' + query);
       };
@@ -43,7 +44,18 @@ angular.module('sllp.app')
         });
       };
       $scope.addExercise = function(exercise_type){
-        $scope.lesson.exercises.push({type:exercise_type ,name:'', editState:true});
+        $scope.lesson.exercises.push({type:exercise_type ,
+                            id: $scope.lesson.last_exercise_id,
+                            name:'',
+                            editState:true});
+        $scope.exerciseResults.push({id:$scope.lesson.last_exercise_id,
+                                     correct:0});
+        $scope.lesson.last_exercise_id++;
+      };
+      $scope.deleteExercise = function(idx){
+        //delete from both lesson.exercises and exerciseResults
+        $scope.lesson.exercises.splice(idx,1);
+        $scope.exerciseResults.splice(idx,1);
       };
     }
   ]

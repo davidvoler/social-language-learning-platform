@@ -42,6 +42,30 @@ For each exercise type add
 * Delete Exercise
 * Move template url into templates
 
+### Practice Directive - Format
+ 
+ Provide a link method
+ init()
+    Initialization from row exercise date
+ User interaction 
+    onclick onexit onkeydown
+ 
+Q: How do we report a correct/wrong answer?
+
+A1: The correct way would be to wrap each preview directive inside a transclude directive
+
+A2: We could also simply call the controller on-correct() and on-incorrect() method and let the controller 
+ report to the server if needed and change ui. This option prepares for the A1 - transclude directive
+
+A3: The simplest way is to add interaction area inside each preview directive
+
+
+Where do we save correct/incorrect info:
+* inside exercise, delete it before save
+* in a separate list - this way we can save it to user's lesson exercise
+I think second options is better 
+
+
 
 ### Status - Started
 

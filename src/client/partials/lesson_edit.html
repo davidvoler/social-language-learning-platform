@@ -1,34 +1,6 @@
 <h3>{{lesson.title}}</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
 <div class="well">
-
-  <!--
-  <form role="form" class="form-inline">
-    <div class="form-group">
-      <label class="sr-only"  for="title">Title</label>
-      <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
-    </div>
-    <div class="form-group">
-      <label class="sr-only"  for="language">Language</label>
-      <select id="language" ng-model="lesson.language" class="form-control">
-        <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="sr-only" for="explanation_language">Explanation Language</label>
-      <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
-        <option value="" disabled selected >Explanation Language</option>
-        <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <tags-input placeholder="Add Lesson Tags" id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
-      <auto-complete  source="loadTags($query)"></auto-complete>
-    </tags-input>
-    </div>
-
-  </form>
-  -->
   <table>
     <thead>
     <tr>
@@ -69,59 +41,35 @@
   <thead>
   <tr>
     <td class="col-md-6">Edit</td>
-    <td class="col-md-6">Preview</td>
+    <td class="col-md-5">Preview</td>
+    <td class="col-md-1">Action</td>
   </tr>
   </thead>
-  <tr ng-repeat="exercise in lesson.exercises">
-    <td ng-if="exercise.type=='complete' ">
-      <edit-complete exercise="exercise"></edit-complete>
+  <tbody>
+  <tr ng-repeat="exercise in lesson.exercises track by $index">
+    <td>
+      <edit-complete ng-if="exercise.type=='complete'" exercise="exercise"></edit-complete>
+      <edit-match ng-if="exercise.type=='match'" exercise="exercise"></edit-match>
+      <edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></edit-mix>
+      <edit-text ng-if="exercise.type=='text'"></edit-text>
+      <edit-question ng-if="exercise.type=='question'" exercise="exercise"></edit-question>
+      <edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></edit-vocabulary>
+      <edit-video ng-if="exercise.type=='video'" exercise="exercise"></edit-video>
     </td>
-    <td ng-if="exercise.type=='complete' ">
-      <preview-complete exercise="exercise"></preview-complete>
+    <td>
+      <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
+      <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
+      <preview-complete ng-if="exercise.type=='complete'" exercise="exercise"></preview-complete>
+      <preview-match ng-if="exercise.type=='match'" exercise=" exercise"></preview-match>
+      <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
+      <preview-text ng-if="exercise.type=='text'"></preview-text>
+      <preview-question ng-if="exercise.type=='question'" exercise="exercise"></preview-question>
+      <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
+      <preview-video ng-if="exercise.type=='video'" exercise="exercise"></preview-video>
     </td>
-    <td ng-if="exercise.type=='match' ">
-      <edit-match exercise="exercise"></edit-match>
-    </td>
-    <td ng-if="exercise.type=='match' ">
-      <preview-match exercise="exercise"></preview-match>
-    </td>
-
-    <td ng-if="exercise.type=='mix' ">
-      <edit-mix exercise="exercise"></edit-mix>
-    </td>
-    <td ng-if="exercise.type=='mix' ">
-      <preview-mix exercise="exercise"></preview-mix>
-    </td>
-
-    <td ng-if="exercise.type=='text' ">
-      <edit-text></edit-text>
-    </td>
-    <td ng-if="exercise.type=='text' ">
-      <preview-text></preview-text>
-    </td>
-
-    <td ng-if="exercise.type=='question' ">
-      <edit-question exercise="exercise"></edit-question>
-    </td>
-    <td ng-if="exercise.type=='question' ">
-      <preview-question exercise="exercise"></preview-question>
-    </td>
-
-    <td ng-if="exercise.type=='vocabulary' ">
-      <edit-vocabulary exercise="exercise"></edit-vocabulary>
-    </td>
-    <td ng-if="exercise.type=='vocabulary' ">
-      <preview-vocabulary exercise="exercise"></preview-vocabulary>
-    </td>
-
-    <td ng-if="exercise.type=='video' ">
-      <edit-video exercise="exercise"></edit-video>
-    </td>
-    <td ng-if="exercise.type=='video' ">
-      <preview-video exercise="exercise"></preview-video>
-    </td>
-
+    <td><button ng-click="deleteExercise($index)">Del</button></td>
   </tr>
+  </tbody>
 </table>
 <div class="btn-group">
   <button type="button" class="btn btn-default" ng-click="addExercise('complete')">Add Complete</button>
