@@ -57,8 +57,6 @@
       <edit-video ng-if="exercise.type=='video'" exercise="exercise"></edit-video>
     </td>
     <td>
-      <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
-      <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
       <preview-complete ng-if="exercise.type=='complete'" exercise="exercise"></preview-complete>
       <preview-match ng-if="exercise.type=='match'" exercise=" exercise"></preview-match>
       <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
@@ -66,6 +64,8 @@
       <preview-question ng-if="exercise.type=='question'" exercise="exercise"></preview-question>
       <preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></preview-vocabulary>
       <preview-video ng-if="exercise.type=='video'" exercise="exercise"></preview-video>
+      <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
+      <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
     </td>
     <td><button ng-click="deleteExercise($index)">Del</button></td>
   </tr>

@@ -88,7 +88,7 @@ angular.module('sllp.app')
             }
             //user selected a wrong answer
             $scope.setExerciseResults(id,-1)
-            console.log('in correct answer');
+            console.log('wrong answer');
 
         }
       },
