@@ -52,9 +52,9 @@ angular.module('sllp.app')
   .directive('previewComplete', function () {
     return {
       restrict: 'E',
-      scope: { exercise: '='},
+      //scope: { exercise: '='},
       //templateUrl: '/static/partials/directives/complete/preview.html'
-      link: function(scope, element, attrs) {
+      /*link: function(scope, element, attrs) {
         scope.checkCorrect = function(item,id){
             for (var i = 0;i<item.options.length;i++){
                 if (item.options[i].correct){
@@ -64,6 +64,7 @@ angular.module('sllp.app')
                         var fn = 'setExerciseResults('+id.toString()+',1)';
                         console.log(fn);
                         scope.$apply(attrs.correct);
+                        return;
                     }
                 }
             }
@@ -72,7 +73,26 @@ angular.module('sllp.app')
             console.log('in correct answer');
 
         }
+      },*/
+      controller : function($scope) {
+        $scope.checkCorrect = function(item,id){
+            for (var i = 0;i<item.options.length;i++){
+                if (item.options[i].correct){
+                    if(item.user_selection == item.options[i].val){
+                        //user selected a correct answer
+                        console.log('correct');
+                        $scope.setExerciseResults(id,1);
+                        return;
+                    }
+                }
+            }
+            //user selected a wrong answer
+            $scope.setExerciseResults(id,-1)
+            console.log('in correct answer');
+
+        }
       },
+
       template:
                 '<div>'+
                 '<span  ng-repeat="item in exercise.items">'+
