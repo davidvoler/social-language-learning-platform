@@ -5,6 +5,7 @@ angular.module('sllp.app')
     function ($scope, $location,$http, Lesson, Language) {
       $scope.error = '';
       $scope.exerciseResults = [];
+
       $scope.lesson = {
         title: '',
         description: '',
@@ -14,6 +15,15 @@ angular.module('sllp.app')
         explanation_language:'',
         last_exercise_id:0
       };
+
+      $scope.setExerciseResults = function(id,correct){
+        for(var i=0; i< $scope.exerciseResults.length;i++){
+            if (id==$scope.exerciseResults[i].id){
+                $scope.exerciseResults[i].correct=correct;
+            }
+        }
+      };
+
       $scope.loadTags = function(query) {
                      return $http.get('/api/tag?query=' + query);
       };

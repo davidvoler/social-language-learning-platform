@@ -59,7 +59,7 @@
     <td>
       <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
       <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
-      <preview-complete ng-if="exercise.type=='complete'" exercise="exercise"></preview-complete>
+      <preview-complete correct="setExerciseResults(exercise.id,1)" ng-if="exercise.type=='complete'" exercise="exercise"></preview-complete>
       <preview-match ng-if="exercise.type=='match'" exercise=" exercise"></preview-match>
       <preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></preview-mix>
       <preview-text ng-if="exercise.type=='text'"></preview-text>

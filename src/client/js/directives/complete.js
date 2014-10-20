@@ -11,6 +11,7 @@ angular.module('sllp.app')
         };
         $scope.addOptions = function () {
           $scope.exercise.items.push({type: 'select',
+            user_selection:'',
             options: [
               {val: '', correct: true},
               {val: '', correct: false},
@@ -53,11 +54,30 @@ angular.module('sllp.app')
       restrict: 'E',
       scope: { exercise: '='},
       //templateUrl: '/static/partials/directives/complete/preview.html'
+      link: function(scope, element, attrs) {
+        scope.checkCorrect = function(item,id){
+            for (var i = 0;i<item.options.length;i++){
+                if (item.options[i].correct){
+                    if(item.user_selection == item.options[i].val){
+                        //user selected a correct answer
+                        console.log('correct');
+                        var fn = 'setExerciseResults('+id.toString()+',1)';
+                        console.log(fn);
+                        scope.$apply(attrs.correct);
+                    }
+                }
+            }
+            //user selected a wrong answer
+            //scope.setExerciseResults(id,-1)
+            console.log('in correct answer');
+
+        }
+      },
       template:
                 '<div>'+
                 '<span  ng-repeat="item in exercise.items">'+
                   '<span ng-if="item.type==\'txt\'">{{item.val}}</span>'+
-                  '<select ng-if="item.type==\'select\'">'+
+                  '<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type==\'select\'">'+
                     '<option></option>'+
                     '<option ng-repeat="option in item.options">{{option.val}}</option>'+
                   '</select>'+
