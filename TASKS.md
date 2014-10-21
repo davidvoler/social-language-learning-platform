@@ -17,12 +17,12 @@ profile
 author is saved in lessons
 
 exercises:
-- complete
-- match
-- mix
-- question
-- text 
-- vocabulary
+* complete
+* match
+* mix
+* question
+* text 
+* vocabulary
 
 ### Status 
 Done
@@ -63,8 +63,12 @@ A3: The simplest way is to add interaction area inside each preview directive
 Where do we save correct/incorrect info:
 * inside exercise, delete it before save
 * in a separate list - this way we can save it to user's lesson exercise
+
 I think second options is better 
 
+### Exercise Preview login and UI
+This is the core exercise stage.
+We should go for the minimal version of ui
 
 
 ### Status - Started
@@ -153,7 +157,7 @@ later we can consider and replace it with ui-routing
 using ui routing vs url routing
 https://github.com/angular-ui/ui-router
 
-small issues
+Small issues
 ------------
 Tornado should restart if html or javascript change
 
