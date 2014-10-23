@@ -29,13 +29,32 @@ angular.module('sllp.app')
   .directive('previewMatch', function () {
     return {
       restrict: 'E',
-      scope: { exercise: '='},
+      //scope: { exercise: '='},
       //templateUrl: '/static/partials/directives/match/preview.html'
+      controller : function($scope) {
+        $scope.currentItem = 0;
+        $scope.selectedItems = [];
+        $scope.checkCorrect = function(idx,part2,id){
+          if(part2 == $scope.exercise.items[$scope.currentItem].part2){
+            $scope.selectedItems.push({value:part2,correct:true});
+            $scope.setExerciseResults(id,1);
+          }else{
+            $scope.selectedItems.push({value:part2,correct:false});
+            $scope.setExerciseResults(id,-1);
+          }
+          $scope.currentItem++;
+        }
+      },
       template:
 '<table class="table">\
 <tr ng-repeat="item in exercise.items">\
-<td>{{item.part1}}</td><td>{{item.part2}}</td>\
+<td>{{item.part1}}</td>\
+<td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>\
 </tr>\
-</table>'
+</table>\
+<div>\
+<button ng-click="checkCorrect($index,item.part2,exercise.id)" ng-repeat="item in exercise.items">{{item.part2}}</button>\
+</div>\
+'
     };
   });
