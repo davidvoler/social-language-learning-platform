@@ -46,7 +46,7 @@ For each exercise type add
  
  Provide a link method
  init()
-    Initialization from row exercise date
+    Initialization from row exercise data
  User interaction 
     onclick onexit onkeydown
  
@@ -66,12 +66,31 @@ Where do we save correct/incorrect info:
 
 I think second options is better 
 
-### Exercise Preview login and UI
-This is the core exercise stage.
-We should go for the minimal version of ui
 
 
-### Status - Started
+
+
+
+
+
+
+
+
+### Complete
+
+#### Create
+Simple version
+
+Optional
+Add Text
+Add Options
+
+#### Preview
+Simple and functional
+
+#### Practice
+
+
 
 ## Stage1.3 - Practice Vocabulary
 
@@ -80,7 +99,88 @@ User can practice vocabulary
 ### Status
 
 
-## Stage1.4 - My Lessons
+## Stage 1.4 Mark 
+I simple way is implemented - with 1 for correct and -1 for wrong
+The problem is that this will not work if there is more than one element in the exercise
+ 
+Alternatives
+* Mark Option 
+The preview directive will show wrong or right
+We communicate with top controller to send a mark
+
+Mark can be 0-100 or 0-1
+On the exercise level we can set the weight of the exercise
+
+Default - for each choice the use has to make weight 1 
+In a simple complete exercise with one selection - weight will be one by default. 
+i a match exercise with 4 choices - weight will be 4 
+
+Mark calculation - Simple 
+
+Wrong =  0
+so in an exercise of 4 selections 
+if you got 3 correct and one wrong you have 3 
+
+If the lesson has 10 exercises each with 5 selection
+maximum is 50 
+minimum is 0
+After incorrect choice you can correct your choice but this will not change your mark.
+
+Another options is that in each wrong choice you loose another mark - this way mark can also be negative
+
+Lesson has 10 exercises each with 10 selection
+maximum is 100
+
+Each selection has 4 choices - maximum 3 wrong choices
+Say that a user always takes the 3 wrong choices so he has -3 and then a correct choice 
+now it becomes -2
+minimum is -200
+
+Learning languages is about practice rather than having it once correct.
+However if a user gets a complete lesson correct the lesson might be too easy for him
+
+The options for level of knowledge of a word or language property are:
+
+1. I know it 
+2. I have learned it but I might need more practice in the future
+3. I am likely to answer it correctly
+4. I have seen it more than once 
+5. It is new to me
+
+
+The practice rules should be
+
+1. do get the user to practice it         
+    practice priority: 0
+    time dependant:    no
+2. practice it after a few weeks only
+    practice priority: 1
+    time dependant:    yes    
+3. practice it - but not so often
+    practice priority: 2
+    time dependant:    yes    
+4. practice it until you get it in 3 level
+    practice priority: 3
+    time dependant:    yes    
+5. practice it once in a while - do not bother the user with too many new words
+    practice priority: 1
+    time dependant:    yes    
+
+
+An alternative is to separate lesson and vocabulary 
+in vocabulary practice - you want to create a mix of all types each time
+
+15% 5 
+40% 4
+30% 3
+10% 2
+5%  1
+
+Now we have to set value for each level
+
+
+
+## Stage1.5 - My Lessons
 List of lessons for user
 Level for each lesson
 When user start a lesson - a document should be create with
@@ -88,10 +188,10 @@ When user start a lesson - a document should be create with
 
 
 
-## Stage1.5 - Content
+## Stage1.6 - Content
 Write a few lessons making sure we have all it takes to go for the demo.
 
-## Stage1.6
+## Stage1.7
 Integrate multilingual UI
 
 ##Stage1.9.o Optional video exercise
