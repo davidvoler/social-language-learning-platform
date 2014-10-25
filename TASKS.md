@@ -70,7 +70,14 @@ I think second options is better
 
 
 
+###Directives - the deference between Preview and Practice
 
+In preview we do not do initialization as exercise changes while we watch it.
+In practice we will have all the initialization done - like shuffling answers etc.
+
+
+### Save lesson with a timeout 
+Save lessons with a timeout even if user does not choose to save. 
 
 
 
