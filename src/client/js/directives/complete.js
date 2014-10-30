@@ -91,7 +91,7 @@ angular.module('sllp.app')
       controller : function($scope) {
         $scope.init =function(){
           //shuffle exercise options
-          for (var i = 0;i<$scope.exercise.items){
+          for (var i = 0;i<$scope.exercise.items;i++){
             if ($scope.exercise.items[i].type=='options'){
                 $scope.exercise.items[i].options = Shuffle($scope.exercise.items[i].options);
             }
