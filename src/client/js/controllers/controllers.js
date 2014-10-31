@@ -12,10 +12,4 @@ angular.module('sllp.app')
       $scope.controllerName = 'AboutController';
     }
   ]
-)
-  .controller('ProfileController', ['$scope',
-    function ($scope) {
-      $scope.controllerName = 'ProfileController';
-    }
-  ]
 );
