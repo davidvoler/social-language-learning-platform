@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: social-language-learning-platform\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.4\n"
+"Language: he\n"
+
+#: partials/about.html
+msgid "About"
+msgstr "אודות"
+
+#: partials/exercise.html
+msgid "Lesson: {{lesson.title}}"
+msgstr "שיעורים: {{lesson.title}}"
+
+#: ../templates/index.html
+msgid "Social Language Learning Platform"
+msgstr "פלטפורמה חברתית ללמוד שפות"
