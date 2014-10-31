@@ -22,8 +22,8 @@ angular.module('sllp.app')
     );
   }
 ])
-.service('Language', ['$resource',
-  function ($resource) {
+.service('Language', ['$resource','gettextCatalog',
+  function ($resource,gettextCatalog) {
     var service = {languages:false};
     var languageResource =  $resource('/api/language', {},
       {update: {method: 'PUT'}}
@@ -33,6 +33,9 @@ angular.module('sllp.app')
         service.languages = languageResource.query();
     };
     service.load();
+    service.setUiLanguage= function(lang_code){
+        gettextCatalog.setCurrentLanguage(lang_code);
+    };
     return service
   }
 ])

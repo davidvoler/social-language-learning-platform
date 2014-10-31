@@ -7,5 +7,6 @@ angular.module('sllp.app', [
   'ngRoute',
   'ui.bootstrap',
   'youtube-embed',
-  'ngTagsInput'
+  'ngTagsInput',
+    'gettext'
 ]);

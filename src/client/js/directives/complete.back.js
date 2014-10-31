@@ -35,17 +35,17 @@ angular.module('sllp.app')
       },
       //templateUrl: '/static/partials/directives/complete/edit11.html'
       template:
-                '<div class="row">'+
-                '<div  class="col-md-4" ng-repeat="item in exercise.items">'+
-                '<input ng-if="item.type==\'txt\'" placeholder="text part" ng-model="item.val">'+
-                '<div ng-if="item.type==\'select\'">'+
-                '<div ng-repeat="o in item.options">'+
-                    '<input size="15" placeholder="option"  ng-model="o.val">'+
-                    '<input title="correct" type="checkbox" ng-model="o.correct">'+
-                '</div>'+
-                '</div>'+
-                '</div>'+
-                '</div>'
+'<div class="row">'+
+'<div  class="col-md-4" ng-repeat="item in exercise.items">'+
+'<input ng-if="item.type==\'txt\'" placeholder="text part" ng-model="item.val">'+
+'<div ng-if="item.type==\'select\'">'+
+'<div ng-repeat="o in item.options">'+
+    '<input size="15" placeholder="option"  ng-model="o.val">'+
+    '<input title="correct" type="checkbox" ng-model="o.correct">'+
+'</div>'+
+'</div>'+
+'</div>'+
+'</div>'
 
     };
   })
@@ -94,14 +94,14 @@ angular.module('sllp.app')
       },
 
       template:
-                '<div>'+
-                '<span  ng-repeat="item in exercise.items">'+
-                  '<span ng-if="item.type==\'txt\'">{{item.val}}</span>'+
-                  '<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type==\'select\'">'+
-                    '<option></option>'+
-                    '<option ng-repeat="option in item.options">{{option.val}}</option>'+
-                  '</select>'+
-                '</span>'+
-                '</div>'
+'<div>'+
+'<span  ng-repeat="item in exercise.items">'+
+  '<span ng-if="item.type==\'txt\'">{{item.val}}</span>'+
+  '<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type==\'select\'">'+
+    '<option></option>'+
+    '<option ng-repeat="option in item.options">{{option.val}}</option>'+
+  '</select>'+
+'</span>'+
+'</div>'
     };
   });
