@@ -5,12 +5,13 @@ module.exports = function (grunt) {
         nggettext_extract: {
             pot: {
                 files: {
-                    'po/partials.pot': ['partials/*.html'],
-                    'po/directives.pot': ['partials/directives/*.html','partials/directives/complete/*.html'],
-                    'po/templates.pot': ['../templates/*.html']
+                    'po/templates.pot': ['partials/*.html','partials/directives/*.html','../templates/*.html']
+                    //,
+                    //'po/directives.pot': ['partials/directives/*.html','partials/directives/complete/*.html'],
+                    //'po/template.pot': ['../templates/*.html']
 
                 }
-            },
+            }
         },
 
         nggettext_compile: {
@@ -18,8 +19,8 @@ module.exports = function (grunt) {
                 files: {
                     'js/translations.js': ['po/*.po']
                 }
-            },
-        },
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-angular-gettext');

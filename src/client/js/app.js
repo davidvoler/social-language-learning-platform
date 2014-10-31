@@ -8,5 +8,9 @@ angular.module('sllp.app', [
   'ui.bootstrap',
   'youtube-embed',
   'ngTagsInput',
-    'gettext'
+  'gettext'
 ]);
+
+angular.module('sllp.app').run(function (gettextCatalog) {
+    gettextCatalog.setCurrentLanguage('it');
+});

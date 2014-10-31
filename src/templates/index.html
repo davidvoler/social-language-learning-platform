@@ -9,7 +9,6 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
 
-
   <style type="text/css">
     header {
       margin-bottom: 30px;
@@ -18,8 +17,8 @@
 
 <body ng-app="sllp.app">
 <header class="navbar navbar-default navbar-static-top" role="banner">
-  <div class="container"  ng-controller="LoginController">
-    <div class="navbar-header" >
+  <div class="container" ng-controller="LoginController">
+    <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -36,13 +35,13 @@
         <li>
           <a href="#/profile">Profile</a>
         </li>
-        <li >
+        <li>
           <a href="#/help">Help</a>
         </li>
-        <li >
+        <li>
           <a href="#/about">About</a>
         </li>
-        <li >
+        <li>
           <a href="#" ng-click="logout();">Logout</a>
         </li>
         <li>
@@ -50,6 +49,17 @@
         </li>
         <li>
           <a href="/api/auth/google">Login With Google</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Languages
+            <b class="caret"></b>
+          </a>
+          <ul ng-controller="ProfileController" class="dropdown-menu">
+            <li ng-repeat="language in getLanguages()">
+              <a ng-click="setUiLanguage(language._id)" >{{!language.name}}</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -59,7 +69,7 @@
 <!-- Begin Body -->
 
 <div class="container">
-    <ng-view></ng-view>
+  <ng-view></ng-view>
 
 </div>
 {% module xsrf_form_html() %};
@@ -78,17 +88,20 @@
 <link rel="stylesheet" type="text/css" href="/static/bower_components/ng-tags-input/ng-tags-input.min.css">
 
 <script src="/static/bower_components/angular-gettext/dist/angular-gettext.min.js"></script>
+<script src="/static/js/translations.js"></script>
 
 <!-- App Code and controllers -->
 
 <script src="/static/js/app.js"></script>
 <script>
-angular.module('sllp.app').config(function($httpProvider) {
+  angular.module('sllp.app').config(function ($httpProvider) {
     var _xsrf = document.getElementsByName('_xsrf');
     var xsrf_val = _xsrf[0].value;
     $httpProvider.defaults.headers.common['X-XSRFToken'] = xsrf_val;
-});
+  });
 </script>
+
+
 <script src="/static/js/utils.js"></script>
 <script src="/static/js/config.js"></script>
 <script src="/static/js/services.js"></script>
@@ -98,6 +111,7 @@ angular.module('sllp.app').config(function($httpProvider) {
 <script src="/static/js/controllers/lesson.js"></script>
 <script src="/static/js/controllers/home.js"></script>
 <script src="/static/js/controllers/exercise.js"></script>
+<script src="/static/js/controllers/profile.js"></script>
 
 
 <script src="/static/js/directives/complete.js"></script>
@@ -107,8 +121,6 @@ angular.module('sllp.app').config(function($httpProvider) {
 <script src="/static/js/directives/text.js"></script>
 <script src="/static/js/directives/vocabulary.js"></script>
 <script src="/static/js/directives/video.js"></script>
-
-
 
 
 </body>
