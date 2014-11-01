@@ -7,14 +7,36 @@ A social site for learning and practicing foreign languages
 The Idea
 --------
 
+* A platform enabling anyone to learn any language for free. 
+* Language content is created and improved by the users
+* Lessons can be translated from one language to another 
 
 
+Status
+------
+This project is in an alpha stage, looking for contributors. 
 
+Technologies
+------------
+
+We are currently using:
+
+* Python/Tornado
+* Mongodb
+* Angualrjs
+* Twitter Bootstrap
+
+Based on the mongodb-tornado-angular https://github.com/davidvoler/mongodb-tornado-angular
+
+Demo Site
+---------
+We have created a temporary Demo Site 
+http://ec2-54-69-159-238.us-west-2.compute.amazonaws.com/
 
 
 
 Installation
-============
+------------
 if you do not have python installed and access to a mongodb database please refer to install software later
 
 linux/mac
