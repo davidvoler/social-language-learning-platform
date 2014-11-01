@@ -3,12 +3,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: partials/lesson_edit.html
+msgid "<i class=\"glyphicon glyphicon-question-sign\"> </i>Help"
+msgstr ""
+
 #: partials/about.html
 msgid "About"
 msgstr ""
 
+#: partials/lesson_edit.html
+msgid "Action"
+msgstr ""
+
+#: partials/lesson_edit.html
+msgid "Create Lessson"
+msgstr ""
+
+#: partials/lesson_edit.html
+msgid "Edit"
+msgstr ""
+
+#: partials/lesson_edit.html
+msgid "Help"
+msgstr ""
+
+#: ../templates/index.html
+msgid ""
+"Languages\n"
+"            <b class=\"caret\"></b>"
+msgstr ""
+
 #: partials/exercise.html
 msgid "Lesson: {{lesson.title}}"
+msgstr ""
+
+#: partials/lesson_edit.html
+msgid "Preview"
 msgstr ""
 
 #: ../templates/index.cdn.html

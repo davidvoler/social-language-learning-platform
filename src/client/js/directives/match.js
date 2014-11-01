@@ -23,7 +23,25 @@ angular.module('sllp.app')
         $scope.init();
 
       },
-      templateUrl: '/static/partials/directives/match/edit.html'
+    //templateUrl: '/static/partials/directives/match/edit.html'
+    template:
+
+'<div class="help" translate>Match exercise requires the student to match two parts of a phrase</div>\
+<table class="table">\
+  <thead>\
+  <tr>\
+    <td trnaslate>Part 1 </td>\
+    <td trnaslate>Part 2 </td>\
+  </tr>\
+  </thead>\
+  <tbody>\
+  <tr ng-repeat="item in exercise.items" >\
+    <td><input ng-model="item.part1" placeholder="part1"></td>\
+    <td><input ng-model="item.part2" placeholder="part2"></td>\
+  </tr>\
+  </tbody>\
+</table>\
+<div><button translate ng-click="addItem()">Add</button></div>'
     };
   })
   .directive('previewMatch', function () {
@@ -46,7 +64,8 @@ angular.module('sllp.app')
         }
       },
       template:
-'<table class="table">\
+'<div class="help" translate>Match the correct option</div>\
+<table class="table">\
 <tr ng-repeat="item in exercise.items">\
 <td>{{item.part1}}</td>\
 <td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>\

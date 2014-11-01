@@ -24,7 +24,7 @@ angular.module('sllp.app')
 
     },
       template:
-      '<div>question:<input placeholder="question" ng-model="exercise.question"></div>\
+      '<div translate>question:<input placeholder="question" ng-model="exercise.question"></div>\
       <div ng-repeat="a in exercise.answers">\
       answer:<input placeholder="answer" ng-model="a.answer">\
       correct:<input type="checkbox" ng-model="a.correct">\
@@ -42,6 +42,10 @@ angular.module('sllp.app')
       template:
       '<div>{{exercise.question}}</div>\
       <div ng-repeat="a in exercise.answers" >\
-      {{a.answer}} <input type="checkbox"></div>'
+      <label>\
+      <input type="checkbox" value="">\
+      {{a.answer}}\
+      </label>\
+      </div>'
     };
   });
