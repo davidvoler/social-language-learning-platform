@@ -10,7 +10,8 @@ The Idea
 * A platform enabling anyone to learn any language for free. 
 * Language content is created and improved by the users
 * Lessons can be translated from one language to another 
-
+* The platform should be open source
+* The platform should cater for different languages with special needs like RTL languages, Languages that have no written script etc.
 
 Status
 ------
