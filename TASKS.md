@@ -210,6 +210,14 @@ looks simple
 ### Status Started
 
 
+###localization 
+Gettext translation
+Started
+
+### Help for exercise creation
+Use simple inline help. with help css class
+When a help link is needed consider using some help directive based on:
+http://plnkr.co/edit/2jK2GFcKSiKgMQMynD1R?p=preview
 
 # stage 2 - DEMO
 

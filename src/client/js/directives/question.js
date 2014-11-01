@@ -24,7 +24,8 @@ angular.module('sllp.app')
 
     },
       template:
-      '<div translate>question:<input placeholder="question" ng-model="exercise.question"></div>\
+      '<div class="help" translate>A question with a few possible answers</div>\
+       <div translate>question:<input placeholder="question" ng-model="exercise.question"></div>\
       <div ng-repeat="a in exercise.answers">\
       answer:<input placeholder="answer" ng-model="a.answer">\
       correct:<input type="checkbox" ng-model="a.correct">\

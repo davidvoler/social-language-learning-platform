@@ -26,8 +26,8 @@ angular.module('sllp.app')
       },
       template:
 '<div class="help" translate>Phrase words will be mixed and the student will have to put them in the right order</div>\
-<div><input ng-change="setWords()" ng-model="exercise.text" placeholder="phrase">\
-<input ng-model="exercise.distraction" placeholder="distraction - (optional)">\
+<div><input ng-change="setWords()" ng-model="exercise.text" class="form-control" placeholder="phrase">\
+<input ng-model="exercise.distraction" class="form-control" placeholder="distraction - (optional)">\
 </div>'
     };
   })

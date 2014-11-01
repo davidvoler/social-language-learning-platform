@@ -14,7 +14,7 @@ angular.module('sllp.app')
         };
         $scope.init();
       },
-      templateUrl: '/static/partials/directives/video/edit.html'
+      templateUrl: '/static/partials/directives/video_edit.html'
     };
   })
   .directive('previewVideo', function () {
@@ -36,7 +36,7 @@ angular.module('sllp.app')
         }
       }
       },
-      templateUrl: '/static/partials/directives/video/preview.html'
+      templateUrl: '/static/partials/directives/video_preview.html'
     };
 
   });

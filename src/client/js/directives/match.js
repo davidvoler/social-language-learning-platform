@@ -73,7 +73,6 @@ angular.module('sllp.app')
 </table>\
 <div>\
 <button ng-click="checkCorrect($index,item.part2,exercise.id)" ng-repeat="item in exercise.items">{{item.part2}}</button>\
-</div>\
-'
+</div>'
     };
   });

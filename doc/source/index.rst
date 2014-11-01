@@ -12,6 +12,13 @@ Contents:
    :maxdepth: 2
 
 
+   About
+   Demo Site
+   Installation
+   How to contribute?
+
+
+
 
 Indices and tables
 ==================
