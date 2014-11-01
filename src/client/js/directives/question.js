@@ -23,6 +23,8 @@ angular.module('sllp.app')
       init();
 
     },
+      templateUrl: '/static/partials/directives/text_edit.html'
+/*
       template:
       '<div class="help" translate>A question with a few possible answers</div>\
        <div translate>question:<input placeholder="question" ng-model="exercise.question"></div>\
@@ -30,7 +32,7 @@ angular.module('sllp.app')
       answer:<input placeholder="answer" ng-model="a.answer">\
       correct:<input type="checkbox" ng-model="a.correct">\
       </div>'
-
+*/
     };
   })
 
@@ -40,6 +42,9 @@ angular.module('sllp.app')
       //scope: {exercise: "="},
       controller: function ($scope) {
       },
+      templateUrl: '/static/partials/directives/text_preview.html'
+/*
+
       template:
       '<div>{{exercise.question}}</div>\
       <div ng-repeat="a in exercise.answers" >\
@@ -48,5 +53,6 @@ angular.module('sllp.app')
       {{a.answer}}\
       </label>\
       </div>'
+*/
     };
   });

@@ -24,12 +24,16 @@ angular.module('sllp.app')
 
 
       },
+      templateUrl: '/static/partials/directives/mix_edit.html'
+/*
       template:
 '<div class="help" translate>Phrase words will be mixed and the student will have to put them in the right order</div>\
 <div><input ng-change="setWords()" ng-model="exercise.text" class="form-control" placeholder="phrase">\
 <input ng-model="exercise.distraction" class="form-control" placeholder="distraction - (optional)">\
 </div>'
+*/
     };
+
   })
   .directive('previewMix', function () {
     return {
@@ -53,12 +57,13 @@ angular.module('sllp.app')
         };
 
       },
-      //templateUrl: '/static/partials/directives/mix/preview.html'
-      template:
+    templateUrl: '/static/partials/directives/mix_preview.html'
+/*      template:
 
 '<div translate class="help">Put the words in the correct order</div>\
 <div class="answer"><button ng-click="moveBack($index)" ng-repeat="a in exercise.answerWords track by $index">{{a}}</button></div>\
 <div class="words"><button ng-click="moveAnswer($index)" ng-repeat="a in exercise.words track by $index">{{a}}</button></div>'
+*/
     };
 
   });

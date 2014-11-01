@@ -23,9 +23,8 @@ angular.module('sllp.app')
         $scope.init();
 
       },
-    //templateUrl: '/static/partials/directives/match/edit.html'
-    template:
-
+    templateUrl: '/static/partials/directives/match_edit.html'
+/*    template:
 '<div class="help" translate>Match exercise requires the student to match two parts of a phrase</div>\
 <table class="table">\
   <thead>\
@@ -42,6 +41,7 @@ angular.module('sllp.app')
   </tbody>\
 </table>\
 <div><button translate ng-click="addItem()">Add</button></div>'
+*/
     };
   })
   .directive('previewMatch', function () {
@@ -63,6 +63,8 @@ angular.module('sllp.app')
           $scope.currentItem++;
         }
       },
+      templateUrl:'/static/partials/directives/match_preview.html'
+/*
       template:
 '<div class="help" translate>Match the correct option</div>\
 <table class="table">\
@@ -74,5 +76,6 @@ angular.module('sllp.app')
 <div>\
 <button ng-click="checkCorrect($index,item.part2,exercise.id)" ng-repeat="item in exercise.items">{{item.part2}}</button>\
 </div>'
+*/
     };
   });

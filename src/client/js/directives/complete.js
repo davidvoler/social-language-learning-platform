@@ -33,8 +33,8 @@ angular.module('sllp.app')
         $scope.init();
 
       },
-      //templateUrl: '/static/partials/directives/complete/edit11.html'
-      template:
+      templateUrl: '/static/partials/directives/complete_edit.html'
+/*      template:
 '<div class="help" translate>Let the student match a phrase parts to each other</div>\
 <div class="row">\
 <div  class="col-md-4" ng-repeat="item in exercise.items">\
@@ -47,7 +47,7 @@ angular.module('sllp.app')
 </div>\
 </div>\
 </div>'
-
+*/
     };
   })
   .directive('previewComplete', function () {
@@ -72,8 +72,8 @@ angular.module('sllp.app')
 
         }
       },
-
-      template:
+      templateUrl:'/static/partials/directives/complete_preview.html'
+/*      template:
 '<div class="help" translate>choose the correct option to complete the phrase</div>\
 <div>\
 <span  ng-repeat="item in exercise.items">\
@@ -84,6 +84,7 @@ angular.module('sllp.app')
 </select>\
 </span>\
 </div>'
+*/
     };
   })
   .directive('practiceComplete', function () {
@@ -121,8 +122,8 @@ angular.module('sllp.app')
 
         };
       },
-
-      template:
+      templateUrl:'/static/partials/directives/complete_preview.html'
+      /*template:
 '<div class="help" translate>choose part to match current phrase</div>'+
 '<div>'+
 '<span  ng-repeat="item in exercise.items">'+
@@ -132,7 +133,7 @@ angular.module('sllp.app')
 '<option ng-repeat="option in item.options">{{option.val}}</option>'+
 '</select>'+
 '</span>'+
-'</div>'
+'</div>'*/
     };
   });
 

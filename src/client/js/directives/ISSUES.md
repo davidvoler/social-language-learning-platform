@@ -17,3 +17,9 @@ Text is simple - it has no ng-repeat inside it.
 Errors might be the of cached template
 
 Using template instead of templateUrl solves the problem
+
+UPDATE: working with internal templates is less comfortable and it is not supported by angular-gettext
+A better solution is to disable Disable cache
+http://stackoverflow.com/questions/14718826/angularjs-disable-partial-caching-on-dev-machine
+
+

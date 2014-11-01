@@ -14,12 +14,14 @@ angular.module('sllp.app')
         };
         $scope.init();
       },
-      template:
+      templateUrl: '/static/partials/directives/text_edit.html'
+/*      template:
 '<div class="help" translate>Explanation, or a text easy that might follow with questions</div>\
 <div translate>Edit Text</div>\
 <label class="item item-input item-input-inset">\
 <textarea class="form-control" rows="3" placeholder="Text" ng-model="exercise.text" ></textarea>\
 </label>'
+*/
     };
   })
   .directive('previewText', function () {

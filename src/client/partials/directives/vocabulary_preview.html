@@ -1,7 +1,9 @@
-<div class="help" translate>Select the matching translation for the words</div>
-<div class="list list inset">
-  <div class="item row" ng-repeat="item in exercise.items">
-    <div class="col col-50">{{item.term}} </div>
-    <div class="col col-50">{{item.translation}} </div>
-  </div>
+<table class="table">
+<tr ng-repeat="item in exercise.items">
+<td>{{item.term}}</td>
+<td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>
+</tr>
+</table>
+<div>
+<button ng-click="checkCorrect($index,item.translation,exercise.id)" ng-repeat="item in exercise.items">{{item.translation}}</button>
 </div>

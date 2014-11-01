@@ -22,7 +22,8 @@ angular.module('sllp.app')
         };
         $scope.init();
       },
-      template:
+      templateUrl: '/static/partials/directives/vocabulary_edit.html'
+/*      template:
 '<table class="table">\
   <thead>\
   <tr>\
@@ -37,6 +38,7 @@ angular.module('sllp.app')
   </tr>\
   </tbody>\
 </table>'
+*/
     };
   })
   .directive('previewVocabulary', function () {
@@ -58,6 +60,8 @@ angular.module('sllp.app')
           $scope.currentItem++;
         }
       },
+templateUrl: '/static/partials/directives/vocabulary_preview.html'
+/*
       template:
 '<table class="table">\
 <tr ng-repeat="item in exercise.items">\
@@ -67,7 +71,7 @@ angular.module('sllp.app')
 </table>\
 <div>\
 <button ng-click="checkCorrect($index,item.translation,exercise.id)" ng-repeat="item in exercise.items">{{item.translation}}</button>\
-</div>\
-'
+</div>'
+*/
     };
   });
