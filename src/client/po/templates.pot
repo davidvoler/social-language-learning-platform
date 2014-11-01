@@ -3,8 +3,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: partials/lesson_edit.html
-msgid "<i class=\"glyphicon glyphicon-question-sign\"> </i>Help"
+#: partials/directives/question_edit.html
+msgid "A question with a few possible answers"
+msgstr ""
+
+#: partials/directives/vocabulary_edit.html
+msgid "A vocabulary, a set of words and meanings/translation"
 msgstr ""
 
 #: partials/about.html
@@ -15,6 +19,14 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
+#: partials/directives/match_edit.html
+msgid "Add"
+msgstr ""
+
+#: partials/directives/video_edit.html
+msgid "Add a link to a youtube clip"
+msgstr ""
+
 #: partials/lesson_edit.html
 msgid "Create Lessson"
 msgstr ""
@@ -23,25 +35,67 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: partials/directives/text_edit.html
+msgid "Edit Text"
+msgstr ""
+
+#: partials/directives/text_edit.html
+msgid "Explanation, or a text easy that might follow with questions"
+msgstr ""
+
 #: partials/lesson_edit.html
 msgid "Help"
 msgstr ""
 
 #: ../templates/index.html
-msgid ""
-"Languages\n"
-"            <b class=\"caret\"></b>"
+msgid "Languages"
 msgstr ""
 
 #: partials/exercise.html
-msgid "Lesson: {{lesson.title}}"
+msgid "Lesson"
+msgstr ""
+
+#: partials/directives/complete_edit.html
+msgid "Let the student match a phrase parts to each other"
+msgstr ""
+
+#: partials/directives/match_edit.html
+msgid "Match exercise requires the student to match two parts of a phrase"
+msgstr ""
+
+#: partials/directives/match_preview.html
+msgid "Match the correct option"
+msgstr ""
+
+#: partials/directives/mix_edit.html
+msgid "Phrase words will be mixed and the student will have to put them in the right order"
 msgstr ""
 
 #: partials/lesson_edit.html
 msgid "Preview"
 msgstr ""
 
+#: partials/directives/mix_preview.html
+msgid "Put the words in the correct order"
+msgstr ""
+
 #: ../templates/index.cdn.html
 #: ../templates/index.html
 msgid "Social Language Learning Platform"
+msgstr ""
+
+#: partials/directives/vocabulary_edit.html
+msgid "Term"
+msgstr ""
+
+#: partials/directives/vocabulary_edit.html
+msgid "Translation"
+msgstr ""
+
+#: partials/directives/complete_preview.html
+msgid "choose part to match current phrase"
+msgstr ""
+
+#: partials/directives/question_edit.html
+msgid "question"
 msgstr ""
