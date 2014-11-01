@@ -11,6 +11,7 @@ msgstr ""
 msgid "Lesson: {{lesson.title}}"
 msgstr ""
 
+#: ../templates/index.cdn.html
 #: ../templates/index.html
 msgid "Social Language Learning Platform"
 msgstr ""

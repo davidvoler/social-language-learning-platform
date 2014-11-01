@@ -1,5 +1,7 @@
-<h3>{{lesson.title}}</h3>
+<h3 ng-if="lesson.title">{{lesson.title}}</h3>
+<h3 ng-if="!lesson.title" translate>Create Lessson</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
+
 <div class="well">
   <table>
     <thead>
@@ -8,6 +10,7 @@
       <td>Language</td>
       <td>Explanation Language</td>
       <td>Tags</td>
+      <td></td>
     </tr>
     </thead>
     <tbody>
@@ -31,6 +34,9 @@
           <auto-complete source="loadTags($query)"></auto-complete>
         </tags-input>
       </td>
+      <td>
+        <a href="#/help" translate><i class="glyphicon glyphicon-question-sign"> </i>Help</a>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -40,9 +46,10 @@
 <table class="table">
   <thead>
   <tr>
-    <td class="col-md-6">Edit</td>
-    <td class="col-md-5">Preview</td>
-    <td class="col-md-1">Action</td>
+    <td class="col-md-6" translate>Edit</td>
+    <td class="col-md-5" translate>Preview</td>
+    <td class="col-md-1" translate>Action</td>
+    <td class="col-md-1" translate>Help</td>
   </tr>
   </thead>
   <tbody>
@@ -67,8 +74,13 @@
       <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
       <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
     </td>
-    <td><button ng-click="deleteExercise($index)">Del</button></td>
-  </tr>
+    <td>
+      <button ng-click="deleteExercise($index)">Del</button>
+    </td>
+<td>
+  <a href="#/help" translate><i class="glyphicon glyphicon-question-sign"> </i>Help</a>
+</td>
+</tr>
   </tbody>
 </table>
 <div class="btn-group">
@@ -84,6 +96,5 @@
 <div class="well">
   <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
 </div>
-
 
 <div>{{lesson}}</div>
