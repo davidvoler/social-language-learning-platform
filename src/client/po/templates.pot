@@ -11,7 +11,7 @@ msgstr ""
 msgid "A vocabulary, a set of words and meanings/translation"
 msgstr ""
 
-#: partials/about.html
+#: ../templates/index.html
 msgid "About"
 msgstr ""
 
@@ -27,8 +27,18 @@ msgstr ""
 msgid "Add a link to a youtube clip"
 msgstr ""
 
+#: partials/about.html
+msgid "Create & Share a lesson"
+msgstr ""
+
 #: partials/lesson_edit.html
 msgid "Create Lessson"
+msgstr ""
+
+#: partials/about.html
+msgid ""
+"Create, Share and Learn a new languages should be free and accessible to anyone.\n"
+"    We are working on an open, extendable platform allowing anyone to easily create new language lessons."
 msgstr ""
 
 #: partials/lesson_edit.html
@@ -44,7 +54,16 @@ msgid "Explanation, or a text easy that might follow with questions"
 msgstr ""
 
 #: partials/lesson_edit.html
+#: ../templates/index.html
 msgid "Help"
+msgstr ""
+
+#: ../templates/index.html
+msgid "Home"
+msgstr ""
+
+#: partials/about.html
+msgid "How does it work?"
 msgstr ""
 
 #: ../templates/index.html
@@ -57,6 +76,10 @@ msgstr ""
 
 #: partials/directives/complete_edit.html
 msgid "Let the student match a phrase parts to each other"
+msgstr ""
+
+#: ../templates/index.html
+msgid "Login"
 msgstr ""
 
 #: partials/directives/match_edit.html
@@ -84,8 +107,24 @@ msgstr ""
 msgid "Social Language Learning Platform"
 msgstr ""
 
+#: partials/about.html
+msgid "Social Language Learning Protocol"
+msgstr ""
+
+#: partials/about.html
+msgid "Start Learning"
+msgstr ""
+
 #: partials/directives/vocabulary_edit.html
 msgid "Term"
+msgstr ""
+
+#: partials/about.html
+msgid "This project is an open source project looking for people to join."
+msgstr ""
+
+#: ../templates/index.html
+msgid "Toggle navigation"
 msgstr ""
 
 #: partials/directives/vocabulary_edit.html

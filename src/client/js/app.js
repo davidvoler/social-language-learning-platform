@@ -10,7 +10,8 @@ angular.module('sllp.app', [
   'ngTagsInput',
   'gettext'
 ]);
-
+/*
 angular.module('sllp.app').run(function (gettextCatalog) {
     gettextCatalog.setCurrentLanguage('it');
 });
+*/
