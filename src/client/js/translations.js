@@ -1,7 +1,13 @@
 angular.module('gettext').run(['gettextCatalog', function (gettextCatalog) {
 /* jshint -W100 */
+    gettextCatalog.setStrings('ar', {"About":"حول","Action":"إجراء","Add":"اضف","Edit":"تحرير","Edit Text":"حرّر النص","Help":"مساعدة","Home":"الصفحة الرئيسية","Languages":"اللغات","Lesson":"درس","Login":"لُج","Preview":"معاينة","Term":"عبارة","Translation":"ترجمة"});
+    gettextCatalog.setStrings('de', {"About":"Über","Action":"Aktion","Add":"Hinzufügen einer","Edit":"Bearbeiten","Edit Text":"Text bearbeiten","Help":"Hilfe","Home":"Startseite","Languages":"Sprachen","Lesson":"Lektion","Login":"Login","Preview":"Vorschau","Term":"Begriff","Translation":"Übersetzung"});
     gettextCatalog.setStrings('en', {"About":"About","Lesson: {{lesson.title}}":"Lesson: {{lesson.title}}","Social Language Learning Platform":"Social Language Learning Platform"});
-    gettextCatalog.setStrings('he', {"Home":"דף הבית"});
-    gettextCatalog.setStrings('it', {"About":"su","Lesson: {{lesson.title}}":"Lezione: {{lesson.title}}","Social Language Learning Platform":"Piataforma sociale per imparare le lingue"});
+    gettextCatalog.setStrings('es', {"About":"Acerca de","Action":"Acción","Add":"Añadir","Edit":"Editar","Edit Text":"Editar texto","Help":"Ayuda","Home":"Inicio","How does it work?":"¿Cómo funciona?","Languages":"Lenguajes","Lesson":"Lección","Login":"Iniciar sesión","Preview":"Vista previa","Term":"Término","Translation":"Translation"});
+    gettextCatalog.setStrings('fr', {"About":"A propos","Action":"Action","Add":"Ajouter","Edit":"Éditer","Edit Text":"Éditer le texte","Help":"Aide","Home":"Accueil","How does it work?":"Comment ça S<marche ?>","Languages":"Langages","Lesson":"Leçon.","Login":"Identifiant","Preview":"Aperçu","Term":"Terme","Translation":"Translation"});
+    gettextCatalog.setStrings('he', {"About":"אודות","Action":"פעולה","Add":"הוסף","Edit":"עריכה","Edit Text":"עריכת טקסט","Help":"עזרה","Home":"דף הבית","Languages":"שפות","Lesson":"שיעור","Login":"כניסה","Preview":"תקדימון","Term":"תקופה","Translation":"תרגום"});
+    gettextCatalog.setStrings('hi', {"About":"के बारे में","Action":"क्रिया","Add":"जोड़ें","Edit":"संपादन","Edit Text":"पाठ संपादित करें","Help":"मदद","Home":"घर","Languages":"भाषाएँ","Login":"लागिन","Preview":"पूर्वावलोकन","Term":"पद","Translation":"अनुवाद"});
+    gettextCatalog.setStrings('it', {"About":"Informazioni","Action":"Azione","Add":"Aggiungi","Edit":"Modifica","Edit Text":"Modifica Testo","Help":"Aiuto","Home":"Home","How does it work?":"Come funziona?","Languages":"Lingue","Lesson":"Lezione","Login":"Accedi","Preview":"Anteprima","Term":"Termine","Translation":"Traduzione"});
+    gettextCatalog.setStrings('ru', {"About":"О программе","Action":"Действие","Add":"Добавить","Edit":"Изменить","Edit Text":"Правка текста","Help":"Справка","Home":"Домой","Languages":"Языки","Lesson":"Урок","Login":"Войти","Preview":"Предварительный просмотр","Term":"Определение","Translation":"Перевод"});
 /* jshint +W100 */
 }]);

@@ -102,13 +102,10 @@ msgstr ""
 msgid "Put the words in the correct order"
 msgstr ""
 
+#: partials/about.html
 #: ../templates/index.cdn.html
 #: ../templates/index.html
 msgid "Social Language Learning Platform"
-msgstr ""
-
-#: partials/about.html
-msgid "Social Language Learning Protocol"
 msgstr ""
 
 #: partials/about.html
