@@ -186,6 +186,79 @@ in vocabulary practice - you want to create a mix of all types each time
 Now we have to set value for each level
 
 
+In practice we are looking collecting exercises. 
+Should we place exercise outside the lesson? 
+that is create a separate exercise collection
+
+We could also get only the the exercises from inside the lesson. 
+What would be the simplest data format?
+
+exercise in lesson 
+
+Loading a lesson:
+1. load lesson document
+saving a lesson:
+1. save a lesson document
+in practice:
+Search inside lesson object with some keys on lesson.
+How complicated would this query be
+Search lesson where lesson matches languages, level and permission. 
+load only exercise that are non context dependant
+
+
+Lesson collection and exercise collection
+Loading a lesson
+1. load lesson info
+2. load lesson exercises
+saving lesson
+1. Save lesson info
+2 save exercises
+in practice
+1. Load exercises from exercise collection that match a certain criteria  
+published,.....
+
+In Practice we need a link between practiced collection and exercise (or lesson) collection
+As there is no join in mongodb how do we implement it?
+
+
+Solution: 
+
+Do it in 2 phases - even in sql database this would require 2 phases. 
+
+1. Load a list of user practice exercises
+2. load from exercises (or lesson) the list with id's 
+
+loading a list of items from user practice. 
+
+####Practice collections
+
+Exercise is in a different collection
+
+practice_lesson: 
+
+sums user's mark in a lesson - the value is calculated from practice exercise
+keys: lesson,user,languages
+This collection may simply include a list of exercise_ids and mark
+
+practice_exercise
+keys:exercise_id,user_id,lang, exp_lang, last_viewed,mark,level
+
+
+practice_vocabulary:
+keys:exercise_id,user_id,lang, exp_lang, last_viewed,mark,level, term,translation
+A list of vocabulary items that the user has ever encountered
+
+
+When user is in a lesson:
+When ever he answers an exercise the mark is sent to the practice_handler
+
+Practice handler will:
+
+1. update practice_exercise collection
+2. update practice_lesson collection
+3. update vocabulary collection it is a vocabulary item
+ 
+
 
 ## Stage1.5 - My Lessons
 List of lessons for user
