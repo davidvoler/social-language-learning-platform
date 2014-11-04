@@ -11,12 +11,13 @@ import tornado
 from bson.objectid import ObjectId
 from bson.json_util import dumps, loads
 from tornado.options import options, define
+from server.handlers.base_handler import BaseHandler
 
-define("practice_no_exercise", default=30, help="defualt number of exercise for practice", type=int)
+define("practice_no_exercise", default=30, help="default number of exercise for practice", type=int)
 
 
 
-class PracticeHandler(tornado.web.RequestHandler):
+class PracticeHandler(BaseHandler):
     def initialize(self, db):
         """
         Initializes the instance with a mongodn database instance
@@ -74,7 +75,7 @@ class PracticeHandler(tornado.web.RequestHandler):
         }
 
         exercise_results = loads(self.request.body.decode("utf-8"))
-        user_practice_line = []
+        user = self.get_current_user()
         try:
             ret = self._db['user_practice'].update({})
             self.write(dumps(ret))

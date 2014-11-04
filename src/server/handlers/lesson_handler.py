@@ -38,7 +38,20 @@ class LessonHandler(BaseHandler):
     def post(self):
         """
         add a new lesson
-        
+        """
+        lesson = loads(self.request.body.decode("utf-8"))
+        lesson['_id'] = str(ObjectId())
+        lesson['created_by'] = self.get_current_user_id()
+        try:
+            self._db['lesson'].insert(lesson)
+            self.write({'status':0,'error':'','slug':lesson['slug']})
+        except Exception as e:
+            self.write(dumps({'status':-2,'error':str(e)}))
+
+    def post_slug(self):
+        """
+        add a new lesson
+
         """
         lesson = loads(self.request.body.decode("utf-8"))
         if not lesson['title']:
@@ -64,15 +77,15 @@ class LessonHandler(BaseHandler):
             self.write(dumps({'status':-2,'error':str(e)}))
 
 
+
     def put(self):
         """
         edit an existing lesson
         
         """
         lesson = loads(self.request.body.decode("utf-8"))
-        del lesson['_id']
         try:
-            ret = self._db['lesson'].update({'slug':lesson['slug']},
+            ret = self._db['lesson'].update({'_id':lesson['_id']},
                                                 {"$set": lesson}, upsert=False)
             self.write(dumps({'slug':lesson['slug'],'status':0}))
         except Exception as e:
