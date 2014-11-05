@@ -277,6 +277,11 @@ Practice handler will:
 Save a lesson will save its exercise separately 
 Load lesson will load exercise if needed ( in list for example we do not need it)
 
+Alternatively we separate lessen and exercise also in handlers. 
+load: load lesson info then load exercises
+save: save lesson, then save exercise - both can happen in a single view. 
+
+
 ## Stage1.5 - My Lessons
 List of lessons for user
 Level for each lesson

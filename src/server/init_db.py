@@ -88,3 +88,8 @@ def init_db(db):
     db['rating'].ensure_index([('lesson_id',pymongo.ASCENDING),('user_id',pymongo.ASCENDING)], unique=True)
 
     #db['lesson_practice'].ensure_index({'username':1,'lesson_id':1,'exercise_id':1}, unique=True)
+    try:
+        db.create_collection('exercise')
+    except:
+        pass
+    #db['exercise'].ensure_index([('lesson_id',pymongo.ASCENDING),('user_id',pymongo.ASCENDING)], unique=True)

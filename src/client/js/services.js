@@ -22,6 +22,13 @@ angular.module('sllp.app')
     );
   }
 ])
+.service('Exercise', ['$resource',
+  function ($resource) {
+    return $resource('/api/exercise', {},
+      {update: {method: 'PUT'}}
+    );
+  }
+])
 .service('Language', ['$resource','gettextCatalog',
   function ($resource,gettextCatalog) {
     var service = {languages:false};

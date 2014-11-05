@@ -1,40 +1,53 @@
 'use strict';
 
 angular.module('sllp.app')
- .controller('LessonAddController', ['$scope', '$location','$http', 'Lesson','Language',
-    function ($scope, $location,$http, Lesson, Language) {
+  .controller('LessonAddController', ['$scope', '$location', '$http', 'Lesson', 'Exercise', 'Language',
+    function ($scope, $location, $http, Lesson, Exercise, Language) {
       $scope.error = '';
-      $scope.exerciseResults = [];
+      $scope.isNew = false;
+      $scope.exercises = [];
 
-      $scope.lesson = {
-        title: '',
-        description: '',
-        tags: [],
-        exercises:[],
-        language:'',
-        explanation_language:'',
-        last_exercise_id:0
-      };
-
-      $scope.setExerciseResults = function(id,correct){
-        for(var i=0; i< $scope.exerciseResults.length;i++){
-            if (id==$scope.exerciseResults[i].id){
-                $scope.exerciseResults[i].correct=correct;
-            }
+      $scope.init = function () {
+        try {
+          var id = $scope.lesson = Lesson.get({slug: $route.current.params.id});
+          $scope.isNew = false;
+          $scope.lesson = Lesson.get({_id: id});
+        } catch (e) {
+          $scope.isNew = true;
+          $scope.lesson = {
+            title: '',
+            description: '',
+            tags: [],
+            exercises: [],
+            language: '',
+            explanation_language: '',
+            last_exercise_id: 0
+          };
         }
       };
+      $scope.init();
 
-      $scope.loadTags = function(query) {
-                     return $http.get('/api/tag?query=' + query);
+      $scope.loadTags = function (query) {
+        return $http.get('/api/tag?query=' + query);
       };
-      $scope.addTag = function($tag) {
-            console.log($tag);
-                     var data = {name:$tag, language: $scope.language};
-                     return $http.post('/api/tag',data);
+      $scope.addTag = function ($tag) {
+        console.log($tag);
+        var data = {name: $tag, language: $scope.language};
+        return $http.post('/api/tag', data);
       };
 
       $scope.languages = Language.languages;
-      $scope.save = function () {
+      $scope.updateLesson = function () {
+        $scope.lesson.$update(function (response) {
+          if (response.status == 0) {
+            $location.path('/lesson/' + response.slug);
+          } else {
+            $scope.error = response.error;
+          }
+        });
+      };
+
+      $scope.saveNewLesson = function () {
         //is the new lesson valid
         if (!$scope.lesson.title) {
           $scope.error = 'Lesson name is mandatory';
@@ -47,31 +60,40 @@ angular.module('sllp.app')
           console.log(response);
           if (response.status == 0) {
             //$location.path('/lesson/' + response.slug);
-            $location.path('/');
+            $scope.isNew = false;
+            //$location.path('/');
           } else {
             $scope.error = response.error;
           }
         });
       };
-      $scope.addExercise = function(exercise_type){
-        $scope.lesson.exercises.push({type:exercise_type ,
-                            id: $scope.lesson.last_exercise_id,
-                            name:'',
-                            editState:true});
-        $scope.exerciseResults.push({id:$scope.lesson.last_exercise_id,
-                                     correct:0});
+
+      $scope.save = function () {
+        if ($scope.isNew) {
+          return $scope.saveNewLesson();
+        } else {
+          return $scope.updateLesson();
+        }
+      };
+      $scope.addExercise = function (exercise_type) {
+        $scope.exercises.push({type: exercise_type,
+          order: $scope.lesson.last_exercise_id,
+          name: '',
+          deleted: false,
+          editState: true});
         $scope.lesson.last_exercise_id++;
       };
-      $scope.deleteExercise = function(idx){
-        //delete from both lesson.exercises and exerciseResults
-        $scope.lesson.exercises.splice(idx,1);
-        $scope.exerciseResults.splice(idx,1);
+      $scope.deleteExercise = function (idx) {
+        $scope.exercises[idx].deleted = true;
+      };
+      $scope.saveExercise = function (idx) {
+        $scope.exercises[idx].save();
       };
     }
   ]
 )
-  .controller('LessonEditController', ['$scope', '$location','$route', 'Lesson',
-    function ($scope,$location,$route, Lesson) {
+  .controller('LessonEditController', ['$scope', '$location', '$route', 'Lesson',
+    function ($scope, $location, $route, Lesson) {
       $scope.error = '';
       $scope.lesson = Lesson.get({slug: $route.current.params.slug});
       $scope.save = function () {
