@@ -260,6 +260,23 @@ Practice handler will:
  
 
 
+## Lesson and Exercise in a separated collection
+
+### cons.
+
+1. It makes saving a lesson more complicated - saving lesson require saving exercises separately.
+2. In loading a lesson it will be the same - we have to load a lesson and than its exercises
+
+### pros. 
+
+1. We can search for exercise outside lesson - useful for practice
+2. We can easily reuse exercise. 
+
+### Changes of the current architecture
+#### LessonHandler
+Save a lesson will save its exercise separately 
+Load lesson will load exercise if needed ( in list for example we do not need it)
+
 ## Stage1.5 - My Lessons
 List of lessons for user
 Level for each lesson
@@ -280,6 +297,12 @@ Basic video exercise
 https://github.com/brandly/angular-youtube-embed
 looks simple
 
+Consider using $interval of angular.
+When playing 
+
+$interval(fn, delay, [count], [invokeApply]);
+
+
 ### Status Started
 
 
@@ -291,6 +314,43 @@ Started
 Use simple inline help. with help css class
 When a help link is needed consider using some help directive based on:
 http://plnkr.co/edit/2jK2GFcKSiKgMQMynD1R?p=preview
+
+## Menu
+
+### Home
+
+ small overview of the site
+What else should be in the home page? 
+Options are one or more of the following:
+
+1. List of lessons
+2. Example lessons/exercise
+3. My Lessons - list of lessons that I have started
+4. Recommended lessons
+5. Practice Pane
+ 
+ 
+### Lesson Page
+
+Even if we have lessons in the home page - here we will have a list of lessons 
+with better search and more lessons informtion
+
+
+
+### Practice 
+ 
+Practice exercise 
+Practice vocabulary
+Practice settings ? Or in settings page
+statistics basic statistics
+
+###Statistics 
+
+do we need a separate page for statistics?
+We can place relevant statistics in each page. 
+
+ 
+
 
 # stage 2 - DEMO
 

@@ -14,25 +14,34 @@ class LessonHandler(BaseHandler):
         """
         Initializes the instance with a mongodn database instance
         :param db: an instance to pymongo database object
+
+
         """
         self._db = db
 
     def get(self):
         """
-        loads a single lesson entry
+        loads a lesson or a list of lessons
         """
         _id = self.get_argument('_id', None)
         slug = self.get_argument('slug', None)
+        exercises = self.get_argument('exercises', True)
         logging.info(_id)
         logging.info(slug)
         if _id:
             lesson = self._db['lesson'].find_one({'_id':ObjectId(_id)})
+            if exercises:
+                lesson['exercise']= self._db['exercise'].find({'lesson_id':lesson['_id']})
             self.write(dumps(lesson))
         elif slug:
             lesson = self._db['lesson'].find_one({'slug':slug})
+            if exercises:
+                lesson['exercise']= self._db['exercise'].find({'lesson_id':lesson['_id']})
             self.write(dumps(lesson))
         else:
-            lessons = self._db['lesson'].find()
+            lang = self.get_argument('lang', '')
+            exp_lang = self.get_argument('exp_lang', '')
+            lessons = self._db['lesson'].find({'lang':lang,'exp_lang':exp_lang})
             self.write(dumps(lessons))    
     
     def post(self):
