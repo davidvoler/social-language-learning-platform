@@ -1,6 +1,6 @@
 (function () {
   //replace MODULE_NAME and add dependencies
-  angular.angular.module('sllp', [
+  angular.angular.module('sllp.web', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
