@@ -10,6 +10,13 @@
     self.save = function (lesson) {
 
     };
+    self.saveAs = function (lesson) {
+
+    };
+    //get a list of lessons the user can edit
+    self.find = function () {
+
+    };
     self.get = function (lesson_id) {
 
     };

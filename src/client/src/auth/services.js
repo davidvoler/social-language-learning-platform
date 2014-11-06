@@ -13,6 +13,11 @@
     //can use perform a certain action
     self.isLoggedIn = function () {
     };
+    //optional - add profile to this service
+    self.getProfile = function () {
+    };
+    self.saveProfile = function (profile) {
+    };
   }
 
   angular.angular.module('sllp.auth')
