@@ -16,7 +16,6 @@ src/client/node_modules/
 # virtualenv windows
 /Scripts/
 /Include/
-/bin/
 /share/
 
 
