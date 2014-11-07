@@ -34,7 +34,7 @@
     self.saveProfile = function (profile) {
     };
   }
-  angular.angular.module('sllp.auth')
+  angular.module('sllp.auth')
     .service('Auth', Auth)
 }());
 

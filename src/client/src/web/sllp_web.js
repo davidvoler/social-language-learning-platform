@@ -1,6 +1,6 @@
 (function () {
   //replace MODULE_NAME and add dependencies
-  angular.angular.module('sllp.web', [
+  angular.module('sllp.web', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -8,6 +8,7 @@
   'ui.bootstrap',
   'youtube-embed',
   'ngTagsInput',
-  'gettext']);
+  'gettext',
+  'sllp.auth']);
 
 }());

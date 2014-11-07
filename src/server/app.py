@@ -61,8 +61,8 @@ app_settings = {
 
 }
 app = tornado.web.Application([
-                                  (r'/', IndexHandler),
-                                  (r'/app', AppHandler),
+                                  #(r'/', IndexHandler),
+                                  (r'/', AppHandler),
                                   #api prefix means that do REST operations
                                   (r'/api/lesson', LessonHandler, dict(db=db)),
                                   (r'/api/profile', ProfileHandler, dict(db=db)),

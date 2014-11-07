@@ -15,7 +15,7 @@
       return Auth.login(self.username, self.password, self.on_login)
     };
   }
-  angular.angular.module('sllp.auth')
+  angular.module('sllp.auth')
     .controller('LoginController', LoginController)
 }());
 
