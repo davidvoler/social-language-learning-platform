@@ -2,6 +2,7 @@
 *~
 
 src/client/bower_components/
+src/client/node_modules/
 
 # Local settings
 /src/server/local_settings.py
