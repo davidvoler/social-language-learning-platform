@@ -11,8 +11,8 @@ var checkLogin= function ($location,$cookieStore) {
 };
 
 
-angular.module('sllp.app').config(['$routeProvider',
-  function ($routeProvider) {
+angular.module('sllp.app').config(['$routeProvider','$locationProvider',
+  function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/static/partials/home.html',
@@ -53,6 +53,7 @@ angular.module('sllp.app').config(['$routeProvider',
     .when('/login_google', {
         templateUrl: '/static/partials/login_google.html',
         controller: 'LoginGoogleController'
-      })
+      });
+    $locationProvider.html5Mode(true);
   }
 ]);

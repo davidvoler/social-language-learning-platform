@@ -7,3 +7,6 @@ from server.handlers.language_handler import LanguageHandler
 from server.handlers.base_handler import BaseHandler
 from server.handlers.gauth_login_handler import GAuthLoginHandler
 from server.handlers.tag_handler import TagHandler
+from server.handlers.app_handler import AppHandler
+
+

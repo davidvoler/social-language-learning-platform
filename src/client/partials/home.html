@@ -18,11 +18,11 @@
   <button type="submit" class="btn btn-info">Search</button>
   </form>
 </div>
-<a href="#/add/lesson">Add Lesson</a></div>
+<a href="/add/lesson">Add Lesson</a></div>
 <table class="table">
   <tr ng-repeat="lesson in lessons|filter:q">
-    <td><a href="#/lesson/{{lesson.slug}}/0">{{lesson.title}}</a></td>
-    <td><a href="#/edit/lesson/{{lesson.slug}}">Edit</a></td>
+    <td><a href="/lesson/{{lesson.slug}}/0">{{lesson.title}}</a></td>
+    <td><a href="/edit/lesson/{{lesson.slug}}">Edit</a></td>
     <td>{{lesson.owner}}</td>
   </tr>
 </table>
