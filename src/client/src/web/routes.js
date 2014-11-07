@@ -8,8 +8,8 @@
   function routes($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/static/src/auth/views/login/login.html',
-        controller: 'LoginController'
+        templateUrl: '/static/src/home/views/home.html',
+        controller: 'HomeController'
       })
 
   }

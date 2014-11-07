@@ -30,5 +30,5 @@
   }
 
   angular.module('sllp.lesson')
-    .service('ServiceName', LessonEdit)
+    .service('LessonEdit', LessonEdit)
 }());

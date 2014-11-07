@@ -28,3 +28,5 @@ src/client/node_modules/
 
 #documentation build directory
 /docs/build/
+
+.Python

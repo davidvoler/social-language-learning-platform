@@ -22,6 +22,6 @@
 
   }
 
-  angular.angular.module('sllp.lesson')
+  angular.module('sllp.lesson')
     .service('ServiceName', LessonLearn)
 }());

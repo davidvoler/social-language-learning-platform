@@ -9,6 +9,10 @@
   'youtube-embed',
   'ngTagsInput',
   'gettext',
-  'sllp.auth']);
+  'sllp.auth',
+  'sllp.lesson',
+  'sllp.home'
+
+  ]);
 
 }());
