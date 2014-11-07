@@ -1,6 +1,8 @@
 *.py[cod]
 *~
 
+src/client/bower_components/
+
 # Local settings
 /src/server/local_settings.py
 
