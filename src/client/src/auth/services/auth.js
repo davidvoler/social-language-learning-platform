@@ -1,8 +1,9 @@
 (function () {
 
-  function Auth($http) {
+  function UserService($http) {
 
     var self = this;
+    self.id = false
     self.login = function (username,password,callback) {
         var data = {username: username, password: password};
         $http.post('/api/login', data)
@@ -28,14 +29,12 @@
     //can use perform a certain action
     self.isLoggedIn = function () {
     };
-    //optional - add profile to this service
-    self.getProfile = function () {
-    };
-    self.saveProfile = function (profile) {
-    };
+    self.getUserId = function(){
+      return self.id;
+    }
   }
   angular.module('sllp.auth')
-    .service('Auth', Auth)
+    .service('UserService', UserService)
 }());
 
 
