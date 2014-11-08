@@ -30,7 +30,7 @@ angular.module('sllp.app')
   }
 ])
 .service('Language', ['$resource','gettextCatalog',
-  function ($resource,gettextCatalog) {
+  function ($resource, gettextCatalog) {
     var service = {languages:false};
     var languageResource =  $resource('/api/language', {},
       {update: {method: 'PUT'}}
@@ -49,7 +49,7 @@ angular.module('sllp.app')
 .service('Exercise', ['$resource',
   function ($resource) {
     var service = {lesson:false,
-                   exercise:false,
+                   exercise:false
     };
 
     var lessonResource =  $resource('/api/lesson', {},

@@ -21,5 +21,5 @@
 
   }
 
-  angular.module('sllp.lesson', []).config(lessonRoutes);
+  angular.module('sllp.lesson', ['sllp.language']).config(lessonRoutes);
 }());

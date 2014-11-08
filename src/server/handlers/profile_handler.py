@@ -16,28 +16,20 @@ class ProfileHandler(tornado.web.RequestHandler):
     def get(self):
         """
         loads a single profile entry
-
         """
-        _id = self.username = self.get_argument('_id', '')
-        profile = self._db['profile'].find_one({'_id':ObjectId(_id)})
+        user_id = self.get_argument('user_id', None)
+        if not user_id:
+            self.write(dumps({'status':-1,'error':'user_id is not defined'}))
+        profile = self._db['profile'].find_one({'_id':user_id})
+        if not profile:
+            self._db['profile'].insert({'_id':user_id})
+            profile = self._db['profile'].find_one({'_id':user_id})
         self.write(dumps(profile))
 
-    def query(self):
-        """
-        loads a list of profile - using a query dict
-        """
-        qu = loads(self.request.body.decode("utf-8"))
-        if qu:
-            profiles = self._db['profile'].find(qu)
-        else:
-            #rturn all profile_entries
-            profiles = self._db['profile'].find()
-        self.write(dumps(profiles))
-    
+
     def post(self):
         """
         add a new profile
-        
         """
         profile = loads(self.request.body.decode("utf-8"))
         try:
@@ -51,12 +43,14 @@ class ProfileHandler(tornado.web.RequestHandler):
         edit an existing profile
         
         """
-        argj = loads(self.request.body.decode("utf-8"))
+        profile = loads(self.request.body.decode("utf-8"))
         try:
-            ret = self._db['profile'].update({'_id':ObjectId(argj['_id'])}, {"$set": argj}, upsert=False)
+            ret = self._db['profile'].update({'_id':profile['_id']},
+                                             {"$set": profile},
+                                             upsert=True)
             self.write(dumps(ret))
         except Exception as e:
-            self.write(dumps({'status':'error','error':str(e)}))
+            self.write(dumps({'status':-1,'error':str(e)}))
 
     def delete(self):
         """

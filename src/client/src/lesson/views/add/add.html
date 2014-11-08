@@ -1,1 +1,48 @@
-<h2>Add</h2>
+<h3 ng-if="lesson.title">{{lesson.title}}</h3>
+<h3 ng-if="!lesson.title" translate>Create Lessson</h3>
+<div ng-if="error" class="alert alert-danger">{{error}}</div>
+
+<div class="well">
+  <table>
+    <thead>
+    <tr>
+      <td class="col-md-3">Lesson Name</td>
+      <td>Language</td>
+      <td>Explanation Language</td>
+      <td>Tags</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
+      </td>
+      <td>
+        <select id="language" ng-model="lesson.language" class="form-control">
+          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        </select>
+
+      </td>
+      <td>
+        <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        </select>
+      </td>
+      <td>
+        <tags-input placeholder="Add Lesson Tags" id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
+          <auto-complete source="loadTags($query)"></auto-complete>
+        </tags-input>
+      </td>
+      <td>
+        <a href="#/help"><i class="glyphicon glyphicon-question-sign"> </i><span translate>Help</span></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="well">
+  <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
+</div>

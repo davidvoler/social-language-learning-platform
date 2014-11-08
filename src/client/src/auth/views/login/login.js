@@ -1,6 +1,6 @@
 (function () {
 
-  function LoginController(Auth) {
+  function LoginController(UserService) {
     var self = this;
     self.on_login = function(success,data){
       if (success){
@@ -12,7 +12,7 @@
       }
     };
     self.login = function(){
-      return Auth.login(self.username, self.password, self.on_login)
+      return UserService.login(self.username, self.password, self.on_login)
     };
   }
   angular.module('sllp.auth')
