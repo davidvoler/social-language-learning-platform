@@ -1,3 +1,3 @@
 (function () {
-  angular.module('sllp.home', []);
+  angular.module('sllp.home', ['sllp.profile']);
 }());

@@ -1,7 +1,7 @@
 <h3 ng-if="lesson.title">{{lesson.title}}</h3>
 <h3 ng-if="!lesson.title" translate>Create Lessson</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
-
+{{profile}}
 <div class="well">
   <table>
     <thead>
@@ -19,14 +19,14 @@
         <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
       </td>
       <td>
-        <select id="language" ng-model="lesson.language" class="form-control">
-          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        <select ng-change="setEditLang()"  id="language" ng-model="lesson.language" class="form-control">
+          <option value="{{language._id}}" ng-repeat="language in languages">{{language.name}}</option>
         </select>
 
       </td>
       <td>
-        <select id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
-          <option value="language._id" ng-repeat="language in languages">{{language.name}}</option>
+        <select ng-change="setEditExpLang()" id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
+          <option value="{{language._id}}" ng-repeat="language in languages">{{language.name}}</option>
         </select>
       </td>
       <td>

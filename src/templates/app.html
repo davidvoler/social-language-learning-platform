@@ -112,10 +112,12 @@
 <script src="/static/src/auth/auth_module.js"></script>
 <script src="/static/src/language/language_module.js"></script>
 <script src="/static/src/lesson/lesson_module.js"></script>
+<script src="/static/src/profile/profile_module.js"></script>
 <script src="/static/src/home/home_module.js"></script>
 
 <script src="/static/src/web/sllp_web.js"></script>
 <script src="/static/src/web/routes.js"></script>
+<script src="/static/src/lesson/routes.js"></script>
 <script>
   angular.module('sllp.web').config(function ($httpProvider) {
     var _xsrf = document.getElementsByName('_xsrf');
@@ -126,10 +128,13 @@
 
 <script src="/static/src/auth/services/auth.js"></script>
 <script src="/static/src/language/services/language.js"></script>
-<script src="/static/src/auth/views/login/login.js"></script>
+<script src="/static/src/profile/services/profile.js"></script>
 
 <script src="/static/src/lesson/services/edit.js"></script>
 <script src="/static/src/lesson/services/learn.js"></script>
+
+<script src="/static/src/auth/views/login/login.js"></script>
+
 
 <script src="/static/src/lesson/views/add/add.js"></script>
 <script src="/static/src/lesson/views/edit/edit.js"></script>

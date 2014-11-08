@@ -28,9 +28,10 @@
     };
     //can use perform a certain action
     self.isLoggedIn = function () {
+      return true;
     };
     self.getUserId = function(){
-      return self.id;
+      return 1;
     }
   }
   angular.module('sllp.auth')

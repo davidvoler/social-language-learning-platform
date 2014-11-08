@@ -4,7 +4,6 @@
     var languageResource =  $resource('/api/language', {},
       {update: {method: 'PUT'}}
     );
-
     service.load= function(){
         service.languages = languageResource.query();
     };
@@ -15,7 +14,15 @@
     return service
   }
 
-  function LanguageService1($http){
+
+  angular.module('sllp.language')
+    .service('LanguageService',LanguageService);
+}());
+
+
+
+/*
+function LanguageService1($http){
     var self = this;
     self.loaded = false;
     self.error = '';
@@ -31,6 +38,4 @@
     };
     self.init();
   }
-  angular.module('sllp.language')
-    .service('LanguageService',LanguageService);
-}());
+ */
