@@ -4,19 +4,19 @@
     $routeProvider
       .when('/lessons', {
         templateUrl: '/static/src/lesson/views/list/list.html',
-        controller: 'ListLessonController'
+        controller: 'ListLessonController as list'
       })
       .when('/lesson/add', {
         templateUrl: '/static/src/lesson/views/add/add.html',
-        controller: 'AddLessonController'
+        controller: 'AddLessonController as add'
       })
       .when('/lesson/edit/:id', {
         templateUrl: '/static/src/lesson/views/edit/edit.html',
-        controller: 'EditLessonController'
+        controller: 'EditLessonController as edit'
       })
       .when('/lesson/practice/:id', {
         templateUrl: '/static/src/lesson/views/practice/practice.html',
-        controller: 'PracticeLessonController'
+        controller: 'PracticeLessonController as practice'
       })
 
   }

@@ -1,11 +1,15 @@
 (function () {
 
-  function LessonEdit($http) {
+  function LessonEdit($http, UserService,ProfileService) {
 
     var self = this;
 
     self.create = function () {
-      return {};
+      return {
+        language:ProfileService.profile.edit_lang,
+      explanation_language:ProfileService.profile.edit_exp_lang,
+      tags:'',
+      title:''};
     };
     self.save = function (lesson) {
       if (lesson._id){
@@ -34,6 +38,19 @@
       lesson.published = true;
       $http.post(lesson);
     };
+    self.loadTags = function (query,language) {
+      var data = {query:query, language:language};
+      return $http.get('/api/tag',data);
+    };
+    self.addTag = function (tag,language) {
+      if (!UserService.isLoggedIn()){
+        return false;
+      }
+      console.log($tag);
+      var data = {name: $tag,language: language};
+      return $http.post('/api/tag', data);
+    };
+    return self
 
   }
 

@@ -16,22 +16,29 @@
     <tbody>
     <tr>
       <td>
-        <input ng-model="lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
+        <input ng-model="add.lesson.title" class="form-control" id="title" placeholder="Enter lesson title">
       </td>
       <td>
-        <select ng-change="setEditLang()"  id="language" ng-model="lesson.language" class="form-control">
-          <option value="{{language._id}}" ng-repeat="language in languages">{{language.name}}</option>
-        </select>
-
-      </td>
-      <td>
-        <select ng-change="setEditExpLang()" id="explanation_language" ng-model="lesson.explanation_language" class="form-control">
-          <option value="{{language._id}}" ng-repeat="language in languages">{{language.name}}</option>
+        <select ng-change="add.setEditLang()"
+                id="language"
+                ng-model="add.lesson.language"
+                class="form-control"
+            ng-options="l._id as l.name for l in add.languages">
         </select>
       </td>
       <td>
-        <tags-input placeholder="Add Lesson Tags" id="tags" onTagAdded="addTag($tag)" ng-model="lesson.tags">
-          <auto-complete source="loadTags($query)"></auto-complete>
+        <select ng-change="add.setEditExpLang()"
+                id="explanation_language"
+                ng-model="add.lesson.explanation_language"
+                class="form-control"
+              ng-options="l._id as l.name for l in add.languages">
+        </select>
+      </td>
+      <td>
+        <tags-input placeholder="Add Lesson Tags"
+                    id="tags" onTagAdded="add.addTag($tag)"
+                    ng-model="add.lesson.tags">
+          <auto-complete source="add.loadTags($query)"></auto-complete>
         </tags-input>
       </td>
       <td>

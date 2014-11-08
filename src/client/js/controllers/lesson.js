@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('sllp.app')
-  .controller('LessonAddController', ['$scope', '$location', '$http', 'Lesson', 'Exercise', 'Language',
+  .controller('LessonAddController', ['$scope', '$location',
+    '$http', 'Lesson', 'Exercise', 'Language',
     function ($scope, $location, $http, Lesson, Exercise, Language) {
       $scope.error = '';
       $scope.isNew = false;
