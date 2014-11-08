@@ -1,15 +1,15 @@
 (function () {
-  function HomeController($scope,LanguageService,ProfileService) {
+  function HomeController(LanguageService,ProfileService) {
     var self = this;
-    $scope.profile = ProfileService.profile;
-    $scope.languages = LanguageService.languages;
-    $scope.lang = ProfileService.profile.lang;
-    $scope.lang_exp = ProfileService.profile.exp_lang;
-    $scope.setLang = function(){
-      return ProfileService.setLang($scope.lang);
+    self.profile = ProfileService.profile;
+    self.languages = LanguageService.languages;
+    self.lang = ProfileService.profile.lang;
+    self.lang_exp = ProfileService.profile.exp_lang;
+    self.setLang = function(){
+      return ProfileService.setLang(self.lang);
     };
-    $scope.setExpLang = function(){
-      return ProfileService.setExpLang($scope.exp_lang);
+    self.setExpLang = function(){
+      return ProfileService.setExpLang(self.exp_lang);
     };
   }
   angular.module('sllp.home')
