@@ -54,6 +54,6 @@ angular.module('sllp.app').config(['$routeProvider','$locationProvider',
         templateUrl: '/static/partials/login_google.html',
         controller: 'LoginGoogleController'
       });
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
   }
 ]);

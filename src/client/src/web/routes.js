@@ -12,9 +12,18 @@
         controller: 'HomeController'
       })
 
+
+  }
+  //configure location to be html5 compliant - removing the # sign
+  //creates issues when trying to reload
+  //ISSUE: Using this mode requires URL rewriting on server side,
+  function locationConf($locationProvider){
+    $locationProvider.html5Mode(true);
   }
 
   angular.module('sllp.web')
     .config(routes);
+    //.config(locationConf);
+  ;
 
 }());

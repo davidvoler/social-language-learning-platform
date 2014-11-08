@@ -1,5 +1,10 @@
 <h3>Home</h3>
 
+<a href="#/lessons">lessons</a>
+<a href="#/lesson/add">lesson add</a>
+<a href="#/lesson/edit/1">lesson edit 1</a>
+<a href="#/lesson/practice/1">lesson practice 1</a>
+
 <div class="well">
   <form class="form-inline" role="form">
   <div class="form-group">
@@ -18,11 +23,11 @@
   <button type="submit" class="btn btn-info">Search</button>
   </form>
 </div>
-<a href="/add/lesson">Add Lesson</a></div>
+<a href="#/lesson/add">Add Lesson</a></div>
 <table class="table">
   <tr ng-repeat="lesson in lessons|filter:q">
-    <td><a href="/lesson/{{lesson.slug}}/0">{{lesson.title}}</a></td>
-    <td><a href="/edit/lesson/{{lesson.slug}}">Edit</a></td>
+    <td><a href="#/lesson/practice/{{lesson._id}}/0">{{lesson.title}}</a></td>
+    <td><a href="#/lesson/edit/{{lesson._id}}">Edit</a></td>
     <td>{{lesson.owner}}</td>
   </tr>
 </table>
