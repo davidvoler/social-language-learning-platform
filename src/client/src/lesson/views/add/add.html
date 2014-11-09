@@ -2,8 +2,8 @@
 <h3 ng-if="!lesson.title" translate>Create Lessson</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
 
-    <div>{{add.profile}}</div>
-    <div>{{add.lesson}}</div>
+<div>{{add.profile}}</div>
+<div>{{add.lesson}}</div>
 <div class="well">
   <table>
     <thead>
@@ -25,22 +25,26 @@
                 id="language"
                 ng-model="add.lesson.language"
                 class="form-control"
-            ng-options="l._id as l.name for l in add.languages">
+                ng-options="l._id as l.name for l in add.languages">
         </select>
       </td>
       <td>
         <select ng-change="add.setEditExpLang()"
                 id="explanation_language"
+
                 ng-model="add.lesson.explanation_language"
                 class="form-control"
-              ng-options="l._id as l.name for l in add.languages">
+                ng-options="l._id as l.name for l in add.languages">
         </select>
       </td>
       <td>
         <tags-input placeholder="Add Lesson Tags"
-                    id="tags" onTagAdded="add.addTag($tag)"
-                    ng-model="add.lesson.tags">
-          <auto-complete source="add.loadTags($query)"></auto-complete>
+                    id="tags"
+                    ng-model="add.lesson.tags"
+                    on-tag-added="add.addTag($tag)">
+          <auto-complete
+              source="add.loadTags($query)"
+              ></auto-complete>
         </tags-input>
       </td>
       <td>

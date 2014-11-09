@@ -23,22 +23,19 @@ class TagHandler(BaseHandler):
         """
         loads a single tag entry
         """
-        language = self.get_argument('language', None)
+        language = self.get_argument('language', '')
         query = self.get_argument('query', '')
+        #tag = loads(self.request.body.decode("utf-8"))
+        print(query)
+        print(language)
 
-        tags = self._db['tag'].find({},{'name':1})
+        #tags = self._db['tag'].find({'name':{"$regex": u"{}".format(query)}},{'name':1})
+        tags = self._db['tag'].find({'name':{"$regex": query}},{'name':1})
         ret = []
         for t in tags:
             ret.append(t['name'])
         self.write(dumps(ret))
-        return
-        if query:
-            if language:
-                tags = self._db['tag'].find({'language':language,'name':{"$regex": '*{}*'.format(query)}})
-                self.write(dumps(tags))
-            else:
-                tags = self._db['tag'].find({'name':{"$regex": '*{}*'.format(query)}})
-                self.write(dumps(tags))
+
     
     def post(self):
         """
@@ -46,6 +43,7 @@ class TagHandler(BaseHandler):
         
         """
         tag = loads(self.request.body.decode("utf-8"))
+        print (tag)
         try:
             ret = self._db['tag'].insert(tag)
             self.write(dumps(ret))

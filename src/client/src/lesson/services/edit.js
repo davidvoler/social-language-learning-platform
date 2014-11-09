@@ -42,16 +42,18 @@
       lesson.published = true;
       $http.post(lesson);
     };
-    self.loadTags = function (query,language) {
+    self.loadTags = function (query, language) {
       var data = {query:query, language:language};
-      return $http.get('/api/tag',data);
+      console.log(data);
+      var url = '/api/tag?query='+query +'&language='+language;
+      return $http.get(url);
     };
-    self.addTag = function (tag,language) {
+    self.addTag = function ($tag,language) {
       if (!UserService.isLoggedIn()){
         return false;
       }
       console.log($tag);
-      var data = {name: $tag,language: language};
+      var data = {name: $tag.text,language: language};
       return $http.post('/api/tag', data);
     };
     return self

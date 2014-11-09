@@ -9,7 +9,8 @@
     self.profile = ProfileService.profile;
     //self.lesson = LessonEdit.create();
     self.createLesson = function () {
-      if (ProfileService.loaded){
+      if (ProfileService.profile._id || ProfileService.profile.anon ){
+        //console.log(ProfileService.profile);
         self.lesson =  {
         language:ProfileService.profile.edit_lang,
         explanation_language:ProfileService.profile.edit_exp_lang,
@@ -35,10 +36,11 @@
       return ProfileService.setEditExpLang(self.lesson.explanation_language);
     };
     self.loadTags = function($query){
-      return LessonEdit.loadTags($query);
+      return LessonEdit.loadTags($query,self.lesson.language);
     };
-    self.addTag = function(tag){
-      return LessonEdit.addTag(tag,self.lesson.language);
+    self.addTag = function($tag){
+      console.log('On tag added');
+      return LessonEdit.addTag($tag, self.lesson.language);
     };
     self.languages = LanguageService.languages;
   }
