@@ -1,5 +1,5 @@
 (function () {
-  function ProfileService($resource,UserService) {
+  function ProfileService($resource,$timeout,UserService) {
     var self = this;
     var service = {profile: {},loaded:false};
     var profileResource = $resource('/api/profile', {},
@@ -33,7 +33,6 @@
     service.loadProfile = function(){
       return profileResource.get({user_id:UserService.getUserId()})
     };
-
     service.setLang = function (lang) {
       service.profile.lang = lang;
       service.save();

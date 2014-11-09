@@ -41,7 +41,6 @@
       return LessonEdit.addTag(tag,self.lesson.language);
     };
     self.languages = LanguageService.languages;
-
   }
   angular.module('sllp.lesson')
     .controller('AddLessonController', AddLessonController)
