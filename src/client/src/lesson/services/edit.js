@@ -5,11 +5,15 @@
     var self = this;
 
     self.create = function () {
-      return {
-        language:ProfileService.profile.edit_lang,
-      explanation_language:ProfileService.profile.edit_exp_lang,
-      tags:'',
-      title:''};
+      var p = ProfileService.getProfile();
+      p.$promise.then(function(results){
+        console.log(results)
+        return {
+        language:results.edit_lang,
+        explanation_language:results.edit_exp_lang,
+        tags:'',
+        title:''};
+      });
     };
     self.save = function (lesson) {
       if (lesson._id){

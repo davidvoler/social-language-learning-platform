@@ -1,7 +1,9 @@
 <h3 ng-if="lesson.title">{{lesson.title}}</h3>
 <h3 ng-if="!lesson.title" translate>Create Lessson</h3>
 <div ng-if="error" class="alert alert-danger">{{error}}</div>
-{{profile}}
+
+    <div>{{add.profile}}</div>
+    <div>{{add.lesson}}</div>
 <div class="well">
   <table>
     <thead>

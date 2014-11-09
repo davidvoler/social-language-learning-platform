@@ -11,7 +11,7 @@
   <div class="form-group">
     <label for="language">Language</label>
     <select ng-change="home.setLang()"  id="language"
-            ng-model="home.lang"
+            ng-model="home.profile.lang"
             class="form-control" ng-options="l._id as l.name for l in home.languages">
     </select>
   </div>
@@ -19,7 +19,7 @@
     <label for="explanation_language">Explanation Language</label>
     <select ng-change="home.setExpLang()"
             id="explanation_language"
-            ng-model="home.exp_lang"
+            ng-model="home.profile.exp_lang"
             class="form-control"
             ng-options="l._id as l.name for l in home.languages">
     </select>

@@ -3,8 +3,6 @@
     var self = this;
     self.profile = ProfileService.profile;
     self.languages = LanguageService.languages;
-    self.lang = ProfileService.profile.lang;
-    self.lang_exp = ProfileService.profile.exp_lang;
     self.setLang = function(){
       return ProfileService.setLang(self.lang);
     };

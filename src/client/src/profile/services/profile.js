@@ -1,24 +1,25 @@
 (function () {
   function ProfileService($resource,UserService) {
     var self = this;
-    var service = {profile: {}};
+    var service = {profile: {},loaded:false};
     var profileResource = $resource('/api/profile', {},
       {update: {method: 'PUT'}}
     );
-    self.createAnonimProfile = function () {
-      self.profile = {
+    service.createAnonimProfile = function () {
+      service.profile = {
         lang: '',
         exp_lang: '',
         edit_lang: '',
         edit_exp_lang: '',
         anon: true
-      }
+      };
+      service.loaded = true;
     };
     service.load = function () {
       if (UserService.isLoggedIn()){
-        service.profile = profileResource.get({user_id:UserService.getUserId()});
+        return service.profile = profileResource.get({user_id:UserService.getUserId()});
       }else{
-        self.createAnonimProfile();
+        service.createAnonimProfile();
       }
     };
     service.save = function () {
@@ -29,6 +30,9 @@
       }
     };
     service.load();
+    service.loadProfile = function(){
+      return profileResource.get({user_id:UserService.getUserId()})
+    };
 
     service.setLang = function (lang) {
       service.profile.lang = lang;
@@ -46,7 +50,6 @@
       service.profile.edit_exp_lang = lang;
       service.save();
     };
-
 
     return service
   }
