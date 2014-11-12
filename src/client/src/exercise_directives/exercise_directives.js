@@ -1,5 +1,5 @@
 (function () {
 
-  angular.angular.module('sllp.exercise_directives', []);
+  angular.module('sllp.exercise_directives', []);
 
 }());

@@ -13,6 +13,6 @@
 
   }
 
-  angular.angular.module('sllp.practice')
+  angular.module('sllp.practice')
     .service('Practice', Practice)
 }());

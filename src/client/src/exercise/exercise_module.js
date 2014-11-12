@@ -1,3 +1,3 @@
 (function () {
-  angular.angular.module('sllp.exercise', []);
+  angular.module('sllp.exercise', []);
 }());

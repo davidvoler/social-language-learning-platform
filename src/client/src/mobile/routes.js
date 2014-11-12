@@ -49,7 +49,7 @@
       })
   }
 
-  angular.angular.module('sllp')
+  angular.module('sllp')
     .config(routes)
 
 }());
