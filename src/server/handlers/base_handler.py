@@ -12,7 +12,7 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.get_secure_cookie("sllp_user")
 
     def get_current_user_id(self):
-        return "TMP_USER_ID"
+        return 1
 
     def get_current_user_doc(self):
         if not self._db:

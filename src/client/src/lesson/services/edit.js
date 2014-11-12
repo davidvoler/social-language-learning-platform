@@ -1,25 +1,40 @@
 (function () {
 
-  function LessonEdit($http, UserService,ProfileService) {
+  function LessonEdit($http, UserService, ProfileService,$resource) {
 
     var self = this;
 
-    self.create = function () {
-      var p = ProfileService.getProfile();
-      p.$promise.then(function(results){
-        console.log(results)
-        return {
-        language:results.edit_lang,
-        explanation_language:results.edit_exp_lang,
-        tags:'',
-        title:''};
-      });
+    var lessonResource = $resource('/api/lesson', {},
+      {update: {method: 'PUT'}}
+    );
+    self.createExercise = function (lesson) {
+      if (!lesson._id) {
+        self.save(lesson);
+      }
+      return {
+        lesson_id: lesson._id,
+        type: exercise_type,
+        order: $scope.lesson.last_exercise_id,
+        name: '',
+        deleted: false,
+        editState: true};
     };
     self.save = function (lesson) {
-      if (lesson._id){
-        $http.put();
-      }else{
-        $http.post();
+      if (lesson._id) {
+        var lessonRes = new lessonResource(lesson);
+        lessonRes.$save(function (response) {
+          console.log(response);
+          if (response.status == 0) {
+            //$location.path('/lesson/' + response.slug);
+            lesson._id = response._id;
+            console.console.log(response);
+            //$location.path('/');
+          } else {
+            console.console.log(data);
+          }
+        });
+      } else {
+        lessonResource.update(lesson);
       }
     };
     self.saveAs = function (lesson) {
@@ -43,21 +58,20 @@
       $http.post(lesson);
     };
     self.loadTags = function (query, language) {
-      var data = {query:query, language:language};
+      var data = {query: query, language: language};
       console.log(data);
-      var url = '/api/tag?query='+query +'&language='+language;
+      var url = '/api/tag?query=' + query + '&language=' + language;
       return $http.get(url);
     };
-    self.addTag = function ($tag,language) {
-      if (!UserService.isLoggedIn()){
+    self.addTag = function ($tag, language) {
+      if (!UserService.isLoggedIn()) {
         return false;
       }
       console.log($tag);
-      var data = {name: $tag.text,language: language};
+      var data = {name: $tag.text, language: language};
       return $http.post('/api/tag', data);
     };
-    return self
-
+    return self;
   }
 
   angular.module('sllp.lesson')

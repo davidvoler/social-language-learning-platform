@@ -16,18 +16,20 @@ class ExerciseHandler(BaseHandler):
         :param db: an instance to pymongo database object
         """
         self._db = db
-
     def get(self):
         """
         loads a single exercise entry
         """
-        _id = self.get_argument('_id', None)
-        if _id:
-            exercise = self._db['exercise'].find_one({'_id':ObjectId(_id)})
+        id = self.get_argument('id', '')
+        lesson_id = self.get_argument('lesson_id', '')
+        if id:
+            exercise = self._db['exercise'].find_one({'_id':id})
             self.write(dumps(exercise))
+        elif lesson_id:
+            exercises = self._db['exercise'].find({'lesson_id':lesson_id})
+            self.write(dumps(exercises))
         else:
-            exercises = self._db['exercise'].find()
-            self.write(dumps(exercises))    
+            self.write(dumps({'status':-2, 'error':'Must have id or lesson_id'}))
     
     def post(self):
         """
@@ -39,7 +41,7 @@ class ExerciseHandler(BaseHandler):
 
         try:
             self._db['exercise'].insert(exercise)
-            self.write({'status':0,'error':'','slug':exercise['slug']})
+            self.write(dumps(exercise));
         except Exception as e:
             self.write(dumps({'status':-2,'error':str(e)}))
 
@@ -50,10 +52,7 @@ class ExerciseHandler(BaseHandler):
         TODO: Improve permission - move permission to the current user.
 
         """
-
-
         exercise = loads(self.request.body.decode("utf-8"))
-
         #check permission
         #This is not safe permission check
         if not exercise['created_by']== self.get_current_user_id():

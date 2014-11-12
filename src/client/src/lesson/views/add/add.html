@@ -56,6 +56,14 @@
 </div>
 
 
+<div>
+  <h4>Exercises</h4>
+  <div ng-repeat="exercise in add.exercises">{{exercise}}</div>
+</div>
+<div class="btn-group">
+  <button ng-click="add.addExercise('text')">Add Exercise</button>
+</div>
+
 <div class="well">
-  <button ng-click="save()" type="submit" class="btn btn-info">Save</button>
+  <button ng-click="add.saveLesson()" type="submit" class="btn btn-info">Save</button>
 </div>

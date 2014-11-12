@@ -4,9 +4,12 @@
                                $scope,
                                LanguageService,
                                ProfileService,
-                               LessonEdit) {
+                               LessonEdit,
+                               ExerciseEdit) {
     var self = this;
     self.profile = ProfileService.profile;
+    self.languages = LanguageService.languages;
+    self.exercises = [];
     //self.lesson = LessonEdit.create();
     self.createLesson = function () {
       if (ProfileService.profile._id || ProfileService.profile.anon ){
@@ -42,7 +45,15 @@
       console.log('On tag added');
       return LessonEdit.addTag($tag, self.lesson.language);
     };
-    self.languages = LanguageService.languages;
+
+    self.addExercise = function(type){
+      self.exercises.push(ExerciseEdit.create(1,type));
+    };
+    self.saveLesson = function(){
+      LessonEdit.save(self.lesson)
+
+    }
+
   }
   angular.module('sllp.lesson')
     .controller('AddLessonController', AddLessonController)
