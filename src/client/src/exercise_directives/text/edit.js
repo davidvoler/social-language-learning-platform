@@ -1,17 +1,28 @@
 (function () {
   /**
-   * slRpmeComplete Directive
+   * slEditText Directive
    *
    * @constructor
    */
-  function slEditDirname() {
+  function slEditText() {
 
     return {
 
-
-      templateUrl: '/static/src/exercise_directives/sdir/edit.html'
+      restrict: 'E',
+      //transclude: true,
+      //scope: {exercise: "="},
+      controller: function ($scope) {
+        $scope.init = function () {
+          if (!$scope.exercise.text) {
+            $scope.exercise.text = '';
+          }
+        };
+        $scope.init();
+      },
+      templateUrl: '/static/src/exercise_directives/text/edit.html'
     }
   }
+
   angular.module('sllp.exercise_directives')
-    .directive('slEditDirname', slEditDirname)
+    .directive('slEditText', slEditText)
 }());

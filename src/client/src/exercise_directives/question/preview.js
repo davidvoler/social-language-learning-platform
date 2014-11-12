@@ -1,16 +1,19 @@
 (function () {
   /**
-   * slPreviewDirname Directive
+   * slPreviewQuestion Directive
    * The preview version
    */
-  function slPreviewDirname() {
+  function slPreviewQuestion() {
 
     return {
-
-      templateUrl:'/static/src/exercise_directives/sdir/preview.html'
+      restrict: 'E',
+      //scope: {exercise: "="},
+      controller: function ($scope) {
+      },
+      templateUrl:'/static/src/exercise_directives/question/preview.html'
     };
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewDirname',slPreviewDirname);
+    .directive('slPreviewQuestion',slPreviewQuestion);
 }());
