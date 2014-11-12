@@ -1,12 +1,16 @@
-<div class="help" translate>Let the student match a phrase parts to each other</div>
-<div class="row">
-<div  class="col-md-4" ng-repeat="item in exercise.items">
-<input ng-if="item.type=='txt'" placeholder="text part" ng-model="item.val">
-<div ng-if="item.type=='select'">
-<div ng-repeat="o in item.options">
-    <input size="15" placeholder="option"  ng-model="o.val">
-    <input title="correct" type="checkbox" ng-model="o.correct">
-</div>
-</div>
-</div>
-</div>
+<div class="help" translate>Match exercise requires the student to match two parts of a phrase</div>
+<table class="table">
+  <thead>
+  <tr>
+    <td trnaslate>Part 1 </td>
+    <td trnaslate>Part 2 </td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="item in exercise.items" >
+    <td><input ng-model="item.part1" placeholder="part1"></td>
+    <td><input ng-model="item.part2" placeholder="part2"></td>
+  </tr>
+  </tbody>
+</table>
+<div><button translate ng-click="addItem()">Add</button></div>

@@ -1,10 +1,9 @@
-<div class="help" translate>choose part to match current phrase</div>
+<table class="table">
+<tr ng-repeat="item in exercise.items">
+<td>{{item.term}}</td>
+<td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>
+</tr>
+</table>
 <div>
-<span  ng-repeat="item in exercise.items">
-<span ng-if="item.type=='txt'">{{item.val}}</span>
-<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type=='select'">
-<option></option>
-<option ng-repeat="option in item.options">{{option.val}}</option>
-</select>
-</span>
+<button ng-click="checkCorrect($index,item.translation,exercise.id)" ng-repeat="item in exercise.items">{{item.translation}}</button>
 </div>

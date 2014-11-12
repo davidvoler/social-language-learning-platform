@@ -1,10 +1,7 @@
-<div class="help" translate>choose part to match current phrase</div>
-<div>
-<span  ng-repeat="item in exercise.items">
-<span ng-if="item.type=='txt'">{{item.val}}</span>
-<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type=='select'">
-<option></option>
-<option ng-repeat="option in item.options">{{option.val}}</option>
-</select>
-</span>
+<div translate class="help">Put the words in the correct order</div>
+<div class="answer">
+  <button ng-click="moveBack($index)" ng-repeat="a in exercise.answerWords track by $index">{{a}}</button>
+</div>
+<div class="words">
+  <button ng-click="moveAnswer($index)" ng-repeat="a in exercise.words track by $index">{{a}}</button>
 </div>

@@ -1,10 +1,7 @@
-<div class="help" translate>choose part to match current phrase</div>
-<div>
-<span  ng-repeat="item in exercise.items">
-<span ng-if="item.type=='txt'">{{item.val}}</span>
-<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type=='select'">
-<option></option>
-<option ng-repeat="option in item.options">{{option.val}}</option>
-</select>
-</span>
+<div>{{exercise.question}}</div>
+<div ng-repeat="a in exercise.answers">
+  <label>
+    <input type="checkbox" value="">
+    {{a.answer}}
+  </label>
 </div>
