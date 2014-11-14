@@ -41,5 +41,5 @@
     }
   }
   angular.module('sllp.exercise_directives')
-    .directive('slEditComplete', slEditComplete)
+    .directive('slEditComplete', [slEditComplete])
 }());

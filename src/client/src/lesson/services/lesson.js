@@ -8,5 +8,5 @@
   }
 
   angular.module('sllp.lesson')
-    .service('LessonService', LessonService);
+    .service('LessonService', ['UserService',LessonService]);
 }());

@@ -75,5 +75,5 @@
   }
 
   angular.module('sllp.lesson')
-    .service('LessonEdit', LessonEdit)
+    .service('LessonEdit',['$http', 'UserService', 'ProfileService','$resource', LessonEdit])
 }());

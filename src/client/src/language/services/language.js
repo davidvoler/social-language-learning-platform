@@ -16,7 +16,7 @@
 
 
   angular.module('sllp.language')
-    .service('LanguageService',LanguageService);
+    .service('LanguageService',['$resource','gettextCatalog',LanguageService]);
 }());
 
 

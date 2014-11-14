@@ -35,7 +35,7 @@
     }
   }
   angular.module('sllp.auth')
-    .service('UserService', UserService)
+    .service('UserService', ['$http',UserService])
 }());
 
 

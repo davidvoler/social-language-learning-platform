@@ -20,5 +20,5 @@
   }
 
   angular.module('sllp.exercise')
-    .service('Exercise', Exercise)
+    .service('Exercise', ['$http', Exercise])
 }());

@@ -47,6 +47,7 @@
     };
 
     self.addExercise = function(type){
+      console.log('adding a new exercise:'+type);
       self.exercises.push(ExerciseEdit.create(1,type));
     };
     self.saveLesson = function(){

@@ -42,5 +42,5 @@
   }
 
   angular.module('sllp.lesson')
-    .service('ExerciseEdit', ExerciseEdit);
+    .service('ExerciseEdit', ['$resource', 'UserService', 'ProfileService',ExerciseEdit]);
 }());

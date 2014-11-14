@@ -4,6 +4,9 @@
 
 <div>{{add.profile}}</div>
 <div>{{add.lesson}}</div>
+<div>{{add.exercises}}</div>
+
+
 <div class="well">
   <table>
     <thead>
@@ -56,13 +59,58 @@
 </div>
 
 
-<div>
-  <h4>Exercises</h4>
-  <div ng-repeat="exercise in add.exercises">{{exercise}}</div>
-</div>
+<h4>Exercises</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <td class="col-md-6" translate>Edit</td>
+    <td class="col-md-5" translate>Preview</td>
+    <td class="col-md-1" translate>Action</td>
+    <td class="col-md-1" translate>Help</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="exercise in add.exercises track by $index">
+    <td>
+      <sl-edit-complete ng-if="exercise.type=='complete'" exercise="exercise"></sl-edit-complete>
+      <sl-edit-match ng-if="exercise.type=='match'" exercise="exercise"></sl-edit-match>
+      <sl-edit-mix ng-if="exercise.type=='mix'" exercise="exercise"></sl-edit-mix>
+      <sl-edit-text ng-if="exercise.type=='text'"></sl-edit-text>
+      <sl-edit-question ng-if="exercise.type=='question'" exercise="exercise"></sl-edit-question>
+      <sl-edit-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></sl-edit-vocabulary>
+      <sl-edit-video ng-if="exercise.type=='video'" exercise="exercise"></sl-edit-video>
+    </td>
+    <td>
+      <sl-preview-complete ng-if="exercise.type=='complete'" exercise="exercise"></sl-preview-complete>
+      <sl-preview-match ng-if="exercise.type=='match'" exercise=" exercise"></sl-preview-match>
+      <sl-preview-mix ng-if="exercise.type=='mix'" exercise="exercise"></sl-preview-mix>
+      <sl-preview-text ng-if="exercise.type=='text'"></sl-preview-text>
+      <sl-preview-question ng-if="exercise.type=='question'" exercise="exercise"></sl-preview-question>
+      <sl-preview-vocabulary ng-if="exercise.type=='vocabulary'" exercise="exercise"></sl-preview-vocabulary>
+      <sl-preview-video ng-if="exercise.type=='video'" exercise="exercise"></sl-preview-video>
+      <div ng-if="exerciseResults[$index].correct==-1" class="alert alert-warning">Wrong choice</div>
+      <div ng-if="exerciseResults[$index].correct==1" class="alert alert-success">Correct</div>
+    </td>
+    <td>
+      <button ng-click="deleteExercise($index)">Del</button>
+    </td>
+    <td>
+      <a href="/help"><i class="glyphicon glyphicon-question-sign"> </i><span translate>Help</span></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
 <div class="btn-group">
-  <button ng-click="add.addExercise('text')">Add Exercise</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('complete')">Add Complete</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('match')">Add Match</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('mix')">Add Mix</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('text')">Add Text</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('question')">Add Question</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('vocabulary')">Add Vocabulary</button>
+  <button type="button" class="btn btn-default" ng-click="add.addExercise('video')">Add Video</button>
 </div>
+
 
 <div class="well">
   <button ng-click="add.saveLesson()" type="submit" class="btn btn-info">Save</button>

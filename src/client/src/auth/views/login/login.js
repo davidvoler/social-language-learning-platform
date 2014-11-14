@@ -16,7 +16,7 @@
     };
   }
   angular.module('sllp.auth')
-    .controller('LoginController', LoginController)
+    .controller('LoginController', ['UserService', LoginController])
 }());
 
 

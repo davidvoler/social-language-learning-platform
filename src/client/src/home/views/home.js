@@ -11,5 +11,5 @@
     };
   }
   angular.module('sllp.home')
-    .controller('HomeController',HomeController);
+    .controller('HomeController',['LanguageService','ProfileService',HomeController]);
 }());
