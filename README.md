@@ -43,6 +43,7 @@ if you do not have python installed and access to a mongodb database please refe
 linux/mac
 
 Python3.x
+
 * git clone https://github.com/davidvoler/social-language-learning-platform.git
 * cd social-language-learning-platform
 * which python3
@@ -55,6 +56,7 @@ Python3.x
 
 
 Python2.x
+
 * git clone https://github.com/davidvoler/social-language-learning-platform.git
 * cd social-language-learning-platform
 * virtualenv  .
@@ -66,6 +68,36 @@ Python2.x
 
 Windows
 * TBD:
+
+
+Install Client Libraries
+------------------------
+You must have node and bower installed 
+
+cd src/client
+
+bower install
+npm install
+
+
+Localization
+------------
+Install grunt and grunt-cli
+
+cd src/client
+
+run grunt
+
+In src/clint/po a template.po file is created use a poedit ir any other tool
+to generate a translation
+
+keep you translation in po directory
+
+run grunt one more time
+you translation should now 
+
+
+
 
 
 Install software
