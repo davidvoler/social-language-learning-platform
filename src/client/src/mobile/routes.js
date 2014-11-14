@@ -50,6 +50,6 @@
   }
 
   angular.module('sllp')
-    .config(routes)
+    .config(['$routeProvider',routes])
 
 }());

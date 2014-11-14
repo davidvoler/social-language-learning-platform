@@ -61,7 +61,7 @@
   }
 
   angular.module('sllp.profile')
-    .service('ProfileService', ProfileService);
+    .service('ProfileService', ['$resource','$timeout','UserService',ProfileService]);
 }());
 
 /*

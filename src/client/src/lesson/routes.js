@@ -22,5 +22,5 @@
   }
 
   angular.module('sllp.lesson')
-    .config(lessonRoutes);
+    .config(['$routeProvider',lessonRoutes]);
 }());

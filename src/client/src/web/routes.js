@@ -22,7 +22,7 @@
   }
 
   angular.module('sllp.web')
-    .config(routes);
+    .config(['$routeProvider',routes]);
     //.config(locationConf);
   ;
 

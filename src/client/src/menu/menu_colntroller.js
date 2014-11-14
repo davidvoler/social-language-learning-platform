@@ -4,7 +4,7 @@
 
   }
   angular.module('sllp.menu')
-    .controller('MenuController',MenuController);
+    .controller('MenuController',[MenuController]);
 }());
 
 //menu could become a directive.
