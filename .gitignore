@@ -7,6 +7,9 @@ src/client/node_modules/
 # Local settings
 /src/server/local_settings.py
 
+#mobile
+/src/mobile/
+
 #virtual env unix
 /bin/
 /include/
