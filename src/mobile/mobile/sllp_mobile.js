@@ -1,5 +1,4 @@
 (function () {
-  //replace MODULE_NAME and add dependencies
   angular.module('sllp.mobile', [
   'ngCookies',
   'ngResource',

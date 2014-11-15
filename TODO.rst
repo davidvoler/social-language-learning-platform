@@ -7,7 +7,7 @@ Exercise - Separate from lesson
 
 Exercises
 1. Get, Save, update, delete
-2. consider delete as mark deleted = true
+2. consider delete as deleted = true
 
 
 

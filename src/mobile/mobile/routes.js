@@ -49,7 +49,6 @@
       })
   }
 
-  angular.module('sllp')
+  angular.module('sllp.mobile')
     .config(['$routeProvider',routes])
-
 }());

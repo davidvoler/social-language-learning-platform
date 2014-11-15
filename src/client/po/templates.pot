@@ -12,6 +12,7 @@ msgid "A vocabulary, a set of words and meanings/translation"
 msgstr ""
 
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "About"
 msgstr ""
@@ -56,11 +57,13 @@ msgstr ""
 
 #: partials/lesson_edit.html
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "Help"
 msgstr ""
 
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "Home"
 msgstr ""
@@ -70,6 +73,7 @@ msgid "How does it work?"
 msgstr ""
 
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "Languages"
 msgstr ""
@@ -83,6 +87,7 @@ msgid "Let the student match a phrase parts to each other"
 msgstr ""
 
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "Login"
 msgstr ""
@@ -109,6 +114,7 @@ msgstr ""
 
 #: partials/about.html
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.cdn.html
 #: ../templates/index.html
 msgid "Social Language Learning Platform"
@@ -127,6 +133,7 @@ msgid "This project is an open source project looking for people to join."
 msgstr ""
 
 #: ../templates/app.html
+#: ../templates/app_dist.html
 #: ../templates/index.html
 msgid "Toggle navigation"
 msgstr ""

@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <link href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/static/bower_components/ng-tags-input/ng-tags-input.min.css">
+<link rel="stylesheet" type="text/css" href="/static/bower_components/ng-tags-input/ng-tags-input.min.css">
 
 
   <style type="text/css">
@@ -108,43 +108,8 @@
 <script src="/static/bower_components/angular-gettext/dist/angular-gettext.min.js"></script>
 <script src="/static/js/translations.js"></script>
 
-<!-- App Code and controllers -->
-<script src="/static/src/auth/auth_module.js"></script>
-<script src="/static/src/language/language_module.js"></script>
-<script src="/static/src/lesson/lesson_module.js"></script>
-<script src="/static/src/practice/practice_module.js"></script>
-<script src="/static/src/profile/profile_module.js"></script>
-<script src="/static/src/home/home_module.js"></script>
+<script src="/static/dist/web.js"></script>
 
-<script src="/static/src/exercise_directives/exercise_directives.js"></script>
-
-<script src="/static/src/exercise_directives/complete/edit.js"></script>
-<script src="/static/src/exercise_directives/complete/preview.js"></script>
-
-<script src="/static/src/exercise_directives/match/edit.js"></script>
-<script src="/static/src/exercise_directives/match/preview.js"></script>
-
-<script src="/static/src/exercise_directives/mix/edit.js"></script>
-<script src="/static/src/exercise_directives/mix/preview.js"></script>
-
-<script src="/static/src/exercise_directives/question/edit.js"></script>
-<script src="/static/src/exercise_directives/question/preview.js"></script>
-
-<script src="/static/src/exercise_directives/text/edit.js"></script>
-<script src="/static/src/exercise_directives/text/preview.js"></script>
-
-<script src="/static/src/exercise_directives/video/edit.js"></script>
-<script src="/static/src/exercise_directives/video/preview.js"></script>
-
-<script src="/static/src/exercise_directives/vocabulary/edit.js"></script>
-<script src="/static/src/exercise_directives/vocabulary/preview.js"></script>
-
-
-
-
-<script src="/static/src/web/sllp_web.js"></script>
-<script src="/static/src/web/routes.js"></script>
-<script src="/static/src/lesson/routes.js"></script>
 <script>
   angular.module('sllp.web').config(function ($httpProvider) {
     var _xsrf = document.getElementsByName('_xsrf');
@@ -153,24 +118,6 @@
   });
 </script>
 
-<script src="/static/src/auth/services/auth.js"></script>
-<script src="/static/src/language/services/language.js"></script>
-<script src="/static/src/profile/services/profile.js"></script>
-
-<script src="/static/src/lesson/services/edit.js"></script>
-<script src="/static/src/lesson/services/learn.js"></script>
-<script src="/static/src/lesson/services/exercise.js"></script>
-
-<script src="/static/src/auth/views/login/login.js"></script>
-
-
-<script src="/static/src/lesson/views/add/add.js"></script>
-<script src="/static/src/lesson/views/edit/edit.js"></script>
-<script src="/static/src/lesson/views/list/list.js"></script>
-<script src="/static/src/lesson/views/practice/practice.js"></script>
-
-
-<script src="/static/src/home/views/home.js"></script>
 
 
 
