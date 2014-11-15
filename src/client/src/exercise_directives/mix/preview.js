@@ -28,5 +28,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewMatch', slPreviewMatch);
+    .directive('slPreviewMatch', [slPreviewMatch]);
 }());

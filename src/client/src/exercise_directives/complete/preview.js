@@ -43,5 +43,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewComplete',slPreviewComplete);
+    .directive('slPreviewComplete',[slPreviewComplete]);
 }());

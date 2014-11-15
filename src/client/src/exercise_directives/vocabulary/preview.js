@@ -28,5 +28,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewVocabulary', slPreviewVocabulary);
+    .directive('slPreviewVocabulary', [slPreviewVocabulary]);
 }());

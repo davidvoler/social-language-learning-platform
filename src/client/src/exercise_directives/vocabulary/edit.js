@@ -32,5 +32,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slEditVocabulary', slEditVocabulary)
+    .directive('slEditVocabulary', [slEditVocabulary])
 }());

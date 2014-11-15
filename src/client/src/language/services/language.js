@@ -18,24 +18,3 @@
   angular.module('sllp.language')
     .service('LanguageService',['$resource','gettextCatalog',LanguageService]);
 }());
-
-
-
-/*
-function LanguageService1($http){
-    var self = this;
-    self.loaded = false;
-    self.error = '';
-    self.languages = [];
-    self.init = function(){
-      $http.get('/api/language')
-        .success(function(data){
-          self.languages = data;
-          console.log('In service');
-          console.log(self.languages);
-          self.loaded= true;
-      });
-    };
-    self.init();
-  }
- */

@@ -12,5 +12,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewDirname',slPreviewDirname);
+    .directive('slPreviewDirname',[slPreviewDirname]);
 }());

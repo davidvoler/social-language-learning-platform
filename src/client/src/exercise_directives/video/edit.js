@@ -24,5 +24,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slEditVideo', slEditVideo)
+    .directive('slEditVideo', [slEditVideo])
 }());

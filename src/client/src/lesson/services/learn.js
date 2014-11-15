@@ -23,5 +23,5 @@
   }
 
   angular.module('sllp.lesson')
-    .service('ServiceName',['4http', LessonLearn])
+    .service('ServiceName',['$http', LessonLearn])
 }());

@@ -13,5 +13,5 @@
     }
   }
   angular.module('sllp.exercise_directives')
-    .directive('slEditDirname', slEditDirname)
+    .directive('slEditDirname', [slEditDirname])
 }());

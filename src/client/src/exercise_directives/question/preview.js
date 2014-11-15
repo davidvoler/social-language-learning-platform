@@ -15,5 +15,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slPreviewQuestion',slPreviewQuestion);
+    .directive('slPreviewQuestion',[slPreviewQuestion]);
 }());

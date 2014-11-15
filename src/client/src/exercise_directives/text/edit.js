@@ -24,5 +24,5 @@
   }
 
   angular.module('sllp.exercise_directives')
-    .directive('slEditText', slEditText)
+    .directive('slEditText', [slEditText])
 }());
