@@ -8,7 +8,10 @@ src/client/node_modules/
 /src/server/local_settings.py
 
 #mobile
-/src/mobile/
+/src/mobile/node_modules/
+/src/mobile/platforms/
+/src/mobile/plugins/
+
 
 #virtual env unix
 /bin/
