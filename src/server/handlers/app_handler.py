@@ -12,5 +12,5 @@ class AppHandler(web.RequestHandler):
         Loading the main page for the application
         As we are working in a single web page application it will be the only page to load
         """
-        index_path = os.path.join(options.templates_dir,'app_dist.html')
+        index_path = os.path.join(options.templates_dir,'app.html')
         self.render(index_path)
