@@ -80,6 +80,48 @@ bower install
 npm install
 
 
+Install & build mobile version
+------------------------------
+
+sudo npm install -g cordova ionic
+
+cd src/mobile
+
+npm install
+
+
+Open src/mobile/www/index.html with a webserver such as simplehttpserver
+
+https://docs.python.org/2/library/simplehttpserver.html
+
+Build mobile application
+------------------------
+
+Android 
+-------
+
+cd src/mobile
+
+ionic platform add android
+
+ionic build android
+
+ionic emulate android
+
+
+ios
+---
+
+cd src/mobile
+
+ionic platform add ios
+
+ionic build ios
+
+ionic emulate ios
+
+
+
 Localization
 ------------
 Install grunt and grunt-cli
