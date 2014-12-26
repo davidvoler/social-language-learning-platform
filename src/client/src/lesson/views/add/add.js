@@ -1,10 +1,18 @@
 (function () {
 
-  function AddLessonController($timeout, $scope, LanguageService, ProfileService, LessonEdit, ExerciseEdit) {
+  function AddLessonController($timeout, $scope, LanguageService, ProfileService, LessonEdit, ExerciseEdit, ExerciseHelpService,ModalHelpService) {
     var self = this;
     self.profile = ProfileService.profile;
     self.languages = LanguageService.languages;
     self.exercises = [];
+
+    self.exerciseHelp = function(etype){
+      return ExerciseHelpService.modalHelp(etype);
+    };
+    self.help = function(help_id){
+      return ModalHelpService.modalHelp(help_id);
+    };
+
     //self.lesson = LessonEdit.create();
     self.createLesson = function () {
       if (ProfileService.profile._id || ProfileService.profile.anon) {
@@ -60,5 +68,7 @@
       'ProfileService',
       'LessonEdit',
       'ExerciseEdit',
+      'ExerciseHelpService',
+      'ModalHelpService',
       AddLessonController])
 }());

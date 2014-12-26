@@ -1,6 +1,7 @@
 (function () {
   angular.module('sllp.lesson', [
     'sllp.language',
-    'sllp.profile'
+    'sllp.profile',
+    'sllp.help'
   ]);
 }());

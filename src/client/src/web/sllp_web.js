@@ -10,6 +10,7 @@
     'ngTagsInput',
     'gettext',
     'sllp.auth',
+    'sllp.help',
     'sllp.lesson',
     'sllp.home',
     'sllp.exercise_directives'
