@@ -1,4 +1,12 @@
 (function () {
+  'use strict';
+  /**
+   * Modal help controller
+   * @param $scope
+   * @param $modalInstance
+   * @param helpInfo
+   * @constructor
+   */
   function ModalHelpController($scope, $modalInstance, helpInfo) {
     var self = this;
     console.log(helpInfo);
@@ -15,6 +23,12 @@
 
   }
 
+  /**
+   * ModalHelpService
+   * A simple service that opens modal help
+   * @param $modal
+   * @constructor
+   */
   function ModalHelpService($modal) {
     var self = this;
     self.info = {};

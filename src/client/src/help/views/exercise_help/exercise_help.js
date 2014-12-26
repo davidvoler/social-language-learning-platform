@@ -5,9 +5,9 @@
  */
 
 (function () {
-  function ExerciseHelpController($scope, $modalInstance, exercise_type) {
+  function ExerciseHelpController($scope, $modalInstance, exerciseHelp) {
     var self = this;
-    $scope.exercise_type = exercise_type;
+    $scope.exerciseHelp = exerciseHelp;
 
     $scope.loadExerciseHelp = function(){
       //load exercise help from database
@@ -29,14 +29,17 @@
      */
     self.modalHelp = function(exercise_type) {
       //todo: get help from database - based on current language
-
+      var exerciseHelp = {
+        exercise_type:exercise_type,
+        title:'Some Title'
+      };
       var modalInstance = $modal.open({
         templateUrl: '/static/src/help/views/exercise_help/exercise_help.html',
         controller: 'ExerciseHelpController',
         size: 'lg',
         resolve: {
-          exercise_type: function () {
-            return exercise_type;
+          exerciseHelp: function () {
+            return exerciseHelp;
           }
         }
       });
@@ -48,7 +51,7 @@
 
   angular.module('sllp.help')
     .controller('ExerciseHelpController',
-    ['$scope', '$modalInstance', ExerciseHelpController]);
+    ['$scope', '$modalInstance','exerciseHelp', ExerciseHelpController]);
 
 
   angular.module('sllp.help')
