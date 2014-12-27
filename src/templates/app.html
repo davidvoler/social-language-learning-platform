@@ -21,7 +21,7 @@
 
 <body ng-app="sllp.web">
 <header class="navbar navbar-default navbar-static-top" role="banner">
-  <div class="container" ng-controller="LoginController">
+  <div class="container" ng-controller="MenuController as menu">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only" translate>Toggle navigation</span>
@@ -45,17 +45,6 @@
         </li>
 
 
-        <!--
-        <li>
-          <a href="#" ng-click="logout()">Logout</a>
-        </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <li>
-          <a href="/api/auth/google">Login With Google</a>
-        </li>
-        -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -69,16 +58,19 @@
             <span translate>Languages</span>
             <b class="caret"></b>
           </a>
-          <!--
-          <ul ng-controller="ProfileController" class="dropdown-menu">
-            <li ng-repeat="language in getLanguages()">
-              <a ng-click="setUiLanguage(language._id)" >{{!language.name}}</a>
+
+          <ul class="dropdown-menu">
+            <li ng-repeat="language in menu.getLanguages()">
+              <a ng-click="menu.setUiLanguage(language._id)" ng-bind="language.name"></a>
             </li>
           </ul>
-          -->
+
         </li>
-        <li>
-          <a href="/api/auth/google" translate>Login</a>
+        <li ng-if="::menu.isLoggedIn()">
+          <a ng-click="menu.logout()">Logout</a>
+        </li>
+        <li ng-if="::!menu.isLoggedIn()">
+          <a href="/api/auth/google">Login</a>
         </li>
       </ul>
     </nav>
@@ -116,6 +108,8 @@
 <script src="/static/src/practice/practice_module.js"></script>
 <script src="/static/src/profile/profile_module.js"></script>
 <script src="/static/src/home/home_module.js"></script>
+<script src="/static/src/menu/menu_module.js"></script>
+<script src="/static/src/menu/menu_controller.js"></script>
 
 <script src="/static/src/exercise_directives/exercise_directives.js"></script>
 

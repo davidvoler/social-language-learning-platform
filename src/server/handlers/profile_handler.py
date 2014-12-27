@@ -20,6 +20,7 @@ class ProfileHandler(tornado.web.RequestHandler):
         user_id = self.get_argument('user_id', None)
         if not user_id:
             self.write(dumps({'status':-1,'error':'user_id is not defined'}))
+            return
         profile = self._db['profile'].find_one({'_id':user_id})
         if not profile:
             self._db['profile'].insert({'_id':user_id})

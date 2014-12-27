@@ -103,3 +103,28 @@ class GAuthLoginHandler(BaseHandler, tornado.auth.GoogleOAuth2Mixin):
         self.clear_cookie('sllp_user')
 
 
+    def put(self):
+        """
+        used to verify if a secured cookie sllp_user exists
+        :return:
+        """
+        status = 0
+        error  = ''
+        debug = ''
+        userid = self.get_current_user()
+        if userid:
+            self.write(dumps({'status':status,
+                              'error':error,
+                              'debug':debug,
+                              'userid':userid}))
+        else:
+            status = -1
+            self.write(dumps({'status':status,
+                              'error':error,
+                              'debug':debug,
+                              'userid':userid}))
+
+
+
+
+

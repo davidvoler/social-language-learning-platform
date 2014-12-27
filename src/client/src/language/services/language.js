@@ -11,6 +11,10 @@
     service.setUiLanguage= function(lang_code){
         gettextCatalog.setCurrentLanguage(lang_code);
     };
+    service.getLanguages = function(){
+      return service.languages;
+    };
+
     return service
   }
 

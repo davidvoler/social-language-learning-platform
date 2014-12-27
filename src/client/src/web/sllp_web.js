@@ -13,6 +13,7 @@
     'sllp.help',
     'sllp.lesson',
     'sllp.home',
+    'sllp.menu',
     'sllp.exercise_directives'
   ]);
 

@@ -1,3 +1,3 @@
 (function () {
-  angular.module('sllp.menu', []);
+  angular.module('sllp.menu', ['sllp.language']);
 }());
