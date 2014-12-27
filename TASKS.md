@@ -319,8 +319,12 @@ Started
 Use simple inline help. with help css class
 When a help link is needed consider using some help directive based on:
 http://plnkr.co/edit/2jK2GFcKSiKgMQMynD1R?p=preview
+Done 
 
 ## Menu
+Create a controller that handles all menu related action like login, languages and more. 
+
+
 
 ### Home
 
@@ -338,7 +342,7 @@ Options are one or more of the following:
 ### Lesson Page
 
 Even if we have lessons in the home page - here we will have a list of lessons 
-with better search and more lessons informtion
+with better search and more lessons information
 
 
 
