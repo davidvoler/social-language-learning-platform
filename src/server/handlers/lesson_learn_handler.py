@@ -9,7 +9,7 @@ from slugify import slugify
 from server.handlers.base_handler import BaseHandler
 
 
-class LessonHandler(BaseHandler):
+class LessonLearnHandler(BaseHandler):
     def initialize(self, db):
         """
         Initializes the instance with a mongodn database instance
@@ -32,17 +32,20 @@ class LessonHandler(BaseHandler):
             lesson = self._db['lesson'].find_one({'_id':ObjectId(_id)})
             if exercises:
                 lesson['exercise']= self._db['exercise'].find({'lesson_id':lesson['_id']})
-            self.write(dumps(lesson))
+            #self.write(dumps(lesson))
+            self.write(dumps({'status':0,'error':'','data':lesson}))
         elif slug:
             lesson = self._db['lesson'].find_one({'slug':slug})
             if exercises:
                 lesson['exercise']= self._db['exercise'].find({'lesson_id':lesson['_id']})
-            self.write(dumps(lesson))
+            #self.write(dumps(lesson))
+            self.write(dumps({'status':0,'error':'','data':lesson}))
         else:
             lang = self.get_argument('lang', '')
             exp_lang = self.get_argument('exp_lang', '')
             lessons = self._db['lesson'].find({'lang':lang,'exp_lang':exp_lang})
-            self.write(dumps(lessons))    
+            self.write(dumps({'status':0,'error':'','data':lessons}))
+            #self.write(dumps(lessons))
     
     def post(self):
         """

@@ -11,8 +11,8 @@ from tornado.options import options
 from tornado import ioloop, web
 import logging
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..'))
-from server.handlers import LessonHandler, IndexHandler, ProfileHandler, LoginHandler, \
-    GoogleOAuth2LoginHandler,LanguageHandler,GAuthLoginHandler,TagHandler, AppHandler
+from server.handlers import LessonEditHandler, LessonPracticeHandler, LessonLearnHandler, \
+     ProfileHandler, LoginHandler, LanguageHandler,GAuthLoginHandler,TagHandler, AppHandler
 
 # adding local directory to path
 
@@ -64,7 +64,9 @@ app = tornado.web.Application([
                                   #(r'/', IndexHandler),
                                   (r'/', AppHandler),
                                   #api prefix means that do REST operations
-                                  (r'/api/lesson', LessonHandler, dict(db=db)),
+                                  (r'/api/lesson/learn', LessonLearnHandler, dict(db=db)),
+                                  (r'/api/lesson/edit', LessonEditHandler, dict(db=db)),
+                                  (r'/api/lesson/practice', LessonPracticeHandler, dict(db=db)),
                                   (r'/api/profile', ProfileHandler, dict(db=db)),
                                   (r'/api/login', LoginHandler, dict(db=db)),
                                   (r'/api/auth/google', GAuthLoginHandler, dict(db=db)),
