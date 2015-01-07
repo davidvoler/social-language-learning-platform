@@ -17,6 +17,7 @@
     };
     service.load = function () {
       if (UserService.isLoggedIn()){
+        console.log('user is logged in - loading profile ');
         service.profile = profileResource.get({user_id:UserService.getUserId()})
           /*.$promise.then(function(results){
             console.log(results);
@@ -26,6 +27,7 @@
           });
          */
       }else{
+
         service.createAnonimProfile();
       }
     };

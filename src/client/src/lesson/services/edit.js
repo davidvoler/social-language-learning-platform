@@ -4,7 +4,7 @@
 
     var self = this;
 
-    var lessonResource = $resource('/api/lesson', {},
+    var lessonResource = $resource('/api/lesson/edit', {},
       {update: {method: 'PUT'}}
     );
     self.createExercise = function (lesson) {
