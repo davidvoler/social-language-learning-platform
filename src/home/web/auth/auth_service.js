@@ -72,6 +72,6 @@
         return service;
     }
 
-    angular.module('ate.tfe')
+    angular.module('sllp')
         .service('AuthService', ['$http', '$location', '$cookies', AuthService])
 }());

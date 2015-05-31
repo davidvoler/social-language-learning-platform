@@ -25,7 +25,7 @@
         };
     }
 
-    angular.module('ate.tfe')
+    angular.module('sllp')
         .controller('MenuController', ['$mdSidenav', 'AuthService',
             MenuController]);
 }());

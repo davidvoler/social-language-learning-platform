@@ -75,7 +75,7 @@
         };
     }
 
-    angular.module('ate.tfe')
+    angular.module('sllp')
         .controller('LoginController', ['$scope', '$cookieStore', '$http', '$location',
             '$cookies', '$timeout', 'AuthService',
             LoginController]);

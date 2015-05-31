@@ -15,7 +15,7 @@
         .otherwise({redirectTo: '/home'});
     }
 
-    angular.module('ate.tfe')
+    angular.module('sllp')
         .config(['$routeProvider', routes]);
 }());
 

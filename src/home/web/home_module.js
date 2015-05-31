@@ -1,16 +1,11 @@
 (function () {
     "use strict";
-    var app = angular.module('ate.tfe',
+    var app = angular.module('sllp',
         [
             'ngRoute',
             'ngMaterial',
             'ngCookies',
-            'ate.tfe.profile',
-            'ate.tfe.monitor',
-            'ate.tfe.devices',
-            'ate.tfe.admin',
-            'ate.tfe.methods',
-            'ate.tfe.group'
+            'sllp.profile'
         ]
     );
     app.run(function ($location, $cookies, $rootScope) {

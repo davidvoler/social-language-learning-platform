@@ -1,5 +1,5 @@
 from tornado.options import define, options
-define('app_port', default=8897, help='application port', type=int)
+define('app_port', default=9916, help='application port', type=int)
 
 #user cookie
 define("auth_cookie_name", default='tfe_user', help="name of the cookie to use for authentication", type=str)
@@ -27,6 +27,8 @@ define('opr_pass', default='crow12', help='operation password', type=str)
 define("port", default=9917, help="port", type=int)
 define("mongodb_host",default='localhost:27017', help='Monogo Database Host', type=str)
 define("mongodb_name",default='social_language_learning', help='Database Name', type=str)
+define("lesson_db",default='social_language_learning', help='Lesson database name', type=str)
+
 
 define("templates_dir",
        default=os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','templates'),
@@ -40,3 +42,4 @@ define("google_client_secret",default='', help='google client secret', type=str)
 define("cookie_secret",default='', help='internal cookie_secret', type=str)
 
 
+define("practice_no_exercise", default=30, help="default number of exercise for practice", type=int)

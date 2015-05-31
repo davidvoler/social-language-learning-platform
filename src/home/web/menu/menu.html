@@ -6,14 +6,13 @@
       </md-button>
       <a href='#/home' class="md-button" aria-label="Profile">
         <h2>
-          <span>Test fixture: 192.168.2.220</span>
+          <span>Languages Learning</span>
         </h2>
       </a>
       <a href='#/home' class="md-button" aria-label="Profile">Home</a>
-      <a ng-if="menu.hasPermission('profile')" href='#/profile' class="md-button" aria-label="Profile">Profile</a>
-      <a ng-if="menu.hasPermission('group')" href='#/group' class="md-button" aria-label="Group">Group</a>
-      <a ng-if="menu.hasPermission('monitor')" href='#/monitor' class="md-button" aria-label="Monitor">Monitor</a>
-      <a ng-if="menu.hasPermission('admin')" href='#/admin' class="md-button" aria-label="Admin">Admin</a>
+      <a href='#/lesson' class="md-button" aria-label="Lesson">Lesson</a>
+      <a ng-if="menu.hasPermission('practice')" href='#/practice' class="md-button" aria-label="Practice">Practice</a>
+      <a href='#/profile' class="md-button" aria-label="Profile">Profile</a>
       <a href="#" ng-click="menu.logout()" class="md-button" aria-label="Logout">Logout</a>
 
       <span flex></span>
