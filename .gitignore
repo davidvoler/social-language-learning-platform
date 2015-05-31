@@ -36,3 +36,7 @@ src/client/node_modules/
 /docs/build/
 
 .Python
+
+
+web_res/bower_components/
+src/local_config.py
