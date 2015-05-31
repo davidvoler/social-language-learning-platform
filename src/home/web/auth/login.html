@@ -1,0 +1,27 @@
+<div layout="row" layout-align="center center" style="height: 60%;">
+  <md-card class="md-whiteframe-z3" style="width: 450px;">
+    <md-toolbar class="md-accent">
+      <div class="md-toolbar-tools">
+        <h4 layout-padding>Login</h4>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="md-warn"
+                ng-if="login.error">
+      <div class="md-toolbar-tools">
+        <h5 class="md-flex">{{ login.error }}</h5>
+      </div>
+    </md-toolbar>
+    <br>
+    <md-input-container layout-padding>
+      <label>User name</label>
+      <input type="text" ng-model="login.username">
+    </md-input-container>
+    <md-input-container layout-padding>
+      <label>Password</label>
+      <input type="password" ng-model="login.password">
+    </md-input-container>
+    <br>
+    <md-button class="md-primary" ng-click="login.login()" type="submit">Login</md-button>
+  </md-card>
+</div>
+
