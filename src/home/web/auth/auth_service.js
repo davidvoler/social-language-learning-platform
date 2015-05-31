@@ -15,7 +15,7 @@
         var service = {
             userType: ''
         };
-        service.tstPerms = ['home', 'monitor'];
+        service.tstPerms = ['home', 'profile'];
         service.oprPerms = ['home', 'monitor', 'profile', 'group'];
 
         service.hasPermission = function (action) {

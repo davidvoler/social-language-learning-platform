@@ -1,5 +1,4 @@
 (function () {
-
     function routes($routeProvider) {
         $routeProvider
             .when('/home', {
@@ -14,7 +13,6 @@
             })
         .otherwise({redirectTo: '/home'});
     }
-
     angular.module('sllp')
         .config(['$routeProvider', routes]);
 }());

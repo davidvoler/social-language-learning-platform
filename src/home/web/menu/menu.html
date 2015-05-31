@@ -4,16 +4,12 @@
       <md-button class="md-icon-button" aria-label="Settings" ng-click="menu.openLeftMenu()">
         <i class="mdi mdi-menu" style="font-size: 24px;"></i>
       </md-button>
-      <a href='#/home' class="md-button" aria-label="Profile">
-        <h2>
-          <span>Languages Learning</span>
-        </h2>
-      </a>
+
       <a href='#/home' class="md-button" aria-label="Profile">Home</a>
-      <a href='#/lesson' class="md-button" aria-label="Lesson">Lesson</a>
+      <a ng-if="menu.hasPermission('lesson')" href='#/lesson' class="md-button" aria-label="Lesson">Lesson</a>
       <a ng-if="menu.hasPermission('practice')" href='#/practice' class="md-button" aria-label="Practice">Practice</a>
-      <a href='#/profile' class="md-button" aria-label="Profile">Profile</a>
-      <a href='#/editor' class="md-button" aria-label="Editor">Editor</a>
+      <a ng-if="menu.hasPermission('profile')" href='#/profile' class="md-button" aria-label="Profile">Profile</a>
+      <a ng-if="menu.hasPermission('editor')" href='#/editor' class="md-button" aria-label="Editor">Editor</a>
       <a href="#" ng-click="menu.logout()" class="md-button" aria-label="Logout">Logout</a>
 
       <span flex></span>

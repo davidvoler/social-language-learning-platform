@@ -19,9 +19,9 @@ define('storage_driver', default='storage.storage_driver.StorageDriver', help='S
 define('xmlrpc_server_port', default=9876, help='xmlrpc server port', type=int)
 
 #auth
-define('dev_pass', default='crow2012', help='developer password', type=str)
+define('dev_pass', default='dev', help='developer password', type=str)
 define('tst_pass', default='tst', help='tester password', type=str)
-define('opr_pass', default='crow12', help='operation password', type=str)
+define('opr_pass', default='opr', help='operation password', type=str)
 
 
 define("port", default=9917, help="port", type=int)
