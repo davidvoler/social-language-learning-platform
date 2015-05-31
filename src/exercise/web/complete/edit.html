@@ -1,0 +1,12 @@
+<div class="help" translate>Let the student match a phrase parts to each other</div>
+<div class="row">
+<div  class="col-md-4" ng-repeat="item in exercise.items">
+<input ng-if="item.type=='txt'" placeholder="text part" ng-model="item.val">
+<div ng-if="item.type=='select'">
+<div ng-repeat="o in item.options">
+    <input size="15" placeholder="option"  ng-model="o.val">
+    <input title="correct" type="checkbox" ng-model="o.correct">
+</div>
+</div>
+</div>
+</div>

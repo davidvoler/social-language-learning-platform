@@ -1,0 +1,7 @@
+<div translate class="help">Put the words in the correct order</div>
+<div class="answer">
+  <button ng-click="moveBack($index)" ng-repeat="a in exercise.answerWords track by $index">{{a}}</button>
+</div>
+<div class="words">
+  <button ng-click="moveAnswer($index)" ng-repeat="a in exercise.words track by $index">{{a}}</button>
+</div>
