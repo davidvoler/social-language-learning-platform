@@ -1,7 +1,6 @@
 """
 Lesson handler will query,get,add and delete lessons, that is documents of the lesson collection
 """
-import tornado
 import logging
 from bson.objectid import ObjectId
 from bson.json_util import dumps, loads

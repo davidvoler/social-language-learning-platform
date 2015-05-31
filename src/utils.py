@@ -29,7 +29,7 @@ def get_mongodb_connection():
 
 
 def get_logger(name=None):
-    logging.get_logger(name)
+    logging.getLogger(name)
 
 
 def import_class(cl):

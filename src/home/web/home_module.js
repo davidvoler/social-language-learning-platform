@@ -5,7 +5,10 @@
             'ngRoute',
             'ngMaterial',
             'ngCookies',
-            'sllp.profile'
+            'sllp.profile',
+            'sllp.lesson',
+            'sllp.practice',
+            'sllp.editor'
         ]
     );
     app.run(function ($location, $cookies, $rootScope) {
