@@ -11,10 +11,7 @@
         self.username = AuthService.getUsername();
 
         self.openLeftMenu = function () {
-            $mdSidenav('methods')
-                .toggle()
-                .then(function () {
-                });
+
         };
 
         self.logout = function () {
