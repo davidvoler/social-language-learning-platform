@@ -1,1 +1,35 @@
-<h1>Editor - Edit</h1>
+<section layout="row">
+  <md-card flex="25">
+    <md-card-content>
+      <md-list>
+        <md-header>Exercises</md-header>
+        <md-list-item ng-repeat="item in edit.exercises| orderBy:item.weight">
+
+          <md-button ng-disabled="$last" ng-click="edit.moveDown($index)" class="md-icon-button" aria-label="More">
+            <md-icon class="mdi mdi-chevron-down"></md-icon>
+          </md-button>
+          <md-button ng-disabled="$first" ng-click="edit.moveUp($index)" class="md-icon-button"
+                     aria-label="More">
+            <md-icon class="mdi mdi-chevron-up"></md-icon>
+          </md-button>
+          <!--
+        <md-icon class="mdi mdi-chevron-up"></md-icon>
+        <md-icon class="mdi mdi-chevron-up"></md-icon>
+        -->
+          <md-button ng-click="edit.selectExercise($index)">{{ item.name }}</md-button>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+  <md-card flex="35">
+    <md-card-content>
+      <h1>Edit Area</h1>
+      {{edit.selectedExercise.name}}
+    </md-card-content>
+  </md-card>
+  <md-card flex="35">
+    <md-card-content>
+      <h1>Preview Area</h1>
+    </md-card-content>
+  </md-card>
+</section>
