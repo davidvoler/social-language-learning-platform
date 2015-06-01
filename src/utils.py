@@ -1,6 +1,7 @@
 __author__ = 'davidl'
 
 import pymongo
+import motor
 from tornado.options import options, parse_config_file
 import os, sys
 import logging
@@ -15,6 +16,17 @@ import logging
 
 EXECUTOR = ThreadPoolExecutor(max_workers=128)
 mongodb_connection = False
+async_mongodb_connection = False
+
+def get_async_mongodb_connection():
+    global async_mongodb_connection
+    if not async_mongodb_connection:
+        try:
+            async_mongodb_connection = motor.MotorClient(options.mongodb)
+        except Exception as e:
+            print('connection failed')
+            print(e)
+    return async_mongodb_connection
 
 
 def get_mongodb_connection():
