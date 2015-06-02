@@ -1,4 +1,19 @@
-<div class="help" translate>Phrase words will be mixed and the student will have to put them in the right order</div>
-<div><input ng-change="setWords()" ng-model="exercise.text" class="form-control" placeholder="phrase">
-<input ng-model="exercise.distraction" class="form-control" placeholder="distraction - (optional)">
-</div>
+<section layout="row">
+  <md-button class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;"
+             aria-label="Help">
+    <md-icon class="mdi mdi-help-circle">
+
+    </md-icon>
+    <md-tooltip>
+      Phrase words will be mixed and the student will have to put them in the right order.
+    </md-tooltip>
+  </md-button>
+  <h4 flex>Mix phrase</h4>
+</section>
+<section>
+  <md-input-container >
+    <label>Phrase</label>
+    <input  ng-change="setWords()" ng-model="exercise.text">
+  </md-input-container>
+</section>
+{{exercise.words}}

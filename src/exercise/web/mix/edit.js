@@ -4,14 +4,27 @@
    *
    * @constructor
    */
-  function slEditDirname() {
+  function slEditMix() {
 
     return {
+      restrict: 'E',
+      scope: {exercise: "="},
+      link: function (scope, element, attr) {
 
-
-      templateUrl: '/static/src/exercise_directives/sdir/edit.html'
+        if(!scope.exercise.words){
+          scope.exercise.words = [];
+        }
+        if(!scope.exercise.text){
+          scope.exercise.text = '';
+        }
+        scope.setWords = function(){
+          scope.exercise.words = scope.exercise.text.split(' ');
+        }
+      },
+      templateUrl: '/static/src/exercise/web/mix/edit.html'
     }
   }
-  angular.module('sllp.exercise_directives')
-    .directive('slEditDirname', [slEditDirname])
+
+  angular.module('sllp.exercise')
+      .directive('slEditMix', [slEditMix])
 }());

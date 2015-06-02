@@ -1,9 +1,10 @@
-<section layout="row">
-  <div flex>{{exercise.question}}</div>
-  <div ng-repeat="a in exercise.answers">
-  <label>
-    <input type="checkbox" value="">
-    {{a.answer}}
-  </label>
-</div>
+<section layout="column">
+  <md-whiteframe flex class="md-whiteframe-z1">
+    <span class="question-preview-question">{{exercise.question}}</span>
+  </md-whiteframe>
+  <md-whiteframe flex ng-repeat="a in exercise.answers" class="md-whiteframe-z1" layout="row">
+    <md-checkbox ng-model="a.correct_a" aria-label="correct">
+          {{a.answer}}
+    </md-checkbox>
+  </md-whiteframe>
 </section>
