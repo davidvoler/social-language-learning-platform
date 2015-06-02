@@ -2,6 +2,20 @@
     "use strict";
     function EditorEditController(EditorService) {
         var self = this;
+        self.lesson = {};
+
+        self.exerciseTypes = [
+            {typeName:'complete',icon:'pencil-box-outline'},
+            {typeName:'match',icon:'view-quilt'},
+            {typeName:'mix',icon:'arrange-send-to-back'},
+            {typeName:'question',icon:'help'},
+            {typeName:'text',icon:'tooltip-text'},
+            {typeName:'video',icon:'video'},
+            {typeName:'vocabulary',icon:'briefcase'}
+        ];
+        self.getClass = function(e){
+          return 'mdi-'+ e.icon;
+        };
         self.exercises = [
             {
                 name: 'First steps in Georgian',

@@ -1,24 +1,26 @@
 (function () {
 
-  function Exercise($http) {
+    function Exercise($http) {
 
-    var self = this;
+        var service = this;
 
-    self.query = function (lesson_id) {
+        service.query = function (lesson_id) {
 
-    };
-    self.get = function (exercise_id) {
+        };
+        service.get = function (exercise_id) {
 
-    };
-    self.setMark = function (exercise_id,mark) {
+        };
+        service.setMark = function (exercise_id, mark) {
 
-    };
-    self.loadPracticeList = function () {
+        };
+        service.loadPracticeList = function () {
 
-    };
+        };
+        return service;
 
-  }
 
-  angular.module('sllp.exercise')
-    .service('Exercise', ['$http', Exercise])
+    }
+
+    angular.module('sllp.exercise')
+        .service('Exercise', ['$http', Exercise])
 }());

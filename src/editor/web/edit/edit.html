@@ -1,3 +1,22 @@
+<section>
+  <md-card>
+    <md-card-content layout="row">
+      <md-input-container flex="25">
+        <label>Lesson Name</label>
+        <input ng-model="edit.lesson.name">
+      </md-input-container>
+      <md-input-container flex="25">
+        <label>Language</label>
+        <input ng-model="edit.lesson.name">
+      </md-input-container>
+      <md-input-container flex="25">
+        <label>Comment</label>
+        <input ng-model="edit.lesson.name">
+      </md-input-container>
+    </md-card-content>
+  </md-card>
+</section>
+
 <section layout="row">
   <md-card flex="25">
     <md-card-content>
@@ -5,11 +24,11 @@
         <md-header>Exercises</md-header>
         <md-list-item ng-repeat="item in edit.exercises| orderBy:item.weight">
 
-          <md-button ng-disabled="$last" ng-click="edit.moveDown($index)" class="md-icon-button" aria-label="More">
+          <md-button ng-disabled="$last" ng-click="edit.moveDown($index)" class="md-icon-button" aria-label="Move Down">
             <md-icon class="mdi mdi-chevron-down"></md-icon>
           </md-button>
           <md-button ng-disabled="$first" ng-click="edit.moveUp($index)" class="md-icon-button"
-                     aria-label="More">
+                     aria-label="Move Up">
             <md-icon class="mdi mdi-chevron-up"></md-icon>
           </md-button>
           <!--
@@ -19,6 +38,27 @@
           <md-button ng-click="edit.selectExercise($index)">{{ item.name }}</md-button>
         </md-list-item>
       </md-list>
+      <h5>Add Exercise</h5>
+      <section layout="row" >
+        <md-button ng-repeat="e in edit.exerciseTypes" ng-click="edit.addExercise(e)"
+                   class="md-icon-button md-fab md-mini md-primary" style="font-size:24" >
+          <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.typeName}}"></md-icon>
+          <md-tooltip >Add {{e.typeName}} </md-tooltip>
+        </md-button>
+      </section>
+      <!--
+      <md-bottom-sheet class="md-grid">
+        <md-list>
+          <md-list-item ng-repeat="e in edit.exerciseTypes">
+            <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
+              <md-icon class="mdi mdi-chevron-down" ></md-icon>
+              <div class="md-grid-text"> {{ e.typeName }}</div>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-bottom-sheet>
+      -->
+
     </md-card-content>
   </md-card>
   <md-card flex="35">
