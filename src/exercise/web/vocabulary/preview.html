@@ -1,9 +1,23 @@
+<div class="help">match term with translation</div>
+<div layout="column">
+  <div flex ng-repeat="item in exercise.items" >
+    <span>{{item.term}}</span>
+    <md-button>{{item.translation}}</md-button>
+  </div>
+</div>
+
+<!--
 <table class="table">
-<tr ng-repeat="item in exercise.items">
-<td>{{item.term}}</td>
-<td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>
-</tr>
+  <tr ng-repeat="item in exercise.items">
+    <td>{{item.term}}</td>
+    <td>
+      <button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button>
+    </td>
+  </tr>
 </table>
 <div>
-<button ng-click="checkCorrect($index,item.translation,exercise.id)" ng-repeat="item in exercise.items">{{item.translation}}</button>
+  <button ng-click="checkCorrect($index,item.translation,exercise.id)" ng-repeat="item in exercise.items">
+    {{item.translation}}
+  </button>
 </div>
+-->
