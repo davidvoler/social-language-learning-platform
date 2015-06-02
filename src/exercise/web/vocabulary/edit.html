@@ -1,16 +1,14 @@
-<div class="help" translate>A vocabulary, a set of words and meanings/translation </div>
-<table class="table">
-  <thead>
-  <tr>
-    <td translate> Term </td>
-    <td translate>Translation </td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="item in exercise.items" >
-    <td><input ng-model="item.term" placeholder="term"></td>
-    <td><input ng-model="item.translation" placeholder="translation"></td>
-  </tr>
-  </tbody>
-</table>
-<div><button ng-click="addItem()">Add</button></div>
+<div class="help" translate>A vocabulary, a set of words and meanings/translation</div>
+
+<div layout="row" ng-repeat="item in exercise.items">
+  <md-input-container flex>
+    <label>Term</label>
+    <input ng-model="item.term">
+  </md-input-container>
+  <md-input-container flex>
+    <label>Translation</label>
+    <input ng-model="item.translation">
+  </md-input-container>
+</div>
+
+<md-button ng-click="addItem()">Add</md-button>

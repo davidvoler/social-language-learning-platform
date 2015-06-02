@@ -26,11 +26,10 @@
         };
         $scope.init();
       },
-
-      templateUrl: '/static/src/exercise_directives/vocabulary/edit.html'
+      templateUrl: '/static/src/exercise/web/vocabulary/edit.html'
     }
   }
 
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slEditVocabulary', [slEditVocabulary])
 }());

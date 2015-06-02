@@ -8,6 +8,7 @@
             'sllp.profile',
             'sllp.lesson',
             'sllp.practice',
+            'sllp.exercise',
             'sllp.editor'
         ]
     );

@@ -23,10 +23,10 @@
           $scope.currentItem++;
         }
       },
-      templateUrl: '/static/src/exercise_directives/vocabulary/preview.html'
+      templateUrl: '/static/src/exercise/web/vocabulary/preview.html'
     };
   }
 
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slPreviewVocabulary', [slPreviewVocabulary]);
 }());

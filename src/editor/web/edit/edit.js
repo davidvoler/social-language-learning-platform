@@ -22,18 +22,21 @@
         name: 'Meet and Greet',
         etype: 'complete',
         level: 1,
+        items:[],
         notes: " I'll be in your neighborhood doing errands"
       },
       {
         name: 'Dinner',
         etype: 'complete',
         level: 1,
+        items:[],
         notes: " I'll be in your neighborhood doing errands"
       },
       {
         name: 'Friends',
         etype: 'video',
         level: 1,
+        items:[],
         notes: " I'll be in your neighborhood doing errands"
       }
     ];
@@ -70,6 +73,7 @@
       return {
         etype:etype.etype,
         data:{},
+        items:[],
         name:'New Exercise'
       };
     };
