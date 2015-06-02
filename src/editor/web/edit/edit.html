@@ -22,7 +22,7 @@
     <md-card-content>
       <md-list>
         <md-header>Exercises</md-header>
-        <md-list-item ng-repeat="item in edit.exercises| orderBy:item.weight">
+        <md-list-item ng-repeat="item in edit.exercises">
           <md-button class="md-icon-button md-fab md-mini" style="font-size:24px;"
                      ng-click="edit.deleteExercise($index)"
                      aria-label="Delete">
@@ -45,7 +45,6 @@
           </md-button>
           -->
 
-
           <md-button ng-click="edit.selectExercise($index)">
              <md-icon  class="mdi" style="font-size:24px;" ng-class="edit.getExerciseClass(item)" ></md-icon>
             {{ item.name }}
@@ -57,7 +56,7 @@
         <md-button ng-repeat="e in edit.exerciseTypes" ng-click="edit.addExercise(e)"
                    class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
           <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
-          <md-tooltip>Add {{e.etype}}</md-tooltip>
+          <md-tooltip>Add {{e.etype}} </md-tooltip>
         </md-button>
       </section>
     </md-card-content>

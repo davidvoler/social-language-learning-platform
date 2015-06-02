@@ -21,19 +21,19 @@
       {
         name: 'Meet and Greet',
         etype: 'complete',
-        level: 1, weight: 2,
+        level: 1,
         notes: " I'll be in your neighborhood doing errands"
       },
       {
         name: 'Dinner',
         etype: 'complete',
-        level: 1, weight: 3,
+        level: 1,
         notes: " I'll be in your neighborhood doing errands"
       },
       {
         name: 'Friends',
         etype: 'video',
-        level: 1, weight: 4,
+        level: 1,
         notes: " I'll be in your neighborhood doing errands"
       }
     ];
