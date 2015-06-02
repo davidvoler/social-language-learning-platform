@@ -9,20 +9,19 @@
     return {
 
       restrict: 'E',
-      //transclude: true,
-      //scope: {exercise: "="},
-      controller: function ($scope) {
-        $scope.init = function () {
-          if (!$scope.exercise.text) {
-            $scope.exercise.text = '';
+      scope: {exercise: "="},
+      link: function (scope, element, attr) {
+        scope.init = function () {
+          if (!scope.exercise.text) {
+            scope.exercise.text = '';
           }
         };
-        $scope.init();
+        scope.init();
       },
-      templateUrl: '/static/src/exercise_directives/text/edit.html'
+      templateUrl: '/static/src/exercise/web/text/edit.html'
     }
   }
 
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slEditText', [slEditText])
 }());

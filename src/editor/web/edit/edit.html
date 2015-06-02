@@ -50,6 +50,7 @@
         <md-button ng-repeat="e in edit.exerciseTypes" ng-click="edit.addExercise(e)"
                    class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
           <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
+          <md-tooltip>{{e.etype}}</md-tooltip>
         </md-button>
       </section>
     </md-card-content>
@@ -57,15 +58,19 @@
   <md-card flex="35">
     <md-card-content>
       {{edit.selectedExercise.name}}
-      <sl-edit-vocabulary exercise="edit.selectedExercise"></sl-edit-vocabulary>
+      <sl-edit-vocabulary exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-edit-vocabulary>
+      <sl-edit-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-edit-text>
+      <sl-edit-question exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='question'"></sl-edit-question>
 
 
     </md-card-content>
   </md-card>
   <md-card flex="35">
     <md-card-content>
-      <h1>Preview Area</h1>
-      <sl-preview-vocabulary exercise="edit.selectedExercise"></sl-preview-vocabulary>
+      <h5>Preview</h5>
+      <sl-preview-vocabulary exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-preview-vocabulary>
+      <sl-preview-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-preview-text>
+      <sl-preview-question exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='question'"></sl-preview-question>
     </md-card-content>
   </md-card>
 </section>

@@ -9,8 +9,8 @@
     return {
       restrict: 'E',
       scope: {exercise: "="},
-      controller: function ($scope) {
-        var exercise = $scope.exercise;
+      link: function (scope, element, attr) {
+        var exercise = scope.exercise;
         var init = function () {
           if (!exercise.question) {
             exercise.question = '';
@@ -28,10 +28,10 @@
 
       },
 
-      templateUrl: '/static/src/exercise_directives/question/edit.html'
+      templateUrl: '/static/src/exercise/web/question/edit.html'
     }
   }
 
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slEditQuestion', [slEditQuestion])
 }());

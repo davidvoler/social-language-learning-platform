@@ -1,6 +1,30 @@
-<div class="help" translate>A question with a few possible answers</div>
-<div ><span translate>question</span> :<input placeholder="question" ng-model="exercise.question"></div>
-<div ng-repeat="a in exercise.answers">
-  answer:<input placeholder="answer" ng-model="a.answer">
-  correct:<input type="checkbox" ng-model="a.correct">
-</div>
+<section layout="row">
+  <md-button class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;"
+             aria-label="Help">
+    <md-icon class="mdi mdi-help-circle">
+
+    </md-icon>
+    <md-tooltip>
+      A question with a few possible answers, at least one answer must be correct.
+    </md-tooltip>
+  </md-button>
+  <h4 flex>Edit Question & Answers</h4>
+</section>
+<section layout="column">
+  <md-input-container flex>
+    <label></label>
+    <input ng-model="exercise.question">
+  </md-input-container>
+
+  <section flex layout="row" ng-repeat="a in exercise.answers">
+    <div flex="20">
+        <md-checkbox ng-model="a.correct" aria-label="correct">
+          correct
+        </md-checkbox>
+    </div>
+    <md-input-container flex="70">
+      <label>Answer {{$index+1}}</label>
+      <input ng-model="a.answer">
+    </md-input-container>
+  </section>
+</section>

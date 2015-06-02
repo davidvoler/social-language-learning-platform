@@ -1,5 +1,19 @@
-<div class="help" translate>Explanation, or a text easy that might follow with questions</div>
-<div translate>Edit Text</div>
-<label class="item item-input item-input-inset">
-  <textarea class="form-control" rows="3" placeholder="Text" ng-model="exercise.text"></textarea>
-</label>
+<section layout="row">
+  <md-button class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;"
+             aria-label="Help">
+    <md-icon class="mdi mdi-help-circle">
+
+    </md-icon>
+    <md-tooltip>
+      Explanation, or a text easy that might follow with questions
+    </md-tooltip>
+  </md-button>
+  <h4 flex>Edit Text</h4>
+</section>
+
+
+<md-input-container>
+  <label>Text</label>
+  <textarea class="form-control" rows="5" ng-model="exercise.text"></textarea>
+</md-input-container>
+

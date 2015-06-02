@@ -7,10 +7,11 @@
 
     return {
       restrict: 'E',
-      templateUrl: '/static/src/exercise_directives/text/preview.html'
+      scope: {exercise: "="},
+      templateUrl: '/static/src/exercise/web/text/preview.html'
     };
   }
 
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slPreviewText', [slPreviewText]);
 }());
