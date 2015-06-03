@@ -16,8 +16,6 @@
       <label>Text</label>
       <input ng-model="item.val"/>
     </md-input-container>
-
-
     <section flex ng-if="item.type=='select'">
       <section ng-repeat="o in item.options" layout="row">
         <md-checkbox flex="10" ng-model="a.correct" aria-label="correct-{{$index}}">
@@ -28,7 +26,5 @@
         </md-input-container>
       </section>
     </section>
-
   </div>
-
 </section>
