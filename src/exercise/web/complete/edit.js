@@ -9,12 +9,12 @@
     return {
       restrict: 'E',
       scope: {exercise: "="},
-      controller: function ($scope) {
-        $scope.addText = function () {
-          $scope.exercise.items.push({type: 'txt', val: ''});
+      link: function (scope, element, attr) {
+        scope.addText = function () {
+          scope.exercise.items.push({type: 'txt', val: ''});
         };
-        $scope.addOptions = function () {
-          $scope.exercise.items.push({type: 'select',
+        scope.addOptions = function () {
+          scope.exercise.items.push({type: 'select',
             user_selection:'',
             options: [
               {val: '', correct: true},
@@ -24,22 +24,22 @@
             ]
           });
         };
-        $scope.init = function () {
-          if (!$scope.exercise.items) {
-            $scope.exercise.items = [];
+        scope.init = function () {
+          if (!scope.exercise.items) {
+            scope.exercise.items = [];
           }
-          if ($scope.exercise.items.length == 0) {
-            $scope.addText();
-            $scope.addOptions();
-            $scope.addText();
+          if (scope.exercise.items.length == 0) {
+            scope.addText();
+            scope.addOptions();
+            scope.addText();
           }
         };
-        $scope.init();
+        scope.init();
 
       },
-      templateUrl: '/static/src/exercise_directives/complete/edit.html'
+      templateUrl: '/static/src/exercise/web/complete/edit.html'
     }
   }
-  angular.module('sllp.exercise_directives')
+  angular.module('sllp.exercise')
     .directive('slEditComplete', [slEditComplete])
 }());
