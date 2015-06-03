@@ -1,16 +1,19 @@
 (function () {
   /**
-   * slPreviewDirname Directive
+   * slPreviewMatch Directive
    * The preview version
    */
-  function slPreviewDirname() {
+  function slPreviewMatch() {
 
     return {
-
-      templateUrl:'/static/src/exercise_directives/sdir/preview.html'
+      restrict: 'E',
+      scope: {exercise: "="},
+      link: function (scope, element, attr) {
+      },
+      templateUrl:'/static/src/exercise/web/match/preview.html'
     };
   }
 
-  angular.module('sllp.exercise_directives')
-    .directive('slPreviewDirname',[slPreviewDirname]);
+  angular.module('sllp.exercise')
+    .directive('slPreviewMatch',[slPreviewMatch]);
 }());
