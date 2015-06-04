@@ -1,14 +1,8 @@
 *.py[cod]
 *~
 
-src1/client/bower_components/
-src1/client/node_modules/
-
 # Local settings
-/src1/server/local_settings.py
-
-#mobile
-/src1/mobile/
+/src/local_settings.py
 
 
 #virtual env unix
@@ -37,4 +31,3 @@ src1/client/node_modules/
 
 
 web_res/bower_components/
-src/local_config.py
