@@ -9,7 +9,8 @@
             'sllp.lesson',
             'sllp.practice',
             'sllp.exercise',
-            'sllp.editor'
+            'sllp.editor',
+            'youtube-embed'
         ]
     );
     app.run(function ($location, $cookies, $rootScope) {
