@@ -22,11 +22,13 @@
     <md-card-content>
       <md-list>
         <md-header>Exercises</md-header>
-        <md-list-item ng-repeat="item in edit.exercises">
+        <md-list-item ng-repeat="item in edit.exercises" layout="row">
+
+          <!--
           <md-button class="md-icon-button md-fab md-mini" style="font-size:24px;"
                      ng-click="edit.deleteExercise($index)"
                      aria-label="Delete">
-            <md-icon class="mdi mdi-delete" ></md-icon>
+            <md-icon class="mdi mdi-delete"></md-icon>
           </md-button>
           <md-button ng-disabled="$last" ng-click="edit.moveDown($index)"
                      style="font-size:24px;"
@@ -36,13 +38,23 @@
           <md-button ng-disabled="$first" ng-click="edit.moveUp($index)"
                      class="md-icon-button md-fab md-mini md-primary  md-hue-3"
                      style="font-size:24px;"
-                     aria-label="Move Up" >
+                     aria-label="Move Up">
             <md-icon class="mdi mdi-chevron-up"></md-icon>
           </md-button>
-          <md-button ng-click="edit.selectExercise($index)">
-             <md-icon  class="mdi" style="font-size:24px;" ng-class="edit.getExerciseClass(item)" ></md-icon>
+          -->
+
+          <span ng-click="edit.selectExercise($index)" flex="70">
+            <md-icon class="mdi" style="font-size:24px;" ng-class="edit.getExerciseClass(item)"></md-icon>
             {{ item.name }}
-          </md-button>
+          </span>
+                    <span style="width:90px ">
+          <md-icon style="font-size:24px;" class="mdi mdi-chevron-down"
+                   ng-click="edit.moveDown($index)"></md-icon>
+          <md-icon style="font-size:24px;" class="mdi mdi-chevron-up"
+                   ng-click="edit.moveUp($index)"></md-icon>
+          <md-icon style="font-size:24px;color:red" class="mdi mdi-delete"
+                   ng-click="edit.deleteExercise($index)"></md-icon>
+          </span>
         </md-list-item>
       </md-list>
       <h5>Add Exercise</h5>
@@ -58,11 +70,14 @@
   <md-card flex="35">
     <md-card-content>
       {{edit.selectedExercise.name}}
-      <sl-edit-vocabulary exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-edit-vocabulary>
+      <sl-edit-vocabulary exercise="edit.selectedExercise"
+                          ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-edit-vocabulary>
       <sl-edit-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-edit-text>
-      <sl-edit-question exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='question'"></sl-edit-question>
+      <sl-edit-question exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='question'"></sl-edit-question>
       <sl-edit-mix exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='mix'"></sl-edit-mix>
-      <sl-edit-complete exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='complete'"></sl-edit-complete>
+      <sl-edit-complete exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='complete'"></sl-edit-complete>
       <sl-edit-match exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='match'"></sl-edit-match>
       <sl-edit-video exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='video'"></sl-edit-video>
 
@@ -72,13 +87,18 @@
   <md-card flex="35">
     <md-card-content>
       <h5>Preview</h5>
-      <sl-preview-vocabulary exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-preview-vocabulary>
+      <sl-preview-vocabulary exercise="edit.selectedExercise"
+                             ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-preview-vocabulary>
       <sl-preview-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-preview-text>
-      <sl-preview-question exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='question'"></sl-preview-question>
+      <sl-preview-question exercise="edit.selectedExercise"
+                           ng-if="edit.selectedExercise.etype=='question'"></sl-preview-question>
       <sl-preview-mix exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='mix'"></sl-preview-mix>
-      <sl-preview-complete exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='complete'"></sl-preview-complete>
-      <sl-preview-match exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='match'"></sl-preview-match>
-      <sl-preview-video exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='video'"></sl-preview-video>
+      <sl-preview-complete exercise="edit.selectedExercise"
+                           ng-if="edit.selectedExercise.etype=='complete'"></sl-preview-complete>
+      <sl-preview-match exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='match'"></sl-preview-match>
+      <sl-preview-video exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='video'"></sl-preview-video>
     </md-card-content>
   </md-card>
 </section>

@@ -7,8 +7,11 @@
         service.get = function () {
             return $http.get(service.url);
         };
-        service.save = function(editor){
-            return $http.put(service.url, editor);
+        service.save = function(lesson){
+            return $http.post(service.url, lesson);
+        };
+        service.update = function(lesson){
+            return $http.put(service.url, lesson);
         };
         return service;
     }
