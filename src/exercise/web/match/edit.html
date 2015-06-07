@@ -1,25 +1,16 @@
-<section layout="row">
-  <md-button class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;"
-             aria-label="Help">
-    <md-icon class="mdi mdi-help-circle">
-    </md-icon>
-    <md-tooltip>
-      Match exercise requires the student to match two parts of a phrase.
-    </md-tooltip>
-  </md-button>
-  <h4 flex>Match Exercise</h4>
-</section>
+<sl-top-edit name="Match Exercise" help="Match exercise requires the student to match two parts of a phrase."></sl-top-edit>
+
 
 <section layout="column">
   <div layout="row" ng-repeat="item in exercise.items">
     <md-input-container>
       <label>Part 1</label>
-      <input ng-model="item.part1" >
+      <input ng-model="item.part1">
     </md-input-container>
     <md-input-container>
       <label>Part 2</label>
-      <input ng-model="item.part2" >
+      <input ng-model="item.part2">
     </md-input-container>
   </div>
-<md-button translate ng-click="addItem()">Add</md-button>
+  <md-button translate ng-click="addItem()">Add</md-button>
 </section>

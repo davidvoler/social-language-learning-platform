@@ -21,7 +21,15 @@
   <md-card flex="25">
     <md-card-content>
       <md-list>
-        <md-header>Exercises</md-header>
+        <section layout="row">
+          <span layout="column" ng-repeat="e in edit.exerciseTypes">
+            <md-button ng-click="edit.addExercise(e)"
+                       class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
+              <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
+            </md-button>
+            <div style="font-size: smaller;text-align: center;width: 100%;margin-top: 2px;"> {{e.etype}}</div>
+          </span>
+        </section>
         <md-list-item ng-repeat="item in edit.exercises" layout="row">
 
           <!--
@@ -57,21 +65,10 @@
           </span>
         </md-list-item>
       </md-list>
-      <h5>Add Exercise</h5>
-      <section layout="row">
-        <span layout="column" ng-repeat="e in edit.exerciseTypes">
-        <md-button  ng-click="edit.addExercise(e)"
-                   class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
-          <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
-        </md-button>
-        <div style="font-size: smaller;text-align: center;width: 100%;margin-top: 2px;" > {{e.etype}}</div>
-        </span>
-      </section>
     </md-card-content>
   </md-card>
   <md-card flex="35">
     <md-card-content>
-      {{edit.selectedExercise.name}}
       <sl-edit-vocabulary exercise="edit.selectedExercise"
                           ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-edit-vocabulary>
       <sl-edit-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-edit-text>

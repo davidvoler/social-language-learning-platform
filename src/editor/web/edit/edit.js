@@ -16,30 +16,7 @@
     self.getClass = function (e) {
       return 'mdi-' + e.icon;
     };
-    self.exercises = [
-
-      {
-        name: 'Meet and Greet',
-        etype: 'complete',
-        level: 1,
-        items:[],
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        name: 'Dinner',
-        etype: 'complete',
-        level: 1,
-        items:[],
-        notes: " I'll be in your neighborhood doing errands"
-      },
-      {
-        name: 'Friends',
-        etype: 'video',
-        level: 1,
-        items:[],
-        notes: " I'll be in your neighborhood doing errands"
-      }
-    ];
+    self.exercises = [];
     self.selectedExercise = {};
     self.moveUp = function (idx) {
       if (idx <= 0) {
