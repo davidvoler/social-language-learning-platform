@@ -59,11 +59,13 @@
       </md-list>
       <h5>Add Exercise</h5>
       <section layout="row">
-        <md-button ng-repeat="e in edit.exerciseTypes" ng-click="edit.addExercise(e)"
+        <span layout="column" ng-repeat="e in edit.exerciseTypes">
+        <md-button  ng-click="edit.addExercise(e)"
                    class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
           <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
-          <md-tooltip>{{e.etype}}</md-tooltip>
         </md-button>
+        <div style="font-size: smaller;text-align: center;width: 100%;margin-top: 2px;" > {{e.etype}}</div>
+        </span>
       </section>
     </md-card-content>
   </md-card>
