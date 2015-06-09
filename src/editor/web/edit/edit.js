@@ -1,8 +1,9 @@
 (function () {
   "use strict";
-  function EditorEditController(EditorService) {
+  function EditorEditController(EditorService, LanguageService) {
     var self = this;
     self.lesson = {};
+    self.languages = LanguageService.getLanguages();
 
     self.exerciseTypes = [
       {etype: 'complete', icon: 'pencil-box-outline'},
@@ -46,32 +47,32 @@
       self.selectedExercise = self.exercises[idx];
     };
 
-    self.createExercise = function(etype){
+    self.createExercise = function (etype) {
       return {
-        etype:etype.etype,
-        data:{},
-        items:[],
-        name:'New Exercise'
+        etype: etype.etype,
+        data: {},
+        items: [],
+        name: 'New Exercise'
       };
     };
-    self.addExercise = function(etype){
+    self.addExercise = function (etype) {
       self.exercises.push(self.createExercise(etype));
-      self.selectExercise(self.exercises.length -1);
+      self.selectExercise(self.exercises.length - 1);
     };
-    self.getExerciseClass = function(e){
-      for (var i in self.exerciseTypes){
-        if (self.exerciseTypes[i].etype == e.etype){
+    self.getExerciseClass = function (e) {
+      for (var i in self.exerciseTypes) {
+        if (self.exerciseTypes[i].etype == e.etype) {
           return self.getClass(self.exerciseTypes[i]);
         }
       }
       return 'mdi-dots-vertical';
     };
-    self.deleteExercise = function(idx){
+    self.deleteExercise = function (idx) {
       self.exercises.splice(idx, 1);
     };
 
   }
 
   angular.module('sllp.editor')
-      .controller('EditorEditController', ['EditorService', EditorEditController]);
+      .controller('EditorEditController', ['EditorService','LanguageService', EditorEditController]);
 }());

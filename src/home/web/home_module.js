@@ -5,6 +5,7 @@
             'ngRoute',
             'ngMaterial',
             'ngCookies',
+            'sllp.common',
             'sllp.profile',
             'sllp.lesson',
             'sllp.practice',

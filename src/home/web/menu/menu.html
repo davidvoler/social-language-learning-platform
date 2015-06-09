@@ -11,7 +11,11 @@
       <a ng-if="menu.hasPermission('profile')" href='#/profile' class="md-button" aria-label="Profile">Profile</a>
       <a ng-if="menu.hasPermission('editor')" href='#/editor' class="md-button" aria-label="Editor">Editor</a>
       <a href="#" ng-click="menu.logout()" class="md-button" aria-label="Logout">Logout</a>
-
+      <!--
+      <md-select placeholder="Language" ng-model="menu.language">
+        <md-option ng-repeat="l in menu.languages" value="{{!l._id}}">{{!l.name}}</md-option>
+      </md-select>
+      -->
       <span flex></span>
       <md-button class="md-icon-button" aria-label="Settings" ng-click="menu.openRightMenu()">
         <i class="mdi mdi-dots-vertical" style="font-size: 24px;"></i>
