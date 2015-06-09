@@ -41,7 +41,16 @@
       self.save();
     };
     self.save = function () {
-      return true;
+      if (self.lesson._id) {
+        var req = EditorService.save();
+      } else {
+        var req = EditorService.update();
+      }
+      req.success(function (data) {
+        self.lesson._id = data._id;
+      }).error(function (err) {
+        self.error = err;
+      });
     };
     self.selectExercise = function (idx) {
       self.selectedExercise = self.exercises[idx];
@@ -74,5 +83,5 @@
   }
 
   angular.module('sllp.editor')
-      .controller('EditorEditController', ['EditorService','LanguageService', EditorEditController]);
+      .controller('EditorEditController', ['EditorService', 'LanguageService', EditorEditController]);
 }());
