@@ -5,10 +5,12 @@
         <label>Name</label>
         <input ng-model="profile.name">
       </md-input-container>
-      <md-input-container>
-        <label>Learning Language</label>
-        <input ng-model="profile.learning">
-      </md-input-container>
+      <md-select placeholder="Learning Language" ng-model="profile.profile.learning_language">
+          <md-option ng-repeat="l in profile.languages" value="{{l._id}}">{{l.name}}</md-option>
+        </md-select>
+        <md-select placeholder="Explanation Language" ng-model="profile.profile.explanation_language">
+          <md-option ng-repeat="l in profile.languages" value="{{l._id}}">{{l.name}}</md-option>
+        </md-select>
     </md-card-content>
   </md-card>
   <md-card flex>

@@ -22,7 +22,7 @@ def get_async_mongodb_connection():
     global async_mongodb_connection
     if not async_mongodb_connection:
         try:
-            async_mongodb_connection = motor.MotorClient(options.mongodb)
+            async_mongodb_connection = motor.MotorClient(options.mongodb_host)
         except Exception as e:
             print('connection failed')
             print(e)
@@ -33,7 +33,7 @@ def get_mongodb_connection():
     global mongodb_connection
     if not mongodb_connection:
         try:
-            mongodb_connection = pymongo.MongoClient(options.mongodb)
+            mongodb_connection = pymongo.MongoClient(options.mongodb_host)
         except Exception as e:
             print('connection failed')
             print(e)

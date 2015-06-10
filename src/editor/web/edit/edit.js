@@ -1,19 +1,29 @@
 (function () {
   "use strict";
-  function EditorEditController(EditorService, LanguageService) {
+  function EditorEditController($location, $route, EditorService, LanguageService,
+                                ExerciseService) {
     var self = this;
     self.lesson = {};
     self.languages = LanguageService.getLanguages();
+    self.exerciseTypes = ExerciseService.getTypes();
+    self.lesson_id = $route.current.params.id;
+    self.loadLesson = function () {
+      if (self.lesson_id) {
+        var req = EditorService.get(self.lesson_id);
+        req.success(function (data) {
+          self.lesson = data;
+        }).error(function (err) {
+          self.error = err;
+        });
+      } else {
+        self.lesson = EditorService.create()
+      }
+    };
 
-    self.exerciseTypes = [
-      {etype: 'complete', icon: 'pencil-box-outline'},
-      {etype: 'match', icon: 'view-quilt'},
-      {etype: 'mix', icon: 'arrange-send-to-back'},
-      {etype: 'question', icon: 'help'},
-      {etype: 'text', icon: 'tooltip-text'},
-      {etype: 'video', icon: 'video'},
-      {etype: 'vocabulary', icon: 'briefcase'}
-    ];
+
+    self.loadLesson();
+
+
     self.getClass = function (e) {
       return 'mdi-' + e.icon;
     };
@@ -42,15 +52,18 @@
     };
     self.save = function () {
       if (self.lesson._id) {
-        var req = EditorService.save();
+        var req = EditorService.update(self.lesson);
+
       } else {
-        var req = EditorService.update();
+        var req = EditorService.save(self.lesson);
+        req.success(function (data) {
+          console.log(data);
+          self.lesson._id = data._id;
+        }).error(function (err) {
+          self.error = err;
+        });
       }
-      req.success(function (data) {
-        self.lesson._id = data._id;
-      }).error(function (err) {
-        self.error = err;
-      });
+
     };
     self.selectExercise = function (idx) {
       self.selectedExercise = self.exercises[idx];
@@ -65,8 +78,9 @@
       };
     };
     self.addExercise = function (etype) {
-      self.exercises.push(self.createExercise(etype));
-      self.selectExercise(self.exercises.length - 1);
+      self.lesson.exercises.push(self.createExercise(etype));
+      self.selectExercise(self.lesson.exercises.length - 1);
+      self.save();
     };
     self.getExerciseClass = function (e) {
       for (var i in self.exerciseTypes) {
@@ -83,5 +97,6 @@
   }
 
   angular.module('sllp.editor')
-      .controller('EditorEditController', ['EditorService', 'LanguageService', EditorEditController]);
+      .controller('EditorEditController', ['$location', '$route', 'EditorService',
+        'LanguageService', 'ExerciseService', EditorEditController]);
 }());

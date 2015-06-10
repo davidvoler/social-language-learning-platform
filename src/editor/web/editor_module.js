@@ -1,4 +1,4 @@
 (function () {
     "use strict";
-    angular.module('sllp.editor', []);
+    angular.module('sllp.editor', ['sllp.exercise']);
 }());

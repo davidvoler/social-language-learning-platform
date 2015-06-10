@@ -3,8 +3,8 @@
     <md-card-content >
       <md-content layout="row">
         <md-input-container flex="25">
-          <label>Lesson Name</label>
-          <input ng-model="edit.lesson.name">
+          <label>Lesson Title</label>
+          <input ng-model="edit.lesson.title">
         </md-input-container>
         <md-select placeholder="Learning Language" ng-model="edit.lesson.learning_language">
           <md-option ng-repeat="l in edit.languages" value="{{l._id}}">{{l.name}}</md-option>
@@ -40,7 +40,7 @@
             <div style="font-size: smaller;text-align: center;width: 100%;margin-top: 2px;"> {{e.etype}}</div>
           </span>
         </section>
-        <md-list-item ng-repeat="item in edit.exercises" layout="row">
+        <md-list-item ng-repeat="item in edit.lesson.exercises" layout="row">
           <span ng-click="edit.selectExercise($index)" flex="70">
             <md-icon class="mdi" style="font-size:24px;" ng-class="edit.getExerciseClass(item)"></md-icon>
             {{ item.name }}

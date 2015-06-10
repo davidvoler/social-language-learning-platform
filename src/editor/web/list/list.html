@@ -3,12 +3,13 @@
     <md-card-content>
       <md-list>
         <md-header>Lessons I have created</md-header>
-        
-        <md-button>Add Lesson</md-button>
         <md-input-container>
           <label>Search</label>
           <input ng-model="list.q">
         </md-input-container>
+        <md-list-item >
+          <a href="#/editor/add" class="md-button">Add Lesson</a>
+        </md-list-item>
         <md-list-item ng-repeat="l in list.lessons| filter:lesson.q">
           <a href="#/editor/add">{{l.name}}</a>
         </md-list-item>
