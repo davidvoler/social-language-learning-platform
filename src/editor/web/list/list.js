@@ -18,7 +18,7 @@
     };
     self.load();
     self.edit = function (lesson) {
-
+       $location.path('editor/edit/'+lesson._id);
     };
 
 

@@ -27,26 +27,26 @@
     self.getClass = function (e) {
       return 'mdi-' + e.icon;
     };
-    self.exercises = [];
+    self.lesson.exercises = [];
     self.selectedExercise = {};
     self.moveUp = function (idx) {
       if (idx <= 0) {
         return;
       } else {
-        var elm = self.exercises[idx];
-        self.exercises.splice(idx, 1);
-        self.exercises.splice(idx - 1, 0, elm);
+        var elm = self.lesson.exercises[idx];
+        self.lesson.exercises.splice(idx, 1);
+        self.lesson.exercises.splice(idx - 1, 0, elm);
       }
       self.save();
     };
 
     self.moveDown = function (idx) {
-      if (idx >= self.exercises.length - 1) {
+      if (idx >= self.lesson.exercises.length - 1) {
         return;
       } else {
-        var elm = self.exercises[idx];
-        self.exercises.splice(idx, 1);
-        self.exercises.splice(idx + 1, 0, elm);
+        var elm = self.lesson.exercises[idx];
+        self.lesson.exercises.splice(idx, 1);
+        self.lesson.exercises.splice(idx + 1, 0, elm);
       }
       self.save();
     };
@@ -66,7 +66,7 @@
 
     };
     self.selectExercise = function (idx) {
-      self.selectedExercise = self.exercises[idx];
+      self.selectedExercise = self.lesson.exercises[idx];
     };
 
     self.createExercise = function (etype) {
@@ -91,7 +91,7 @@
       return 'mdi-dots-vertical';
     };
     self.deleteExercise = function (idx) {
-      self.exercises.splice(idx, 1);
+      self.lesson.exercises.splice(idx, 1);
     };
 
   }
