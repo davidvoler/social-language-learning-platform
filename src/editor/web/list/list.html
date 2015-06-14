@@ -7,11 +7,23 @@
           <label>Search</label>
           <input ng-model="list.q">
         </md-input-container>
-        <md-list-item >
+        <md-list-item>
           <a href="#/editor/add" class="md-button">Add Lesson</a>
         </md-list-item>
         <md-list-item ng-repeat="l in list.lessons| filter:lesson.q">
-          <a href="#/editor/add">{{l.name}}</a>
+
+          <i class="mdi mdi-pencil-box-outline"></i>
+          <span ng-click="list.edit(l)" flex="70">
+            {{l.title}}
+          </span>
+
+          <md-icon  style="font-size:24px;" class="mdi mdi-pencil-box-outline"
+                   ng-click="edit.edit($index)"><a href="/#/editor/{{l._id}}"></a></md-icon>
+            <md-icon style="font-size:24px;color:red" class="mdi mdi-delete"
+                   ng-click="edit.remove($index)"></md-icon>
+          </span>
+
+
         </md-list-item>
       </md-list>
     </md-card-content>

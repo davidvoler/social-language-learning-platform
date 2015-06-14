@@ -26,8 +26,6 @@ class EditorHandler(BaseHandler):
         """
         _id = self.get_argument('_id', None)
         slug = self.get_argument('slug', None)
-        self._logger.info(_id)
-        self._logger.info(slug)
         if _id:
             lesson = self._db['lesson'].find_one({'_id': _id})
             self.write(dumps(lesson))
@@ -74,7 +72,7 @@ class EditorHandler(BaseHandler):
         try:
             ret = self._db['lesson'].update({'_id': lesson['_id']},
                                             {"$set": lesson}, upsert=False)
-            self.write(dumps({'slug': lesson['slug'], 'status': 0}))
+            self.write(dumps({'_id': lesson['_id'], 'status': 0}))
         except Exception as e:
             self.write(dumps({'status': -1, 'error': str(e)}))
 

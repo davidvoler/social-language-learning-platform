@@ -1,52 +1,34 @@
 (function () {
-    "use strict";
-    function EditorListController(EditorService) {
-        var self = this;
-        self.q = '';
+  "use strict";
+  function EditorListController($location, EditorService) {
+    var self = this;
+    self.q = '';
+    self.error = '';
 
-        self.lessons = [
-            {
-                name: 'First steps in Georgian',
-                type: 'Min Li Chan',
-                level: 1,
-                weight: 0,
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                name: 'Numbers in Georgian',
-                type: 'Min Li Chan',
-                level: 1, weight: 1,
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                name: 'Meet and Greet',
-                type: 'Min Li Chan',
-                level: 1, weight: 2,
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                name: 'Dinner',
-                type: 'Min Li Chan',
-                level: 1, weight: 3,
-                notes: " I'll be in your neighborhood doing errands"
-            },
-            {
-                name: 'Friends',
-                type: 'Min Li Chan',
-                level: 1, weight: 4,
-                notes: " I'll be in your neighborhood doing errands"
-            }
-        ];
-        self.selectedLesson = {};
+    self.lessons = [];
+    self.selectedLesson = {};
+
+    self.load= function (){
+      var req = EditorService.getList();
+      req.success(function(data){
+        self.lessons = data;
+      }).error(function (err){
+        self.error = err;
+      });
+    };
+    self.load();
+    self.edit = function (lesson) {
+
+    };
 
 
-        self.selectLesson = function (idx) {
-            self.selectedLesson = self.lessons[idx];
-        };
+    self.selectLesson = function (idx) {
+      self.selectedLesson = self.lessons[idx];
+    };
 
 
-    }
+  }
 
-    angular.module('sllp.editor')
-        .controller('EditorListController', ['EditorService', EditorListController]);
+  angular.module('sllp.editor')
+      .controller('EditorListController', ['$location', 'EditorService', EditorListController]);
 }());
