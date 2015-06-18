@@ -12,8 +12,8 @@
      */
     function LoginController($scope, $cookieStore, $http, $location, $cookies, $timeout, AuthService) {
         var self = this;
-        self.username = '';
-        self.password = '';
+        self.username = 'dev';
+        self.password = 'dev';
         self.error = '';
         self.debug = '';
         self.next = '';
