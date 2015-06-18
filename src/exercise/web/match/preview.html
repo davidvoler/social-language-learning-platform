@@ -1,0 +1,10 @@
+<div class="help" translate>Match the correct option</div>
+<table class="table">
+<tr ng-repeat="item in exercise.items">
+<td>{{item.part1}}</td>
+<td><button ng-if="selectedItems[$index]">{{selectedItems[$index].value}}</button> </td>
+</tr>
+</table>
+<div>
+<button ng-click="checkCorrect($index,item.part2,exercise.id)" ng-repeat="item in exercise.items">{{item.part2}}</button>
+</div>

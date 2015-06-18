@@ -1,0 +1,10 @@
+<sl-top-edit name="Mix phrase" help="Phrase words will be mixed and the student will have to put them in the right order."></sl-top-edit>
+
+
+<section>
+  <md-input-container >
+    <label>Phrase</label>
+    <input  ng-change="setWords()" ng-model="exercise.text">
+  </md-input-container>
+</section>
+{{exercise.words}}

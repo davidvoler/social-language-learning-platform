@@ -1,0 +1,16 @@
+<html lang="en" ng-app="sllp">
+<head>
+  {% include 'styles.html' %}
+  <meta name="viewport" content="initial-scale=1"/>
+</head>
+<body layout="column">
+{% include 'menu/menu.html' %}
+<md-content style="min-width: 750px;">
+  <div>
+    <ng-view></ng-view>
+  </div>
+
+</md-content>
+{% include 'scripts.html' %}
+</body>
+</html>

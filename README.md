@@ -3,6 +3,9 @@ social-language-learning-platform
 
 A social site for learning and practicing foreign languages
 
+Status
+------
+This project is in an early development stage, looking for contributors. 
 
 The Idea
 --------
@@ -13,9 +16,6 @@ The Idea
 * The platform should be open source
 * The platform should cater for different languages with special needs like RTL languages, Languages that have no written script etc.
 
-Status
-------
-This project is in an alpha stage, looking for contributors. 
 
 Technologies
 ------------
@@ -25,14 +25,10 @@ We are currently using:
 * Python/Tornado
 * Mongodb
 * Angualrjs
-* Twitter Bootstrap
+* Angular material design
 
 Based on the mongodb-tornado-angular https://github.com/davidvoler/mongodb-tornado-angular
 
-Demo Site
----------
-We have created a temporary Demo Site 
-http://ec2-54-69-159-238.us-west-2.compute.amazonaws.com/
 
 
 
@@ -72,71 +68,16 @@ Windows
 
 Install Client Libraries
 ------------------------
-You must have node and bower installed 
+You should have node and bower installed 
 
-cd src/client
+cd web_res
 
 bower install
-npm install
-
-
-Install & build mobile version
-------------------------------
-
-sudo npm install -g cordova ionic
-
-cd src/mobile
-
-npm install
-
-
-Open src/mobile/www/index.html with a webserver such as simplehttpserver
-
-https://docs.python.org/2/library/simplehttpserver.html
-
-Build mobile application
-------------------------
-
-Android 
--------
-
-cd src/mobile
-
-ionic platform add android
-
-ionic build android
-
-ionic emulate android
-
-
-ios
----
-
-cd src/mobile
-
-ionic platform add ios
-
-ionic build ios
-
-ionic emulate ios
-
 
 
 Localization
 ------------
-Install grunt and grunt-cli
-
-cd src/client
-
-run grunt
-
-In src/clint/po a template.po file is created use a poedit ir any other tool
-to generate a translation
-
-keep you translation in po directory
-
-run grunt one more time
-you translation should now 
+*TBD 
 
 
 

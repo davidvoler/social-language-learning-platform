@@ -1,3 +1,14 @@
+#new tasks
+
+Editor - Video exercise needs more space - and has no reason for dual video
+solution 
+editor directive should contain both edit and preview 
+some lesson like video would use the entire space for edit and switch to preview. 
+there should be another directive for learn. 
+
+
+
+
 # tasks 
 
 

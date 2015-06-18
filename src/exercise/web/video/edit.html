@@ -1,0 +1,15 @@
+<sl-top-edit
+  name="Youtube Video"
+  help="Add a link to a youtube clip">
+</sl-top-edit>
+<section>
+  <md-input-container>
+    <label>Video URL</label>
+    <input ng-model="exercise.videoUrl" />
+  </md-input-container>
+  <section>
+    <youtube-video player-width="'100%'" video-url="exercise.videoUrl" ></youtube-video>
+  </section>
+
+</section>
+

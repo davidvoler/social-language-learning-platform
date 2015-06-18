@@ -1,0 +1,24 @@
+<sl-top-edit
+  name="Question & Answers"
+  help="A question with a few possible answers, at least one answer must be correct.">
+</sl-top-edit>
+
+
+<section layout="column">
+  <md-input-container flex>
+    <label></label>
+    <input ng-model="exercise.question">
+  </md-input-container>
+
+  <section flex layout="row" ng-repeat="a in exercise.answers">
+    <div flex="20">
+        <md-checkbox ng-model="a.correct" aria-label="correct">
+          correct
+        </md-checkbox>
+    </div>
+    <md-input-container flex="70">
+      <label>Answer {{$index + 1}}</label>
+      <input ng-model="a.answer">
+    </md-input-container>
+  </section>
+</section>

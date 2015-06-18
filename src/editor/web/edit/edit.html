@@ -1,0 +1,93 @@
+<section>
+  <md-card>
+    <md-card-content >
+      <md-content layout="row">
+        <md-input-container flex="25">
+          <label>Lesson Title</label>
+          <input ng-model="edit.lesson.title">
+        </md-input-container>
+        <md-select placeholder="Learning Language" ng-model="edit.lesson.learning_language">
+          <md-option ng-repeat="l in edit.languages" value="{{l._id}}">{{l.name}}</md-option>
+        </md-select>
+        <md-select placeholder="Explanation Language" ng-model="edit.lesson.explanation_language">
+          <md-option ng-repeat="l in edit.languages" value="{{l._id}}">{{l.name}}</md-option>
+        </md-select>
+        <md-input-container flex="25">
+          <label>Description</label>
+          <input ng-model="edit.lesson.description">
+        </md-input-container>
+      </md-content>
+      <md-content layout="row" layout-align="center center" >
+        <md-button ng-click="edit.save()">Save</md-button>
+        <md-button ng-click="edit.preview()">Preview</md-button>
+      </md-content>
+
+    </md-card-content>
+
+  </md-card>
+</section>
+
+<section layout="row">
+  <md-card flex="25">
+    <md-card-content>
+      <md-list>
+        <section layout="row">
+          <span layout="column" ng-repeat="e in edit.exerciseTypes">
+            <md-button ng-click="edit.addExercise(e)"
+                       class="md-icon-button md-fab md-mini md-primary" style="font-size:24px;">
+              <md-icon class="mdi" ng-class="edit.getClass(e)" aria-label="{{e.etype}}"></md-icon>
+            </md-button>
+            <div style="font-size: smaller;text-align: center;width: 100%;margin-top: 2px;"> {{e.etype}}</div>
+          </span>
+        </section>
+        <md-list-item ng-repeat="item in edit.lesson.exercises" layout="row">
+          <span ng-click="edit.selectExercise($index)" flex="70">
+            <md-icon class="mdi" style="font-size:24px;" ng-class="edit.getExerciseClass(item)"></md-icon>
+            {{ item.name }}
+          </span>
+                    <span style="width:90px ">
+          <md-icon style="font-size:24px;" class="mdi mdi-chevron-down"
+                   ng-click="edit.moveDown($index)"></md-icon>
+          <md-icon style="font-size:24px;" class="mdi mdi-chevron-up"
+                   ng-click="edit.moveUp($index)"></md-icon>
+          <md-icon style="font-size:24px;color:red" class="mdi mdi-delete"
+                   ng-click="edit.deleteExercise($index)"></md-icon>
+          </span>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+  <md-card flex="35">
+    <md-card-content>
+      <sl-edit-vocabulary exercise="edit.selectedExercise"
+                          ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-edit-vocabulary>
+      <sl-edit-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-edit-text>
+      <sl-edit-question exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='question'"></sl-edit-question>
+      <sl-edit-mix exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='mix'"></sl-edit-mix>
+      <sl-edit-complete exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='complete'"></sl-edit-complete>
+      <sl-edit-match exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='match'"></sl-edit-match>
+      <sl-edit-video exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='video'"></sl-edit-video>
+
+
+    </md-card-content>
+  </md-card>
+  <md-card flex="35">
+    <md-card-content>
+      <h5>Preview</h5>
+      <sl-preview-vocabulary exercise="edit.selectedExercise"
+                             ng-if="edit.selectedExercise.etype=='vocabulary'"></sl-preview-vocabulary>
+      <sl-preview-text exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='text'"></sl-preview-text>
+      <sl-preview-question exercise="edit.selectedExercise"
+                           ng-if="edit.selectedExercise.etype=='question'"></sl-preview-question>
+      <sl-preview-mix exercise="edit.selectedExercise" ng-if="edit.selectedExercise.etype=='mix'"></sl-preview-mix>
+      <sl-preview-complete exercise="edit.selectedExercise"
+                           ng-if="edit.selectedExercise.etype=='complete'"></sl-preview-complete>
+      <sl-preview-match exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='match'"></sl-preview-match>
+      <sl-preview-video exercise="edit.selectedExercise"
+                        ng-if="edit.selectedExercise.etype=='video'"></sl-preview-video>
+    </md-card-content>
+  </md-card>
+</section>

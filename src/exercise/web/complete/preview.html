@@ -1,0 +1,19 @@
+<!--
+<div>
+<span  ng-repeat="item in exercise.items">
+<span ng-if="item.type=='txt'">{{item.val}}</span>
+<select ng-change="checkCorrect(item, exercise.id)" ng-model="item.user_selection" ng-if="item.type=='select'">
+<option></option>
+<option ng-repeat="option in item.options">{{option.val}}</option>
+</select>
+</span>
+</div>
+-->
+<div >
+  <span  ng-repeat="item in exercise.items">
+    <strong  ng-if="item.type=='txt'">{{item.val}}</strong>
+    <md-select ng-if="item.type=='select'" placeholder="..." ng-model="answer">
+      <md-option ng-repeat="option in item.options" value="{{$index}}">{{option.val}}</md-option>
+    </md-select>
+  </span>
+</div>

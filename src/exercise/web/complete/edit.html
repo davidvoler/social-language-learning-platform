@@ -1,0 +1,19 @@
+<sl-top-edit name="Complete Exercise" help=" Complete a phrase using a selection of options."></sl-top-edit>
+<section layout="row">
+  <div flex ng-repeat="item in exercise.items">
+    <md-input-container ng-if="item.type=='txt'">
+      <label>Text</label>
+      <input ng-model="item.val"/>
+    </md-input-container>
+    <section flex ng-if="item.type=='select'">
+      <section ng-repeat="o in item.options" layout="row">
+        <md-checkbox flex="10" ng-model="a.correct" aria-label="correct-{{$index}}">
+        </md-checkbox>
+        <md-input-container flex aria-label="option">
+          <label for="options-{{$index}}" aria-label="label-{{$index}}"> Option</label>
+          <input id="options-{{$index}}" ng-model="o.val" aria-label="option"/>
+        </md-input-container>
+      </section>
+    </section>
+  </div>
+</section>
