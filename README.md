@@ -46,7 +46,7 @@ Python3.x
 * virtualenv --distribute -p YOUR_PYTHON3_PATH .
 * source bin/activate
 * pip install -r requirements.txt
-* cd src/server
+* cd src
 * python app.py
 * open a browser http://localhost:9917
 
@@ -58,7 +58,7 @@ Python2.x
 * virtualenv  .
 * source bin/activate
 * pip install -r requirements.txt
-* cd src/server
+* cd src
 * python app.py
 
 
